@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import "../Form.scss";
+import "./Form.scss";
 import { useNavigate } from 'react-router-dom';
 import useUserStore from "../../store/UserStore.jsx";
 

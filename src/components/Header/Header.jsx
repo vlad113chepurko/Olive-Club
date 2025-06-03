@@ -1,12 +1,16 @@
 import './Header.scss';
-import Navigation from "../Navigation/Navigation.jsx";
 
 export default function Header() {
   return (
-    <header
-      className="header"
-    >
-      <Navigation />
+    <header className="header">
+      <div className="header-logo">
+        <img className="hover:cursor-pointer" src="/logo.svg" alt="logo" width={214} height={40}/>
+      </div>
+        <div className="language-circle hover:cursor-pointer">
+            <p>
+                RU
+            </p>
+        </div>
     </header>
   )
 }

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate} from "react-router-dom";
 import useUserStore from "../../store/UserStore.jsx";
 import validateRegistrationForm from '../../utils/regestrationValidator.js';
-import '../Form.scss';
+import './Form.scss';
 
 export default function Registration() {
 

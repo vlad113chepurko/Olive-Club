@@ -5,21 +5,17 @@
   src: url('/fonts/Manrope.ttf');
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf');
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
   font-family: 'Manrope';
-}
-
-
-body {
-  background-image: url('/main-bg.svg');
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 form {

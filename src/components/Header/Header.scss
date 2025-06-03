@@ -1,4 +1,32 @@
+@use '../../mixins/flex-mixin.scss';
+
 .header {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: auto;
+
+  background: none;
+  position: absolute;
+
+  padding-left: 80px;
+  padding-right:  80px;
+  padding-top: 30px;
+
+  border-bottom: 1px solid red;
+  @include flex-mixin.flex-space-between;
+}
+
+.language-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+
+  color: white;
+
+  @include flex-mixin.flex-center;
+
+  p {
+    font-family: "Montserrat";
+    font-size: 1.2rem;
+  }
 }
