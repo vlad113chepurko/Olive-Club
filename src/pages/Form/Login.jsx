@@ -54,7 +54,7 @@ export default function Login() {
         <div className="form-wrapper">
             <Header />
             <div className="form-container">
-                <form onSubmit={handleSubmit}>
+                <form className="form-login" onSubmit={handleSubmit}>
                     <div className="form-inside-container">
                         <section className="form-inside-container-left">
                             <h1 className="text-white font-800 text-3xl mb-16 text-left">Войти</h1>

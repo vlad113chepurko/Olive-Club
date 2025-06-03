@@ -48,7 +48,7 @@ export default function Verify() {
         <div className="form-wrapper">
             <Header />
             <div className="form-container">
-                <form onSubmit={handleVerify}>
+                <form className="form-login"  onSubmit={handleVerify}>
                     <div className="form-inside-container">
                         <section className="form-inside-container-left">
                             <h1 className="text-white font-800 text-3xl mb-16 text-left">Подтвердите почту</h1>

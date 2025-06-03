@@ -1,0 +1,12 @@
+@use "../../mixins/flex-mixin";
+
+.success {
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  @include flex-mixin.flex-center;
+
+  h1 {
+    font-size: 5rem;
+  }
+}

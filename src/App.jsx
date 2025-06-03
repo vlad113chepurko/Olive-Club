@@ -4,6 +4,7 @@ import Admin from "./admin/Admin.jsx";
 import Verify from "./pages/Form/Verify.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Survey from "./pages/Survey/Survey.jsx";
+import Success from "./pages/Success/Success.jsx";
 import {Routes, Route, Navigate, Form} from "react-router-dom";
 
 import useUserStore from "./store/UserStore.jsx";
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/registration" element={<Registration />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/verify" element={<Verify />} />
+                <Route path="/success" element={<Success />} />
                 <Route path="/survey" element={
                     user.email ? <Survey /> : <Verify />
                 } />

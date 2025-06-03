@@ -7,6 +7,7 @@
 
     // Schemes
     import {User} from "./schemes/UserSchema.js";
+    import {AnswerLog} from "./schemes/AnswerSchema.js";
 
     import {emailService} from "./emailService.js";
     import * as crypto from "node:crypto";
@@ -207,6 +208,16 @@
             res.status(500).json({ message: 'Error on server' });
         }
 
+    })
+
+    app.post('/answers', async(req, res) => {
+        try {
+            const logs = req.body;
+            await AnswerLog.insertMany(logs);
+            res.status(200).json({message: "Answers saved"});
+        } catch (err) {
+            res.status(500).json({ message: 'Error on server' });
+        }
     })
 
 

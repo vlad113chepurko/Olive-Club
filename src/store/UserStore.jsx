@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const useUserStore = create((set) => ({
+    const useUserStore = create((set) => ({
     user: {
         name: "",
         email: "",
