@@ -57,6 +57,7 @@ export default function Registration() {
     return (
         <div className="form-wrapper">
             <Header />
+            <div className="form-bg"></div>
             <div className="form-container">
                 <form className="form-login"  onSubmit={handleSubmit}>
                     <div className="form-inside-container">

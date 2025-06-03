@@ -1,12 +1,39 @@
 @use "../../mixins/flex-mixin";
 
-.success {
-  width: 100%;
-  height: 100vh;
-  color: #fff;
+.success-wrapper {
   @include flex-mixin.flex-center;
+  flex-direction:  column;
+
+  height: 100dvh;
+  width: 100%;
+}
+
+.success {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  @include flex-mixin.flex-center;
+  flex-direction: column;
+  color: #fff;
 
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.success-btn {
+  width: 50%;
+  height: 80px;
+  border-radius: 5px;
+  background-color: #3F4222;
+
+  font-size: 2rem;
+
+  &:hover {
+    background-color: #4f532c;;
+    cursor: pointer;
   }
 }

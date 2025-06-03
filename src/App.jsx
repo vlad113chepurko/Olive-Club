@@ -14,7 +14,7 @@ function App() {
     const user = useUserStore(state => state.user);
 
   return (
-        <div className="main-wrapper">
+        <div>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/registration" element={<Registration />} />

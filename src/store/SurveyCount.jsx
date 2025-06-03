@@ -7,5 +7,8 @@ export const useSurveyCount = create((set) => ({
     })),
     setCountDecrement: () => set((state) => ({
         count: state.count - 1
+    })),
+    setCountOne: () => set((state) => ({
+        count: 1,
     }))
 }));

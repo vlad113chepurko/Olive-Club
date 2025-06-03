@@ -4,8 +4,10 @@ import Header from "../../components/Header/Header.jsx";
 
 function Home() {
     return (
-        <div className="home">
-            <Header />
+        <div className="home-wrapper">
+            <div className="background"></div>
+            <div className="home">
+                <Header />
                 <div className="left-block">
                     <section className="info-block">
                         <h2>Family</h2>
@@ -21,6 +23,7 @@ function Home() {
                 <div className="right-block">
                     <h2>Olive Club</h2>
                 </div>
+            </div>
         </div>
     )
 }

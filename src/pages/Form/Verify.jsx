@@ -47,6 +47,7 @@ export default function Verify() {
     return (
         <div className="form-wrapper">
             <Header />
+            <div className="form-bg"></div>
             <div className="form-container">
                 <form className="form-login"  onSubmit={handleVerify}>
                     <div className="form-inside-container">
