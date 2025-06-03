@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
+import Header from "../../components/Header/Header.jsx";
 import useUserStore from "../../store/UserStore.jsx";
 import validateRegistrationForm from '../../utils/regestrationValidator.js';
 import './Form.scss';
@@ -54,64 +55,65 @@ export default function Registration() {
         }));
     };
     return (
-      <div className="over-flow">
-        <div className="form-container">
-            <form onSubmit={handleSubmit}>
-                <div className="form-inside-container">
-                    <section className="form-inside-container-left">
-                        <h1 className="text-white font-800 text-3xl mb-16 text-left">Регистрация</h1>
-                        <input
-                          onChange={handleChange}
-                          value={form.name}
-                          type="text"
-                          name="name"
-                          placeholder="Ваше имя"
-                          required
-                          autoComplete="username"/>
-                        <input
-                          onChange={handleChange}
-                          value={form.email}
-                          type="email"
-                          name="email"
-                          placeholder="Ваша почта"
-                          required
-                          autoComplete="email"/>
-                        <input
-                          onChange={handleChange}
-                          value={form.password}
-                          type="password"
-                          name="password"
-                          placeholder="Создайте пароль"
-                          required
-                          autoComplete="current-password"/>
-                        <input
-                          onChange={handleChange}
-                          value={form.repeatPassword}
-                          type="password"
-                          name="repeatPassword"
-                          placeholder="Повторите пароль"
-                          required
-                          autoComplete="current-password"/>
-                        <section className="flex flex-col gap-5 justify-center w-full">
-                            <button type="submit">Зарегистрироваться</button>
-                            <button type="button" onClick={() => navigate('/login')}>У меня есть аккаунт</button>
+        <div className="form-wrapper">
+            <Header />
+            <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                    <div className="form-inside-container">
+                        <section className="form-inside-container-left">
+                            <h1 className="text-white font-800 text-3xl mb-16 text-left">Регистрация</h1>
+                            <input
+                                onChange={handleChange}
+                                value={form.name}
+                                type="text"
+                                name="name"
+                                placeholder="Ваше имя"
+                                required
+                                autoComplete="username"/>
+                            <input
+                                onChange={handleChange}
+                                value={form.email}
+                                type="email"
+                                name="email"
+                                placeholder="Ваша почта"
+                                required
+                                autoComplete="email"/>
+                            <input
+                                onChange={handleChange}
+                                value={form.password}
+                                type="password"
+                                name="password"
+                                placeholder="Создайте пароль"
+                                required
+                                autoComplete="current-password"/>
+                            <input
+                                onChange={handleChange}
+                                value={form.repeatPassword}
+                                type="password"
+                                name="repeatPassword"
+                                placeholder="Повторите пароль"
+                                required
+                                autoComplete="current-password"/>
+                            <section className="flex flex-col gap-5 justify-center w-full">
+                                <button type="submit">Зарегистрироваться</button>
+                                <button type="button" onClick={() => navigate('/login')}>У меня есть аккаунт</button>
+                            </section>
                         </section>
-                    </section>
-                    <section className="form-vertical-container">
-                        <div className="h-auto flex flex-col items-center justify-center mr-5">
-                            <span className="horizontal-line"></span>
-                            <p className="mt-14 mb-14">ИЛИ</p>
-                            <span className="horizontal-line"></span>
-                        </div>
-                        <div className="flex flex-col gap-13 justify-center items-center h-auto w-auto">
-                            <img src="/icons/facebook.svg" alt="facebook"/>
-                            <img src="/icons/apple.svg" alt="apple" width="40px" height="40px"/>
-                            <img src="/icons/google.svg" alt="google" width="40px" height="40px"/>
-                        </div>
-                    </section>
-                </div>
-            </form>
+                        <section className="form-vertical-container">
+                            <div className="h-auto flex flex-col items-center justify-center mr-5">
+                                <span className="horizontal-line"></span>
+                                <p className="mt-14 mb-14">ИЛИ</p>
+                                <span className="horizontal-line"></span>
+                            </div>
+                            <div className="flex flex-col gap-13 justify-center items-center h-auto w-auto">
+                                <img src="/icons/facebook.svg" alt="facebook"/>
+                                <img src="/icons/apple.svg" alt="apple" width="40px" height="40px"/>
+                                <img src="/icons/google.svg" alt="google" width="40px" height="40px"/>
+                            </div>
+                        </section>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import "./Form.scss";
+import Header from "../../components/Header/Header.jsx";
 import { useNavigate } from 'react-router-dom';
 import useUserStore from "../../store/UserStore.jsx";
 
@@ -32,7 +33,7 @@ export default function Login() {
                 if (safeUser.role === 'admin') {
                     navigate('/admin');
                 } else {
-                    navigate('/');
+                    navigate('/survey');
                 }
             })
             .catch(err => {
@@ -50,7 +51,8 @@ export default function Login() {
     };
 
     return (
-        <div className="over-flow">
+        <div className="form-wrapper">
+            <Header />
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <div className="form-inside-container">

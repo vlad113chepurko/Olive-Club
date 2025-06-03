@@ -1,9 +1,10 @@
 import './Header.scss';
-
+import { useNavigate} from "react-router-dom";
 export default function Header() {
+    const navigate = useNavigate();
   return (
     <header className="header">
-      <div className="header-logo">
+      <div onClick={() => navigate('/')} className="header-logo">
         <img className="hover:cursor-pointer" src="/logo.svg" alt="logo" width={214} height={40}/>
       </div>
         <div className="language-circle hover:cursor-pointer">

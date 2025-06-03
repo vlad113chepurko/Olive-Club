@@ -1,4 +1,5 @@
 import axios from "axios";
+import Header from "../../components/Header/Header.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -44,39 +45,40 @@ export default function Verify() {
     };
 
     return (
-      <div className="over-flow">
-          <div className="form-container">
-              <form onSubmit={handleVerify}>
-                  <div className="form-inside-container">
-                      <section className="form-inside-container-left">
-                          <h1 className="text-white font-800 text-3xl mb-16 text-left">Подтвердите почту</h1>
-                          <input
-                            type="email"
-                            placeholder="Ваша почта"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                          />
-                          <input
-                            type="text"
-                            placeholder="Код из письма"
-                            value={code}
-                            onChange={(e) => setCode(e.target.value)}
-                            required
-                          />
-                          <section className="flex flex-col gap-5 justify-center w-full">
-                              <button type="submit">Подтвердить</button>
-                              <button type="button" onClick={() => navigate('/login')}>Пропустить верификацию</button>
-                              <button type="button" onClick={handleResendCode}>
-                                  Отправить код ещё раз
-                              </button>
-                          </section>
-                          {message && <p>{message}</p>}
-                          {resendMessage && <p>{resendMessage}</p>}
-                      </section>
-                  </div>
-              </form>
-          </div>
-      </div>
+        <div className="form-wrapper">
+            <Header />
+            <div className="form-container">
+                <form onSubmit={handleVerify}>
+                    <div className="form-inside-container">
+                        <section className="form-inside-container-left">
+                            <h1 className="text-white font-800 text-3xl mb-16 text-left">Подтвердите почту</h1>
+                            <input
+                                type="email"
+                                placeholder="Ваша почта"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="text"
+                                placeholder="Код из письма"
+                                value={code}
+                                onChange={(e) => setCode(e.target.value)}
+                                required
+                            />
+                            <section className="flex flex-col gap-5 justify-center w-full">
+                                <button type="submit">Подтвердить</button>
+                                <button type="button" onClick={() => navigate('/login')}>Пропустить верификацию</button>
+                                <button type="button" onClick={handleResendCode}>
+                                    Отправить код ещё раз
+                                </button>
+                            </section>
+                            {message && <p>{message}</p>}
+                            {resendMessage && <p>{resendMessage}</p>}
+                        </section>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 }

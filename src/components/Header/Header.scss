@@ -3,15 +3,18 @@
 .header {
   width: 100%;
   height: auto;
-
   background: none;
+
   position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 10;
 
   padding-left: 80px;
-  padding-right:  80px;
+  padding-right: 80px;
   padding-top: 30px;
 
-  border-bottom: 1px solid red;
   @include flex-mixin.flex-space-between;
 }
 
