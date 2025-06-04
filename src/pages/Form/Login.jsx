@@ -84,18 +84,6 @@ export default function Login() {
                                 </button>
                             </section>
                         </section>
-                        <section className="form-vertical-container">
-                            <div className="h-auto flex flex-col items-center justify-center mr-8">
-                                <span className="horizontal-line"></span>
-                                <p className="mt-14 mb-14">ИЛИ</p>
-                                <span className="horizontal-line"></span>
-                            </div>
-                            <div className="flex flex-col gap-13 justify-center items-center h-auto w-auto">
-                                <img src="/icons/facebook.svg" alt="facebook" />
-                                <img src="/icons/apple.svg" alt="apple" width="40px" height="40px" />
-                                <img src="/icons/google.svg" alt="google" width="40px" height="40px" />
-                            </div>
-                        </section>
                     </div>
                 </form>
             </div>

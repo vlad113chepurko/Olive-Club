@@ -12,6 +12,7 @@ export default function Registration() {
     const setUser = useUserStore((state) => state.setUser);
     const [form, setForm] = useState({
         name: '',
+        lastName: '',
         email: '',
         password: '',
         repeatPassword: ''
@@ -35,6 +36,7 @@ export default function Registration() {
 
                     setUser({
                         name: userData.name,
+                        lastName: userData.lastName,
                         email: userData.email,
                         role:  userData.isAdmin ? "admin" : "user",
                     })
@@ -73,6 +75,14 @@ export default function Registration() {
                                 autoComplete="username"/>
                             <input
                                 onChange={handleChange}
+                                value={form.lastName}
+                                type="text"
+                                name="lastName"
+                                placeholder="Ваша фамилия"
+                                required
+                                autoComplete="family-name"/>
+                            <input
+                                onChange={handleChange}
                                 value={form.email}
                                 type="email"
                                 name="email"
@@ -99,18 +109,6 @@ export default function Registration() {
                                 <button type="submit">Зарегистрироваться</button>
                                 <button type="button" onClick={() => navigate('/login')}>У меня есть аккаунт</button>
                             </section>
-                        </section>
-                        <section className="form-vertical-container">
-                            <div className="h-auto flex flex-col items-center justify-center mr-5">
-                                <span className="horizontal-line"></span>
-                                <p className="mt-14 mb-14">ИЛИ</p>
-                                <span className="horizontal-line"></span>
-                            </div>
-                            <div className="flex flex-col gap-13 justify-center items-center h-auto w-auto">
-                                <img src="/icons/facebook.svg" alt="facebook"/>
-                                <img src="/icons/apple.svg" alt="apple" width="40px" height="40px"/>
-                                <img src="/icons/google.svg" alt="google" width="40px" height="40px"/>
-                            </div>
                         </section>
                     </div>
                 </form>

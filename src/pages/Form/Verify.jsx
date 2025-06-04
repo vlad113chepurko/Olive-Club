@@ -69,7 +69,6 @@ export default function Verify() {
                             />
                             <section className="flex flex-col gap-5 justify-center w-full">
                                 <button type="submit">Подтвердить</button>
-                                <button type="button" onClick={() => navigate('/login')}>Пропустить верификацию</button>
                                 <button type="button" onClick={handleResendCode}>
                                     Отправить код ещё раз
                                 </button>

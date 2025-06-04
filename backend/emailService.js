@@ -5,15 +5,17 @@ dotenv.config();
 
 export const emailService = async(email, code) => {
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: process.env.EMAIL_HOST,
+        port: Number(process.env.EMAIL_PORT),
+        secure: true,
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASSWORD,
-        },
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASS,
+        }
     })
 
     const mailOptions = {
-        from: `"DemoForma" <${process.env.EMAIL_USER}>`,
+        from: `"Olives trees" <info@eco-olive-trees.com>`,
         to: email,
         subject: 'Подтверждение регистрации',
         text: `Ваш код подтверждения: ${code}`,

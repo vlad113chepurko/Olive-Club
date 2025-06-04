@@ -40,7 +40,7 @@
 
     app.post('/registration', async (req, res) => {
         try {
-            const { name, email, password } = req.body;
+            const { name, lastName, email, password } = req.body;
 
             const existingUser = await User.findOne({ email: String(email).toLowerCase() });
 
@@ -53,6 +53,7 @@
                 const newUser = new User(
                   {
                       name,
+                      lastName,
                       email,
                       password,
                       isVerified: false,
@@ -64,13 +65,14 @@
                 res.status(201).json({message: 'User created successfully',
                 user: {
                     name: newUser.name,
+                    lastName: newUser.lastName,
                     email: newUser.email,
                     isAdmin: newUser.isAdmin || false,
                 }
                 })
             }
         } catch (error) {
-            res.status(500).json({message: 'Something went wrong'});
+            console.error("Ошибка в /registration:", error);
         }
     });
 
