@@ -15,7 +15,7 @@ export const emailService = async(email, code) => {
     })
 
     const mailOptions = {
-        from: `"Olives trees" <info@eco-olive-trees.com>`,
+        from: `"Family Olive Club" <${process.env.EMAIL}>`,
         to: email,
         subject: 'Подтверждение регистрации',
         text: `Ваш код подтверждения: ${code}`,
