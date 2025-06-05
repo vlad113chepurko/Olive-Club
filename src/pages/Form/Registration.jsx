@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Header from "../../components/Header/Header.jsx";
 import useUserStore from "../../store/UserStore.jsx";
 import validateRegistrationForm from '../../utils/regestrationValidator.js';
 import './Form.scss';
 
 export default function Registration() {
-
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const setUser = useUserStore((state) => state.setUser);
     const [form, setForm] = useState({
@@ -64,13 +65,13 @@ export default function Registration() {
                 <form className="form-login"  onSubmit={handleSubmit}>
                     <div className="form-inside-container">
                         <section className="form-inside-container-left">
-                            <h1 className="text-white font-800 text-3xl mb-16 text-left">Регистрация</h1>
+                            <h1 className="text-white font-800 text-3xl mb-16 text-left">{t('registration')}</h1>
                             <input
                                 onChange={handleChange}
                                 value={form.name}
                                 type="text"
                                 name="name"
-                                placeholder="Ваше имя"
+                                placeholder={t("userFirstName")}
                                 required
                                 autoComplete="username"/>
                             <input
@@ -78,7 +79,7 @@ export default function Registration() {
                                 value={form.lastName}
                                 type="text"
                                 name="lastName"
-                                placeholder="Ваша фамилия"
+                                placeholder={t("userLastName")}
                                 required
                                 autoComplete="family-name"/>
                             <input
@@ -86,7 +87,7 @@ export default function Registration() {
                                 value={form.email}
                                 type="email"
                                 name="email"
-                                placeholder="Ваша почта"
+                                placeholder={t("userMail")}
                                 required
                                 autoComplete="email"/>
                             <input
@@ -94,7 +95,7 @@ export default function Registration() {
                                 value={form.password}
                                 type="password"
                                 name="password"
-                                placeholder="Создайте пароль"
+                                placeholder={t("userPassword")}
                                 required
                                 autoComplete="current-password"/>
                             <input
@@ -102,12 +103,12 @@ export default function Registration() {
                                 value={form.repeatPassword}
                                 type="password"
                                 name="repeatPassword"
-                                placeholder="Повторите пароль"
+                                placeholder={t("userRepPassword")}
                                 required
                                 autoComplete="current-password"/>
                             <section className="flex flex-col gap-5 justify-center w-full">
-                                <button type="submit">Зарегистрироваться</button>
-                                <button type="button" onClick={() => navigate('/login')}>У меня есть аккаунт</button>
+                                <button type="submit">{t("registration_button")}</button>
+                                <button type="button" onClick={() => navigate('/login')}>{t("userHasAnAccount")}</button>
                             </section>
                         </section>
                     </div>

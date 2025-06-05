@@ -2,8 +2,9 @@ import axios from "axios";
 import Header from "../../components/Header/Header.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 export default function Verify() {
+    const { t } = useTranslation();
     const [code, setCode] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -52,25 +53,25 @@ export default function Verify() {
                 <form className="form-login"  onSubmit={handleVerify}>
                     <div className="form-inside-container">
                         <section className="form-inside-container-left">
-                            <h1 className="text-white font-800 text-3xl mb-16 text-left">Подтвердите почту</h1>
+                            <h1 className="text-white font-800 text-3xl mb-16 text-left">{t("verify")}</h1>
                             <input
                                 type="email"
-                                placeholder="Ваша почта"
+                                placeholder={t("userMail")}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                             <input
                                 type="text"
-                                placeholder="Код из письма"
+                                placeholder={t("code")}
                                 value={code}
                                 onChange={(e) => setCode(e.target.value)}
                                 required
                             />
                             <section className="flex flex-col gap-5 justify-center w-full">
-                                <button type="submit">Подтвердить</button>
+                                <button type="submit">{t("confirm")}</button>
                                 <button type="button" onClick={handleResendCode}>
-                                    Отправить код ещё раз
+                                    {t("resendCode")}
                                 </button>
                             </section>
                             {message && <p>{message}</p>}

@@ -16,6 +16,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "i18next": "^25.2.1",
+    "i18next-browser-languagedetector": "^8.1.0",
+    "i18next-http-backend": "^3.0.2",
     "mongodb": "^6.16.0",
     "mongoose": "^8.15.1",
     "motion": "^12.16.0",
@@ -23,6 +26,7 @@
     "nodemailer": "^7.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^15.5.2",
     "react-router-dom": "^7.6.1",
     "tailwindcss": "^4.1.8",
     "zustand": "^5.0.5"

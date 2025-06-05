@@ -47,6 +47,8 @@ function Survey() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setCountIncrement();
+        console.log("Submit: ", count)
 
         const logs = Object.entries(answers).map(([questionId, answer]) => ({
             questionId: Number(questionId),
@@ -54,7 +56,7 @@ function Survey() {
             email: user.email,
         }));
 
-        if (count === 5) {
+        if (count === 6) {
             try {
                 const res = await axios.post(
                     `http://localhost:3000/answers`,
@@ -80,12 +82,14 @@ function Survey() {
     };
 
     const handleNext = () => {
-        if (count < 5) {
+        console.log("Next:", count)
+        if (count < 6 ) {
             setCountIncrement();
         }
     }
 
     const handlePrev = () => {
+        console.log("Prev:", count)
         if (count > 1) {
             setCountDecrement();
         }
@@ -130,7 +134,7 @@ function Survey() {
                         )}
                         <div className="survey-config">
                             <button onClick={handlePrev} className="prev-skip-button">Предыдущий</button>
-                            {count === 5 ? (
+                            {count === 6 ? (
                                 <button type="submit" className="next-end-button">Завершить</button>
                             ) : (
                                 <button type="button" onClick={handleNext} className="next-end-button">Дальше</button>

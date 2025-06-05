@@ -1,8 +1,10 @@
 import './Home.scss';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from "../../components/Header/Header.jsx";
 
 function Home() {
+    const { t } = useTranslation();
     return (
         <div className="home-wrapper">
             <div className="background"></div>
@@ -12,10 +14,10 @@ function Home() {
                     <section className="info-block">
                         <h2>Family</h2>
                         <div className="p-container">
-                            <p>«Ваш путь к прибыльному оливковому бизнесу и элитной недвижимости в Грузии»</p>
+                            <p>{t('wave')}</p>
                         </div>
                         <div className="briefcase">
-                            <Link className="home-link" to="/registration">Вступить в клуб</Link>
+                            <Link className="home-link" to="/registration">{t('goInClub')}</Link>
                             <img width={30} src="/icons/arrow-right.svg" alt="arrow-right" />
                         </div>
                     </section>

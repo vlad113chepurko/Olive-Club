@@ -1,4 +1,5 @@
-@use "../../mixins/flex-mixin";
+@use "../../mixins/flex-mixin.scss";
+@use "../../mixins/background-mixin.scss";
 
 .success-wrapper {
   @include flex-mixin.flex-center;
@@ -8,29 +9,54 @@
   width: 100%;
 }
 
+.success-bg {
+  @include background-mixin.background-img('/success-bg.svg');
+}
+
 .success {
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(5px);
-  width: 100%;
-  height: 100%;
+  width: 1300px;
+  height: auto;
+  padding: 60px;
+
+  background: rgba(55, 53, 53, 0.6);
+
   @include flex-mixin.flex-center;
   flex-direction: column;
-  color: #fff;
+
+  img {
+    margin: 60px;
+  }
 
   h1 {
-    font-size: 4rem;
-    margin-bottom: 2rem;
+    color: #F1F1E7;
+    font-weight: 800;
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
   }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: #F1F1E7;
+    margin-bottom: 5px;
+  }
+
+  border-radius: 50px;
+
+  z-index: 1000;
 }
 
 .success-btn {
-  width: 50%;
-  height: 80px;
+  width: 250px;
+  height: 60px;
   border-radius: 5px;
-  background-color: #3F4222;
+  background-color: #8B833E;
 
-  font-size: 2rem;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
+  color: #F1F1E7;
+
+  font-weight: 500;
+  font-size: 1.2rem;
 
   &:hover {
     background-color: #4f532c;;

@@ -2,10 +2,12 @@ import { useState } from 'react';
 import axios from 'axios';
 import "./Form.scss";
 import Header from "../../components/Header/Header.jsx";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
 import useUserStore from "../../store/UserStore.jsx";
 
 export default function Login() {
+    const { t } = useTranslation();
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -58,13 +60,13 @@ export default function Login() {
                 <form className="form-login" onSubmit={handleSubmit}>
                     <div className="form-inside-container">
                         <section className="form-inside-container-left">
-                            <h1 className="text-white font-800 text-3xl mb-16 text-left">Войти</h1>
+                            <h1 className="text-white font-800 text-3xl mb-16 text-left">{t("login")}</h1>
                             <input
                                 onChange={handleChange}
                                 value={form.email}
                                 type="text"
                                 name="email"
-                                placeholder="Ваша почта"
+                                placeholder={t("userMail")}
                                 required
                                 autoComplete="email"
                             />
@@ -73,14 +75,14 @@ export default function Login() {
                                 value={form.password}
                                 type="password"
                                 name="password"
-                                placeholder="Ваш пароль"
+                                placeholder={t("userPasswordLogin")}
                                 required
                                 autoComplete="current-password"
                             />
                             <section className="flex flex-col gap-5 justify-center w-full">
-                                <button type="submit">Войти</button>
+                                <button type="submit">{t("login")}</button>
                                 <button type="button" onClick={() => navigate('/registration')}>
-                                    Зарегистрироваться
+                                    {t("registration_button")}
                                 </button>
                             </section>
                         </section>

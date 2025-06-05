@@ -6,20 +6,17 @@ function Success() {
     const navigate = useNavigate();
     return (
         <div className="success-wrapper">
-            <div className="background"></div>
+            <div className="success-bg"></div>
             <div className="success">
-                <motion.h1
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                transition={{duration: 0.5, delay: 0.1}}
-                >Спасибо что прошли наш опрос!</motion.h1>
-
-                <motion.button className="success-btn"
-                initial={{y: 2000}}
-                animate={{y: 0}}
-                transition={{duration: 0.5, delay: 0.1}}
-                               onClick={() => navigate("/")}
-                >Go to home</motion.button>
+                <h1> До встречи на вашей будущей плантации!</h1>
+                <p>
+                    Ваши ответы помогут нам предложить вам наиболее подходящий формат участия.
+                </p>
+                <p>
+                    Мы свяжемся с вами в ближайшее время и предоставим подробную информацию по следующему шагу.
+                </p>
+                <img src="/logo-success.svg" alt="logo" width={250} height={275} />
+                <button className="success-btn " onClick={() => navigate('/')}>Завершить</button>
             </div>
         </div>
     )
