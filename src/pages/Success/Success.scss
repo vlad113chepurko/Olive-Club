@@ -16,7 +16,7 @@
 .success {
   width: 1300px;
   height: auto;
-  padding: 60px;
+  padding: 100px;
 
   background: rgba(55, 53, 53, 0.6);
 
@@ -30,8 +30,9 @@
   h1 {
     color: #F1F1E7;
     font-weight: 800;
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 1.2rem;
+    text-align: center;
   }
 
   p {
@@ -69,8 +70,6 @@
   .success {
     width: 100%;
     padding: 5rem;
-
-    text-align: center;
 
     img {
       width: 100px;

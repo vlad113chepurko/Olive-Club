@@ -138,6 +138,7 @@ function Survey() {
                                         </label>
                                     ))}
                                 </div>
+
                             </>
                         )}
 
@@ -147,7 +148,7 @@ function Survey() {
                             </button>
 
                             {count === question.length ? (
-                                <button type="submit" className="next-end-button" disabled={isSubmitting}>
+                                <button onClick={handleSubmit} type="submit" className="next-end-button" disabled={isSubmitting}>
                                     {isSubmitting ? "Отправка..." : "Завершить"}
                                 </button>
                             ) : (

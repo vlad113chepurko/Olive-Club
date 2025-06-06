@@ -1,4 +1,4 @@
-import { User } from "../schemes/UserSchema.js";
+const { User } = require("../schemes/UserSchema.js");
 
 export const adminVerifiedUser = async (req, res) => {
     try {

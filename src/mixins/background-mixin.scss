@@ -1,11 +1,13 @@
 @mixin background-img($url) {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100dvh;
+  height: 100%;
   background-image: url(#{$url});
   background-size: cover;
   background-position: center;
-  z-index: 0;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
+

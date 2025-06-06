@@ -1,7 +1,7 @@
-import bcrypt from 'bcrypt';
-import { User } from "../schemes/UserSchema.js";
-import crypto from "node:crypto";
-import { emailService } from "../emailService.js";
+const bcrypt = require('bcrypt');
+const { User } = require("../schemes/UserSchema.js");
+const crypto = require("crypto");
+const { emailService } = require("../emailService.js");
 
 export const register = async (req, res) => {
     try {

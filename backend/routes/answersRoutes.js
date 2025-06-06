@@ -1,6 +1,5 @@
-import express from 'express';
-import { answers } from '../controllers/answersController.js';
-
+const express = require('express');
+const { answers } = require("../controllers/answersController");
 const router = express.Router();
 
 router.post('/answers', answers);

@@ -1,13 +1,18 @@
 import './Header.scss';
 import { useNavigate} from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import { useState} from "react";
 import { motion} from "motion/react";
 
 export default function Header() {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
+    const location = useLocation();
+    const currentLocation = location.pathname;
     const [isMenu, setIsMenu] = useState(false);
+
+    const logo = currentLocation === '/' ? '/logo.svg' : '/logo-white.svg';
     
     const changeLanguage = (lang) => {
         setIsMenu(false);
@@ -17,7 +22,7 @@ export default function Header() {
   return (
     <header className="header">
       <div onClick={() => navigate('/')} className="header-logo">
-        <img className="hover:cursor-pointer" src="/logo.svg" alt="logo" width={214} height={40}/>
+        <img className="hover:cursor-pointer" src={logo} alt="logo" width={214} height={40}/>
       </div>
         <div className="menu-wrapper">
             <button onClick={() => setIsMenu(prev => !prev)} className="menu-toggle">{t("lng")}</button>

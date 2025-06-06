@@ -1,4 +1,4 @@
-import {AnswerLog} from "../schemes/AnswerSchema.js";
+const { AnswerLog } = require('../schemes/AnswerSchema.js');
 
 export const answers = async (req, res) => {
     try {

@@ -13,7 +13,7 @@ export default function Admin() {
 
     useEffect(() => {
         if (!user || user.role !== "admin") {
-            navigate("/login");
+            navigate("/form/login");
         }
     }, [user]);
 

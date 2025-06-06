@@ -1,0 +1,16 @@
+@use "../../mixins/flex-mixin.scss";
+
+.form-header {
+  width: 1300px;
+  height: auto;
+  background: none;
+
+  padding: 1rem;
+
+  position: absolute;
+  top: 0;
+
+  z-index: 5001;
+
+  @include flex-mixin.flex-space-between;
+}

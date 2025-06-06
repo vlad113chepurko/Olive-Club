@@ -16,8 +16,7 @@
   height: 100%;
 
   @include flex-mixin.flex-center;
-  flex-direction:  column;
-
+  flex-direction: column;
 }
 
 .survey-bg {

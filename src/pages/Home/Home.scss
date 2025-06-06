@@ -1,5 +1,5 @@
 @use "../../mixins/flex-mixin.scss";
-
+@use "../../mixins/background-mixin.scss";
 .home-wrapper {
   @include flex-mixin.flex-center;
   flex-direction:  column;
@@ -8,44 +8,52 @@
   width: 100%;
 }
 
+.home-bg {
+  @include background-mixin.background-img("/home-page-bg.svg");
+}
+
 .home {
   width: 100%;
   height: auto;
 
   z-index: 5000;
   @include flex-mixin.flex-center;
+  flex-direction: row;
+  background: rgb(0, 0, 0, 0.5);
+}
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1000px;
-    background: rgb(0, 0, 0, 0.5);
-  }
+.merge-blocks {
+  width: 100%;
+  height: auto;
+
+  @include flex-mixin.flex-center;
+  flex-direction: row;
 }
 
 .left-block {
   width: 50%;
-  height: 1000px;
+  height: 900px;
+  padding: 1rem;
 
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 40%);
+  backdrop-filter: blur(10px);
 
   flex-direction: column;
   @include flex-mixin.flex-center;
 
-  h2 {
-    position: relative;
-
-    left: 200px;
-    top: -300px;
-
+  .left-block-title {
+    width: 500px;
+    height: 205px;
     font-weight: 800;
-    font-size: clamp(2rem, 8vw, 150px);
+    font-size: 150px;
+    position: relative;
+    line-height: 100%;
+    letter-spacing: 0.8px;
+    left: 180px;
+    top: -100px;
     background: url('/home-page-bg.svg');
     background-size: cover;
-    filter: brightness(60%);
+    filter: brightness(40%);
     background-repeat: no-repeat;
     background-clip: text;
     -webkit-background-clip: text;
@@ -56,55 +64,47 @@
 
 .right-block {
   width: 50%;
-  height: 1000px;
+  height: 900px;
 
-  flex-direction: column;
   @include flex-mixin.flex-center;
 
-  h2 {
-    position: relative;
-    right: 100px;
-    top: 0;
+  padding: 1rem;
+
+  .right-block-title {
+    width: auto;
+    height: 200px;
+
+    line-height: 100%;
+    font-size: 140px;
     color: white;
     font-weight: 800;
-    font-size: clamp(2rem, 8vw, 150px);
   }
 }
 
 .info-block {
   width: 100%;
-  margin-top: 400px;
-
-  @include flex-mixin.flex-center;
+  @include flex-mixin.flex-end;
   flex-direction: column;
-
-  .p-container {
-    width: 100%;
-    height: auto;
-    @include flex-mixin.flex-center;
-    flex-direction: row;
-
-    margin-bottom: 70px;
-
+  position: relative;
+  top: 200px;
     p {
+      width: 640px;
+      height: 70px;
       font-size: 1.2rem;
       font-weight: 300;
       color: white;
-      width: 70%;
 
-      letter-spacing: 0.2rem;
+      letter-spacing: 0.8px;
     }
-  }
 }
 
 .briefcase {
-  width: 100%;
+  width: 650px;
   height: 40px;
 
   @include flex-mixin.flex-start;
   flex-direction: row;
 
-  padding-left: 140px;
 
   .home-link {
     font-family: "Montserrat";
@@ -120,6 +120,11 @@
   }
 }
 
+@media (min-width: 2000px) {
+  .home-bg {
+    height: 100%;
+  }
+}
 
 @media (max-width: 1200px) {
   .left-block,
