@@ -24,14 +24,14 @@ export default function Registration() {
         e.preventDefault();
         const errors = validateRegistrationForm(form);
         if (Object.keys(errors).length > 0) {
-            console.log("Ошибки:", errors);
+            console.debug("Ошибки:", errors);
         } else {
-            console.log("Форма валидна:", form);
+            console.debug("Форма валидна:", form);
             localStorage.setItem('email', form.email);
 
-            axios.post('http://localhost:3000/registration', form)
+            axios.post('http://localhost:3000/api/registration', form)
                 .then(res => {
-                    console.log("Server response: ", res.data)
+                    console.debug("Server response: ", res.data)
 
                     const userData = res.data.user;
 

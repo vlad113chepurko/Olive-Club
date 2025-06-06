@@ -8,6 +8,7 @@ import useUserStore from "../../store/UserStore.jsx";
 
 export default function Login() {
     const { t } = useTranslation();
+    const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -16,32 +17,34 @@ export default function Login() {
     const navigate = useNavigate();
     const setUser = useUserStore((state) => state.setUser);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3000/login', form)
-            .then((res) => {
-                console.log("Server response: ", res.data);
+        setLoading(true);
 
-                const userData = res.data.user;
-
-                const safeUser = {
-                    name: userData.name,
-                    email: userData.email,
-                    role: userData.isAdmin ? "admin" : "user",
-                };
-
-                setUser(safeUser);
-
-                if (safeUser.role === 'admin') {
-                    navigate('/admin');
-                } else {
-                    navigate('/survey');
-                }
-            })
-            .catch(err => {
-                console.error("Error with send: ", err);
-                alert(err.response?.data?.message || 'Ошибка авторизации');
+        try {
+            const response = await axios.post('http://localhost:3000/api/login', {
+                ...form,
+                email: form.email.toLowerCase()
             });
+
+            const userData = response.data?.user;
+            if (!userData) throw new Error("Неверный ответ от сервера");
+
+            const safeUser = {
+                name: userData.name,
+                email: userData.email,
+                role: userData.isAdmin ? "admin" : "user",
+            };
+
+            setUser(safeUser);
+
+            navigate(safeUser.role === 'admin' ? '/admin' : '/survey');
+        } catch (err) {
+            console.error("Ошибка входа:", err);
+            alert(err.response?.data?.message || 'Ошибка авторизации');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -80,7 +83,9 @@ export default function Login() {
                                 autoComplete="current-password"
                             />
                             <section className="flex flex-col gap-5 justify-center w-full">
-                                <button type="submit">{t("login")}</button>
+                                <button type="submit" disabled={loading}>
+                                    {loading ? t("loading") : t("login")}
+                                </button>
                                 <button type="button" onClick={() => navigate('/registration')}>
                                     {t("registration_button")}
                                 </button>

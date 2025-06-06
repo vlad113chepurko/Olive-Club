@@ -10,6 +10,8 @@ export default function Verify() {
     const [message, setMessage] = useState('');
     const [resendMessage, setResendMessage] = useState('');
     const navigate = useNavigate();
+    const [resendDisabled, setResendDisabled] = useState(false);
+    const [timer, setTimer] = useState(0);
 
     useEffect(() => {
         const savedEmail = localStorage.getItem('email');
@@ -17,22 +19,44 @@ export default function Verify() {
         localStorage.removeItem('email');
     }, []);
 
-    const handleResendCode = async () => {
-        try {
-            const response = await axios.post('http://localhost:3000/resend-code', {
-                email
-            });
+    useEffect(() => {
+        let interval = null;
 
+        if (resendDisabled && timer > 0) {
+            interval = setInterval(() => {
+                setTimer(prev => {
+                    if (prev <= 1) {
+                        clearInterval(interval);
+                        setResendDisabled(false);
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        }
+
+        return () => clearInterval(interval);
+    }, [resendDisabled, timer]);
+
+    const handleResendCode = async () => {
+        if (resendDisabled) return;
+
+        try {
+            await axios.post('http://localhost:3000/api/resendCode', { email });
+            setResendMessage('Код отправлен повторно');
+            setResendDisabled(true);
+            setTimer(60);
         } catch (error) {
             console.error('Ошибка отправки кода:', error);
             setResendMessage(error.response?.data?.message || 'Ошибка при отправке кода');
         }
-    }
+    };
+
     const handleVerify = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/verify', {
+            const response = await axios.post('http://localhost:3000/api/verify', {
                 email,
                 code
             });
@@ -74,8 +98,8 @@ export default function Verify() {
                                     {t("resendCode")}
                                 </button>
                             </section>
-                            {message && <p>{message}</p>}
-                            {resendMessage && <p>{resendMessage}</p>}
+                            {message && <p className="mt-5 text-red-400">{message}</p>}
+                            {resendMessage && <p className="mt-5 text-red-400">{resendMessage}</p>}
                         </section>
                     </div>
                 </form>

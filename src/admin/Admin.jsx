@@ -1,24 +1,26 @@
 import "./Admin.scss";
 import axios from "axios";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import useUserStore from "../store/UserStore.jsx";
 
 export default function Admin() {
     const [usersData, setUsersData] = useState([]);
     const [title, setTitle] = useState("");
+    const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState("");
+    const user = useUserStore((state) => state.user);
+
+    useEffect(() => {
+        if (!user || user.role !== "admin") {
+            navigate("/login");
+        }
+    }, [user]);
 
     const fetchVerifiedUsers = () => {
         setTitle("Верифицированные пользователи")
-        axios.post('http://localhost:3000/admin/verified-users')
-            .then((response) => setUsersData(response.data.users)) // получаем только массив
-            .catch((err) => {
-                console.error(err);
-            });
-    };
-
-    const fetchUnVerifiedUsers = () => {
-        setTitle("Не верифицированные пользователи")
-        axios.post('http://localhost:3000/admin/unverified-users')
-            .then((response) => setUsersData(response.data.users)) // получаем только массив
+        axios.get('http://localhost:3000/api/admin/getUsers')
+            .then((response) => setUsersData(response.data.users))
             .catch((err) => {
                 console.error(err);
             });
@@ -30,17 +32,28 @@ export default function Admin() {
             <h1>Admin</h1>
 
             <button type="button" onClick={fetchVerifiedUsers}>
-                Просмотреть всех юзеров с верификацией
-            </button>
-
-            <button type="button" onClick={fetchUnVerifiedUsers}>
-                Просмотреть всех юзеров без верификации
+                Просмотреть всех юзеров
             </button>
 
             {usersData.length > 0 && (
                 <div className="user-list">
                     <h2 className="text-3xl text-amber-50">{title}</h2>
-                    <input type="text" placeholder="find user by e-mail"/>
+                    <input
+                        type="text"
+                        placeholder="Поиск по email"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    {usersData
+                        .filter(user => user.email.toLowerCase().includes(searchQuery.toLowerCase()))
+                        .map((user, index) => (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.role}</td>
+                            </tr>
+                        ))}
                     <table>
                         <thead>
                         <tr>
