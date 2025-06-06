@@ -29,7 +29,7 @@ mongoose.connect(process.env.DB_CONNECTION)
 
 app.use('/api', authRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/answers', answerRoutes);
+app.use('/api', answerRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

@@ -31,73 +31,79 @@ const question = [
 function Survey() {
     const { count, setCountIncrement, setCountDecrement, setCountOne } = useSurveyCount();
     const [answers, setAnswers] = useState({});
-    const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const { user } = useUserStore();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setCountOne();
-    }, [])
+    }, []);
 
     const handleChange = (questionIndex, option) => {
-        setAnswers({
-            ...answers,
+        setAnswers(prev => ({
+            ...prev,
             [questionIndex]: option
-        });
-    }
+        }));
+    };
+
+    const handleNext = () => {
+        if (count < question.length) {
+            setCountIncrement();
+        }
+    };
+
+    const handlePrev = (e) => {
+        e.preventDefault();
+        if (count > 1) {
+            setCountDecrement();
+        }
+    };
+
+    const handleSkip = (e) => {
+        e.preventDefault();
+        if (!answers[count - 1]) {
+            setAnswers(prev => ({
+                ...prev,
+                [count - 1]: "Пропущено"
+            }));
+        }
+        handleNext();
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setCountIncrement();
-        console.log("Submit: ", count)
+        if (isSubmitting) return;
+        setIsSubmitting(true);
 
         const logs = Object.entries(answers).map(([questionId, answer]) => ({
             questionId: Number(questionId),
             answer,
-            email: user.email,
+            email: user.email
         }));
 
-        if (count === 6) {
-            try {
-                const res = await axios.post(
-                    `http://localhost:3000/answers`,
-                    logs,
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    }
-                );
-
-                if (res.status === 200 || res.status === 201) {
-                    console.log("Ответы сохранены успешно");
-                    navigate('/success')
-                } else {
-                    console.error("Что-то пошло не так", res.status);
+        try {
+            const res = await axios.post(
+                "http://localhost:3000/api/answers",
+                logs,
+                {
+                    headers: { "Content-Type": "application/json" }
                 }
+            );
 
-            } catch (err) {
-                console.error("Ошибка при отправке:", err);
+            if (res.status === 200 || res.status === 201) {
+                console.log("Ответы сохранены успешно");
+                navigate("/success");
+            } else {
+                console.error("Что-то пошло не так", res.status);
             }
+        } catch (err) {
+            console.error("Ошибка при отправке:", err);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
-    const handleNext = () => {
-        console.log("Next:", count)
-        if (count < 6 ) {
-            setCountIncrement();
-        }
-    }
-
-    const handlePrev = () => {
-        console.log("Prev:", count)
-        if (count > 1) {
-            setCountDecrement();
-        }
-    }
-
-    const handleSkip = () => {
-        handleNext();
-    }
+    const currentQuestion = question[count - 1];
 
     return (
         <div className="survey-wrapper">
@@ -106,17 +112,19 @@ function Survey() {
                     <form method="post" onSubmit={handleSubmit} className="survey-block">
                         <div className="survey-header">
                             <img onClick={() => navigate('/')} src="/logo.svg" alt="logo" width={150} height={40} />
-                            <p>{count} из 5</p>
+                            <p>{count} из {question.length}</p>
                             <img className="hover:cursor-pointer" src="/close.svg" alt="close" width={25} height={25} />
                         </div>
-                        {question[count - 1] && (
+
+                        {currentQuestion && (
                             <>
                                 <article className="survey-article">
-                                    <h1>{question[count - 1].question}</h1>
+                                    <h1>{currentQuestion.question}</h1>
                                     <p>Выберите подходящий формат участия</p>
                                 </article>
+
                                 <div className="question-block">
-                                    {question[count - 1].options.map((option, index) => (
+                                    {currentQuestion.options.map((option, index) => (
                                         <label key={index} className="radio-container">
                                             <input
                                                 type="radio"
@@ -132,20 +140,33 @@ function Survey() {
                                 </div>
                             </>
                         )}
+
                         <div className="survey-config">
-                            <button onClick={handlePrev} className="prev-skip-button">Предыдущий</button>
-                            {count === 6 ? (
-                                <button type="submit" className="next-end-button">Завершить</button>
+                            <button type="button" onClick={handlePrev} className="prev-skip-button">
+                                Предыдущий
+                            </button>
+
+                            {count === question.length ? (
+                                <button type="submit" className="next-end-button" disabled={isSubmitting}>
+                                    {isSubmitting ? "Отправка..." : "Завершить"}
+                                </button>
                             ) : (
-                                <button type="button" onClick={handleNext} className="next-end-button">Дальше</button>
+                                <button type="button" onClick={handleNext} className="next-end-button">
+                                    Дальше
+                                </button>
                             )}
-                            <button onClick={handleSkip} className="prev-skip-button">Пропустить</button>
+
+                            {count !== question.length && (
+                                <button type="button" onClick={handleSkip} className="prev-skip-button">
+                                    Пропустить
+                                </button>
+                            )}
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Survey;

@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header.jsx";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import {disabled} from "express/lib/application.js";
 export default function Verify() {
     const { t } = useTranslation();
     const [code, setCode] = useState('');
