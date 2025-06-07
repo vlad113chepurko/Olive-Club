@@ -1,0 +1,10 @@
+@mixin sub-mix {
+  background: url('/home-bg.svg');
+  background-size: cover;
+  filter: brightness(60%);
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

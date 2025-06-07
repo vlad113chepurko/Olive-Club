@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const { User } = require("../schemes/UserSchema.js");
 const crypto = require("crypto");
-const { emailService } = require("../emailService.js");
+const emailService  = require("../emailService.js");
 
 const register = async (req, res) => {
     try {
