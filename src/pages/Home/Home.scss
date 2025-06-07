@@ -128,3 +128,45 @@
   }
 
 }
+
+@media (max-width: 1024px) {
+  .blocks {
+    .block-2 {
+      width: 100%;
+      padding-left: 3vw;
+      .block-2__title {
+        top: -0%;
+        font-size: clamp(30px, 10vw, 20px);
+
+      }
+
+    }
+    .block-1 {
+      width: 60%;
+      padding: 1rem;
+      .block-1__title {
+        left: 0;
+        font-size: clamp(36px, 10vw, 40px);
+
+      }
+
+      .block-1__description {
+        width: 100%;
+        p {
+          font-size: clamp(0.1rem, 1vw, 0.5rem);
+          width: 175px;
+        }
+
+        .block-1__text {
+          width: 100%;
+          a {
+            font-size: 0.8rem;
+            text-underline-offset: 4.5px;
+          }
+        }
+
+
+      }
+    }
+  }
+}
