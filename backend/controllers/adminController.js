@@ -1,6 +1,6 @@
 const { User } = require("../schemes/UserSchema.js");
 
-export const adminVerifiedUser = async (req, res) => {
+const adminVerifiedUser = async (req, res) => {
     try {
         const users = await User.find({ isVerified: true });
 
@@ -16,4 +16,8 @@ export const adminVerifiedUser = async (req, res) => {
         console.error(err)
         res.status(500).json({ message: 'Error on server' });
     }
+}
+
+module.exports = {
+    adminVerifiedUser,
 }

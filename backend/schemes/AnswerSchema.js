@@ -1,10 +1,15 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-export const answerSchema = new mongoose.Schema({
+const answerSchema = new mongoose.Schema({
     email: String,
     questionId: Number,
     answer: String,
     timestamp: { type: Date, default: Date.now },
 });
 
-export const AnswerLog = mongoose.model('AnswerLog', answerSchema);
+const AnswerLog = mongoose.model('AnswerLog', answerSchema);
+
+module.exports = {
+    answerSchema,
+    AnswerLog,
+};

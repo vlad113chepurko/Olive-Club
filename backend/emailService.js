@@ -1,9 +1,10 @@
-import dotenv from 'dotenv';
-import nodemailer from 'nodemailer';
+const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
+
 
 dotenv.config();
 
-export const emailService = async(email, code) => {
+const emailService = async(email, code) => {
     const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: Number(process.env.EMAIL_PORT),
@@ -24,3 +25,5 @@ export const emailService = async(email, code) => {
 
     await transporter.sendMail(mailOptions);
 }
+
+module.exports = emailService;

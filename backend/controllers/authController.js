@@ -3,7 +3,7 @@ const { User } = require("../schemes/UserSchema.js");
 const crypto = require("crypto");
 const { emailService } = require("../emailService.js");
 
-export const register = async (req, res) => {
+const register = async (req, res) => {
     try {
         let { name, lastName, email, password } = req.body;
         email = String(email).toLowerCase();
@@ -47,7 +47,7 @@ export const register = async (req, res) => {
     }
 }
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
     try {
         let { email, password } = req.body;
         email = String(email).toLowerCase();
@@ -94,7 +94,7 @@ export const login = async (req, res) => {
     }
 }
 
-export const verify = async (req, res) => {
+const verify = async (req, res) => {
     try {
         let { email, code } = req.body;
         email = String(email).toLowerCase();
@@ -118,7 +118,7 @@ export const verify = async (req, res) => {
     }
 }
 
-export const resendCode = async (req, res) => {
+const resendCode = async (req, res) => {
     try {
         let { email } = req.body;
         email = String(email).toLowerCase();
@@ -143,3 +143,10 @@ export const resendCode = async (req, res) => {
         res.status(500).json({ message: 'Ошибка сервера при повторной отправке' });
     }
 }
+
+module.exports = {
+    login,
+    verify,
+    resendCode,
+    register
+};

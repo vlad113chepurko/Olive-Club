@@ -4,4 +4,4 @@ const router = express.Router();
 
 router.post('/answers', answers);
 
-export default router;
+module.exports = router;

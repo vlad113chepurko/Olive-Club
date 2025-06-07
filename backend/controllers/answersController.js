@@ -1,6 +1,6 @@
 const { AnswerLog } = require('../schemes/AnswerSchema.js');
 
-export const answers = async (req, res) => {
+const answers = async (req, res) => {
     try {
         const logs = req.body;
         await AnswerLog.insertMany(logs);
@@ -8,4 +8,8 @@ export const answers = async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Error on server' });
     }
+}
+
+module.exports = {
+    answers,
 }

@@ -17,5 +17,7 @@
   "userPassword": "Create a password",
   "userPasswordLogin": "Your password",
   "userRepPassword": "Repeat your password",
-  "userHasAnAccount": "I have an account"
+  "userHasAnAccount": "I have an account",
+  "successTitle": "See you at your future plantation!",
+  "successUnderTitle": "Your answers will help us offer you the most suitable format of participation. We will contact you shortly with detailed information on the next step."
 }
