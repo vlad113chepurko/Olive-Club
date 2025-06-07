@@ -1,16 +1,23 @@
 @use "../../mixins/flex-mixin.scss";
 
 .form-header {
-  width: 1300px;
+  width: clamp(1300px, 5vh, 800px);
   height: auto;
   background: none;
 
   padding: 1rem;
 
-  position: absolute;
-  top: 0;
-
   z-index: 5001;
 
   @include flex-mixin.flex-space-between;
+}
+
+@media (max-width: 1400px) {
+  .form-header {
+    gap: 1rem;
+    padding-top: 40px;
+    width: 100%;
+
+    margin-bottom: 30px;
+  }
 }

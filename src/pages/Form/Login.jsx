@@ -82,11 +82,11 @@ export default function Login() {
                         autoComplete="current-password"
                     />
                     <section className="flex flex-col gap-5 justify-center w-full">
-                        <button type="submit" disabled={loading}>
+                        <button className="form-button" type="submit" disabled={loading}>
                             {loading ? t("loading") : t("login")}
                         </button>
-                        <button type="button" onClick={() => navigate('/form/registration')}>
-                            {t("registration_button")}
+                        <button className="form-sign-up-button" type="button" onClick={() => navigate('/form/registration')}>
+                            {t("log_button")}
                         </button>
                     </section>
                 </section>

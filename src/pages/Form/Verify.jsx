@@ -93,8 +93,8 @@ export default function Verify() {
                         required
                     />
                     <section className="flex flex-col gap-5 justify-center w-full">
-                        <button type="submit">{t("confirm")}</button>
-                        <button type="button" onClick={handleResendCode}>
+                        <button className="form-button" type="submit">{t("confirm")}</button>
+                        <button className="form-button" type="button" onClick={handleResendCode}>
                             {t("resendCode")}
                         </button>
                     </section>

@@ -106,8 +106,8 @@ export default function Register() {
                         required
                         autoComplete="current-password"/>
                     <section className="flex flex-col gap-5 justify-center w-full">
-                        <button type="submit">{t("registration_button")}</button>
-                        <button type="button" onClick={() => navigate('/form/login')}>{t("userHasAnAccount")}</button>
+                        <button className="form-button" type="submit">{t("registration_button")}</button>
+                        <button className="form-button" type="button" onClick={() => navigate('/form/login')}>{t("userHasAnAccount")}</button>
                     </section>
                 </section>
             </div>
