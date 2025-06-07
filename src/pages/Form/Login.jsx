@@ -37,7 +37,7 @@ export default function Login() {
 
             setUser(safeUser);
 
-            navigate(safeUser.role === 'admin' ? '/admin' : '/survey');
+            navigate(safeUser.role === 'admin' ? '/admin' : '/success');
         } catch (err) {
             console.error("Ошибка входа:", err);
             alert(err.response?.data?.message || 'Ошибка авторизации');

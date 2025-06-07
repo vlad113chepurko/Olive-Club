@@ -112,7 +112,7 @@ function Survey() {
                     <form method="post" onSubmit={handleSubmit} className="survey-block">
                         <div className="survey-header">
                             <img onClick={() => navigate('/')} src="/logo.svg" alt="logo" width={150} height={40} />
-                            <p>{count} из {question.length}</p>
+                            <p className="survey-header-counter">{count} из {question.length}</p>
                             <img className="hover:cursor-pointer" src="/close.svg" alt="close" width={25} height={25} />
                         </div>
 
