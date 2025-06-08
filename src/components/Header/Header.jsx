@@ -34,7 +34,7 @@ export default function Header() {
                     <div onClick={() => changeLanguage('ru')}>🇷🇺 Русский</div>
                     <div onClick={() => changeLanguage('en')}>🇬🇧 English</div>
                     <div onClick={() => changeLanguage('zh')}>🇨🇳 中文</div>
-                    <div onClick={() => changeLanguage('ar')}>🇸🇦 العربية</div>
+                    <div onClick={() => changeLanguage('ar')}>🇸🇦 Arab</div>
                 </motion.div>
             )}
         </div>
