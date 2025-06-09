@@ -19,6 +19,7 @@
   "userPasswordLogin": "كلمة المرور الخاصة بك",
   "userRepPassword": "كرر كلمة المرور الخاصة بك",
   "userHasAnAccount": "لدي حساب",
-  "successTitle": "نراكم في مزرعتكم المستقبلية!",
-  "successUnderTitle": "ستساعدنا إجاباتكم في اختيار نموذج المشاركة الأنسب لكم. سنتواصل معكم قريبًا لتزويدكم بمعلومات مفصلة حول الخطوة التالية."
+  "successTitle": "شكرا لك على التسجيل",
+  "successUnderTitle": "سيتم منح الوصول بعد تأكيد الطلب.",
+  "successCloseButton": "مكتمل"
 }

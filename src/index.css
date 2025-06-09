@@ -2,25 +2,25 @@
 
 @font-face {
   font-family: 'Manrope';
-  src: url('/fonts/Manrope.ttf');
+  src: url('/fonts/Manrope.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-Regular.ttf');
+  src: url('/fonts/Montserrat-Regular.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 
 html {
-  font-family: 'Manrope';
+  font-family: 'Manrope', sans-serif;
 }

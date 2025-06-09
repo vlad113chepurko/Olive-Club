@@ -12,7 +12,7 @@ function Success() {
                 <h1>{t("successTitle")}</h1>
                 <p>{t("successUnderTitle")}</p>
                 <img className="success-logo" src="/logo-success.svg" alt="logo"/>
-                <button className="success-btn " onClick={() => navigate('/')}>Завершить</button>
+                <button className="success-btn " onClick={() => navigate('/')}>{t("successCloseButton")}</button>
             </div>
         </div>
     )

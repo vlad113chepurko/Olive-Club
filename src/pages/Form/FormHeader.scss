@@ -1,7 +1,7 @@
 @use "../../mixins/flex-mixin.scss";
 
 .form-header {
-  width: clamp(1300px, 5vh, 800px);
+  width: clamp(300px, 80vw, 1300px);
   height: auto;
   background: none;
 
@@ -10,6 +10,7 @@
   z-index: 5001;
 
   @include flex-mixin.flex-space-between;
+  flex-direction: row;
 }
 
 @media (max-width: 1400px) {

@@ -19,6 +19,7 @@
   "userPasswordLogin": "您的密碼",
   "userRepPassword": "重複您的密碼",
   "userHasAnAccount": "我有一個帳戶",
-  "successTitle": "在您未來的種植園再見！",
-  "successUnderTitle": "您的回答將有助於我們為您找到最合適的參與方式。我們將盡快與您聯繫，提供後續步驟的詳細資訊。"
+  "successTitle": "感謝您註冊",
+  "successUnderTitle": "申請確認後即可獲得存取權限",
+  "successCloseButton": "完全的"
 }

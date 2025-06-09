@@ -19,6 +19,7 @@
   "userPasswordLogin": "Your password",
   "userRepPassword": "Repeat your password",
   "userHasAnAccount": "I have an account",
-  "successTitle": "See you at your future plantation!",
-  "successUnderTitle": "Your answers will help us offer you the most suitable format of participation. We will contact you shortly with detailed information on the next step."
+  "successTitle": "Thank you for registering",
+  "successUnderTitle": "Access will be granted after confirmation of the application.",
+  "successCloseButton": "Complete"
 }

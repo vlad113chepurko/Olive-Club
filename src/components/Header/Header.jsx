@@ -3,10 +3,12 @@ import { useNavigate} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { useState} from "react";
+import useLanguageStore  from "../../store/Language";
 import { motion} from "motion/react";
 
 export default function Header() {
     const { t, i18n } = useTranslation();
+    const { setLanguage } = useLanguageStore();
     const navigate = useNavigate();
     const location = useLocation();
     const currentLocation = location.pathname;
@@ -16,6 +18,7 @@ export default function Header() {
     
     const changeLanguage = (lang) => {
         setIsMenu(false);
+        setLanguage(lang);
         i18n.changeLanguage(lang);
     }
     
@@ -31,10 +34,10 @@ export default function Header() {
                     initial={{ scale: 0.5 }}
                     animate={{scale: 1}}
                     className="submenu">
-                    <div onClick={() => changeLanguage('ru')}>🇷🇺 Русский</div>
-                    <div onClick={() => changeLanguage('en')}>🇬🇧 English</div>
-                    <div onClick={() => changeLanguage('zh')}>🇨🇳 中文</div>
-                    <div onClick={() => changeLanguage('ar')}>🇸🇦 Arab</div>
+                    <div onClick={() => changeLanguage('en')}>English</div>
+                    <div onClick={() => changeLanguage('zh')}>中文</div>
+                    <div onClick={() => changeLanguage('ar')}>Arab</div>
+                    <div onClick={() => changeLanguage('ru')}>Русский</div>
                 </motion.div>
             )}
         </div>
