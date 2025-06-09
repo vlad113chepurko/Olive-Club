@@ -33,19 +33,22 @@
   position: relative;
   z-index: 1;
   width: clamp(300px, 80vw, 1300px);
-  height: 780px;
+  height: auto;
 
-  background-image: url("/form-back.svg");
+  background-image: url("/form-back.webp");
+  background-size: cover;
 
   border-radius: 4px;
+
+  padding: 50px;
 
   @include flex-mixin.flex-center;
 
 }
 
 .form-login {
-  width: auto;
-  height: 700px;
+  width: 100%;
+  height: 800px;
 
   backdrop-filter: blur(10px);
 
@@ -170,6 +173,8 @@
     flex-direction: column;
 
     overflow: hidden;
+
+    padding: 1rem;
   }
 
   .form-bg {

@@ -14,6 +14,7 @@ export default function Register() {
         name: '',
         lastName: '',
         email: '',
+        phone: '',
         password: '',
         repeatPassword: ''
     })
@@ -38,12 +39,13 @@ export default function Register() {
                         name: userData.name,
                         lastName: userData.lastName,
                         email: userData.email,
+                        phone: userData.phone,
                         role:  userData.isAdmin ? "admin" : "user",
                     })
                     navigate('/form/verify');
                 })
                 .catch(err => {
-                    alert(err.response?.data?.message || 'Ошибка при регистрации');
+                    alert(err.response?.data?.message || 'Error during registration');
                 });
         }
 
@@ -89,6 +91,14 @@ export default function Register() {
                         placeholder={t("userMail")}
                         required
                         autoComplete="email"/>
+                    <input
+                      onChange={handleChange}
+                      value={form.phone}
+                      type="text"
+                      name="phone"
+                      placeholder={t("userPhone")}
+                      required
+                      autoComplete="phone"/>
                     <input
                         onChange={handleChange}
                         value={form.password}

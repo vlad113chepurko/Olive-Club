@@ -5,7 +5,7 @@ const emailService  = require("../emailService.js");
 
 const register = async (req, res) => {
     try {
-        let { name, lastName, email, password } = req.body;
+        let { name, lastName, email, phone, password } = req.body;
         email = String(email).toLowerCase();
 
         const existingUser = await User.findOne({ email });
@@ -22,6 +22,7 @@ const register = async (req, res) => {
             name,
             lastName,
             email,
+            phone,
             password: hashedPassword,
             isVerified: false,
             verificationCode,
@@ -37,6 +38,7 @@ const register = async (req, res) => {
                 name: newUser.name,
                 lastName: newUser.lastName,
                 email: newUser.email,
+                phone: newUser.phone,
                 isAdmin: newUser.role === 'admin',
             }
         });
@@ -83,6 +85,7 @@ const login = async (req, res) => {
             user: {
                 email: user.email,
                 name: user.name,
+                phone: user.phone,
                 role: user.role,
                 isAdmin: user.role === 'admin'
             }

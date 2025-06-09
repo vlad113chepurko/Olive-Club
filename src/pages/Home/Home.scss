@@ -98,6 +98,7 @@
         flex-direction: row;
         width: 100%;
 
+
         a {
           margin-right: 1rem;
         }
@@ -139,7 +140,7 @@
       padding-left: 3vw;
       .block-2__title {
         top: -0%;
-        font-size: clamp(30px, 10vw, 20px);
+        font-size: clamp(30px, 8vw, 140px);
         text-shadow: 0 5px 0 rgba(0, 0, 0, 0.25);
       }
 
@@ -149,22 +150,24 @@
       padding: 1rem;
       .block-1__title {
         left: 0;
-        font-size: clamp(36px, 10vw, 40px);
+        font-size: clamp(36px, 10vw, 140px);
 
       }
 
       .block-1__description {
         width: 100%;
+
         p {
           font-size: clamp(0.8rem, 1.5vw, 1rem);
-          width: 175px;
+          width: 100%;
         }
 
         .block-1__text {
           width: 100%;
           a {
-            font-size: 0.8rem;
-            text-underline-offset: 4.5px;
+            font-size: 1rem;
+            text-shadow: none;
+            position: relative;
           }
         }
 
@@ -183,7 +186,6 @@
           width: 100%;
         }
         width: 100%;
-        text-align: justify;
       }
 
     }

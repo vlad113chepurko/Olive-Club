@@ -26,10 +26,10 @@ function FormHeader() {
                         initial={{ scale: 0.5 }}
                         animate={{scale: 1}}
                         className="submenu">
-                        <div onClick={() => changeLanguage('ru')}>🇷🇺 Русский</div>
-                        <div onClick={() => changeLanguage('en')}>🇬🇧 English</div>
-                        <div onClick={() => changeLanguage('zh')}>🇨🇳 中文</div>
-                        <div onClick={() => changeLanguage('ar')}>🇸🇦 العربية</div>
+                        <div onClick={() => changeLanguage('en')}>English</div>
+                        <div onClick={() => changeLanguage('cn')}>CN</div>
+                        <div onClick={() => changeLanguage('sa')}>SA</div>
+                        <div onClick={() => changeLanguage('ru')}>Русский</div>
                     </motion.div>
                 )}
             </div>
