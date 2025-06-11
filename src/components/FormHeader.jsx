@@ -1,4 +1,4 @@
-import "./FormHeader.scss";
+import "./styles/FormHeader.scss";
 import "../../components//Header/Header.scss";
 import { useTranslation } from "react-i18next";
 import { useNavigate} from "react-router-dom";

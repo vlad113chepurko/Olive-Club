@@ -1,4 +1,4 @@
-import "./Form.scss";
+import "./styles/Form.scss";
 
 // components & store
 import components from "../../components/index";

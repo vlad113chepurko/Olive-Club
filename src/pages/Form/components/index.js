@@ -1,4 +1,4 @@
-import FormHeader from "./FormHeader.jsx";
+import FormHeader from "../../components/FormHeader.jsx";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 

@@ -106,8 +106,8 @@ export default function Verify() {
                           type={"submit"}
                           className={"form-button"}>{t("confirm")}</components.Button>
                     </section>
-                    {message && <p className="mt-5 text-red-400">{message}</p>}
-                    {resendMessage && <p className="mt-5 text-white">{resendMessage}</p>}
+                    {message && <p>{message}</p>}
+                    {resendMessage && <p>{resendMessage}</p>}
                 </section>
             </div>
         </form>
