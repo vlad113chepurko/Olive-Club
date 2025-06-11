@@ -1,24 +1,16 @@
 import "./Admin.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import useUserStore from "../store/UserStore.jsx";
+import { useState } from "react";
 
 export default function Admin() {
     const [usersData, setUsersData] = useState([]);
-    const [title, setTitle] = useState("");
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
-    const user = useUserStore((state) => state.user);
 
-    useEffect(() => {
-        if (!user || user.role !== "admin") {
-            navigate("/form/login");
-        }
-    }, [user]);
+    const [isSearching, setIsSearching] = useState(false);
 
     const fetchVerifiedUsers = () => {
-        setTitle("Верифицированные пользователи")
         axios.get('http://localhost:3000/api/admin/getUsers')
             .then((response) => setUsersData(response.data.users))
             .catch((err) => {
@@ -26,54 +18,102 @@ export default function Admin() {
             });
     };
 
+    const handleRemoveUser = (user) => {
+        axios.post('http://localhost:3000/api/admin/removeUser', { email: user.email })
+          .then(() => {
+              setUsersData(prev => prev.filter(u => u.email !== user.email));
+          })
+          .catch((err) => {
+              console.error(err);
+          });
+    };
+
 
     return (
         <div className="admin-container">
-            <h1>Admin</h1>
 
-            <button type="button" onClick={fetchVerifiedUsers}>
-                Просмотреть всех юзеров
-            </button>
+            <div className="admin-header">
+                <button className="admin__button" type="button" onClick={fetchVerifiedUsers}>
+                    Просмотреть всех юзеров
+                </button>
+
+                <button className="admin__button" type="button" onClick={() => navigate("/adminSurvey")}>
+                    Просмотреть опрос юзера
+                </button>
+            </div>
 
             {usersData.length > 0 && (
                 <div className="user-list">
-                    <h2 className="text-3xl text-amber-50">{title}</h2>
-                    <input
-                        type="text"
-                        placeholder="Поиск по email"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    {usersData
-                        .filter(user => user.email.toLowerCase().includes(searchQuery.toLowerCase()))
-                        .map((user, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
-                            </tr>
-                        ))}
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Имя</th>
-                            <th>Email</th>
-                            <th>Роль</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {usersData.map((user, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
+
+                    <button className="admin__button" type="button" onClick={() => setIsSearching(true)}>Искать по почте</button>
+
+                    {isSearching ? (
+                      <div className="user-list">
+                          <section className="search-box-config">
+                              <button className="close__button" onClick={() => setIsSearching(false)}>Закрыть поиск по почте</button>
+                              <input
+                                className="shadow-2xl shadow-blue-950"
+                                type="text"
+                                placeholder="Поиск по email"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                              />
+                          </section>
+                          <table>
+                              <thead>
+                                  <tr>
+                                      <th>#</th>
+                                      <th>Имя</th>
+                                      <th>Почта</th>
+                                      <th>Номер телефона</th>
+                                      <th>Роль</th>
+                                  </tr>
+                              </thead>
+                              {usersData
+                                .filter(user => user.email.toLowerCase().includes(searchQuery))
+                                .map((user, index) => (
+                                  <tbody>
+                                      <tr key={index}>
+                                          <td>{index + 1}</td>
+                                          <td>{user.name}</td>
+                                          <td>{user.email}</td>
+                                          <td>{user.phone}</td>
+                                          <td>{user.role}</td>
+                                          <td><button>Remove user</button></td>
+                                      </tr>
+                                  </tbody>
+                                ))}
+                          </table>
+                      </div>
+                    ) : (
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th>Имя</th>
+                                  <th>Почта</th>
+                                  <th>Номер телефона</th>
+                                  <th>Роль</th>
+                                  <th>Удалить юзера</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {usersData.map((user, index) => (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.phone}</td>
+                                    <td>{user.role}</td>
+                                    <td>
+                                        <button
+                                      className="bg-red-400 p-1 hover:bg-red-500 cursor-pointer"
+                                      onClick={() => handleRemoveUser(user)}>Remove user</button></td>
+                                </tr>
+                              ))}
+                          </tbody>
+                      </table>
+                    ) }
                 </div>
             )}
         </div>

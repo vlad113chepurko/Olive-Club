@@ -1,0 +1,19 @@
+@use "../../mixins/flex-mixin.scss";
+
+.user-container {
+  @include flex-mixin.flex-space-between;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+
+  padding: 1rem;
+
+  color: white;
+
+  border: 1px solid white;
+
+  button {
+    height: 40px;
+    width: 180px;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "wave": "«Your Path to Profitable Olive Business and Luxury Real Estate in Georgia»",
+  "wave": "«Your Path to Profitable Olive Business and Luxury Real Estate»",
   "goInClub": "Join the club",
   "lng": "ENG",
   "registration": "Sign up",
@@ -7,8 +7,10 @@
   "log_button": "I don't have an account",
   "login": "Log in",
   "verify": "Confirm your email",
+  "verifyResendMessage": "Code resent",
+  "verifyResendMessageError": "Error sending code",
   "formTitle": "Your family asset is under professional management",
-  "fromUnderTitle": "It all starts with registration",
+  "formUnderTitle": "It all starts with registration",
   "confirm": "Confirm",
   "resendCode": "Send a code one more time",
   "code": "Code",

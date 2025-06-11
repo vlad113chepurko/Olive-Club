@@ -18,8 +18,8 @@ const emailService = async(email, code) => {
     const mailOptions = {
         from: `"Family Olive Club" <${process.env.EMAIL}>`,
         to: email,
-        subject: 'Подтверждение регистрации',
-        text: `Ваш код подтверждения: ${code}`,
+        subject: 'Confirm registration',
+        text: `You code: ${code}`,
         html: `<p>Ваш код подтверждения: ${code}</p>`,
     }
 

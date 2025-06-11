@@ -1,5 +1,5 @@
 {
-  "wave": "“开启您在格鲁吉亚的盈利橄榄业务与高端房产之路”",
+  "wave": "“通往盈利橄欖生意和豪華房地產之路”",
   "goInClub": "加入俱乐部",
   "lng": "CA",
   "registration": "注册",
@@ -7,8 +7,10 @@
   "log_button": "我还没有账户",
   "login": "登录",
   "verify": "请确认您的邮箱",
+  "verifyResendMessage": "代碼已重新發送",
+  "verifyResendMessageError": "發送代碼時出錯",
   "formTitle": "您的家族资产由专业团队管理",
-  "fromUnderTitle": "一切从注册开始",
+  "formUnderTitle": "一切从注册开始",
   "confirm": "确认",
   "resendCode": "重新发送验证码",
   "code": "验证码",

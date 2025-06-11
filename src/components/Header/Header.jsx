@@ -2,7 +2,7 @@ import './Header.scss';
 import { useNavigate} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import { motion} from "motion/react";
 
 export default function Header() {
@@ -13,8 +13,17 @@ export default function Header() {
     const [isMenu, setIsMenu] = useState(false);
 
     const logo = currentLocation === '/' ? '/logo.svg' : '/logo-white.svg';
-    
-    const changeLanguage = (lang) => {
+
+    // Сделатть потом хук
+    useEffect(() => {
+      const savedLang = localStorage.getItem('i18nextLng');
+      if (!savedLang) {
+        localStorage.setItem('i18nextLng', 'en');
+      }
+    }, []);
+
+
+  const changeLanguage = (lang) => {
         setIsMenu(false);
         i18n.changeLanguage(lang);
     }

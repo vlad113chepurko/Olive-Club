@@ -1,94 +1,60 @@
-import { useState } from 'react';
-import axios from 'axios';
 import "./Form.scss";
+
+// components & store
+import components from "../../components/index";
+import useFormStore from "../../store/FormStore";
+
+// hooks
+import {useState} from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from 'react-router-dom';
-import useUserStore from "../../store/UserStore.jsx";
+import { useNavigate } from "react-router-dom";
+import useAxios from "../../hooks/userAxios";
 
 export default function Login() {
     const { t } = useTranslation();
-    const [loading, setLoading] = useState(false);
-    const [form, setForm] = useState({
-        email: '',
-        password: '',
-    });
 
     const navigate = useNavigate();
-    const setUser = useUserStore((state) => state.setUser);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        try {
-            const response = await axios.post('http://localhost:3000/api/form/login', {
-                ...form,
-                email: form.email.toLowerCase()
-            });
-
-            const userData = response.data?.user;
-            if (!userData) throw new Error("Неверный ответ от сервера");
-
-            const safeUser = {
-                name: userData.name,
-                email: userData.email,
-                role: userData.isAdmin ? "admin" : "user",
-            };
-
-            setUser(safeUser);
-
-            navigate(safeUser.role === 'admin' ? '/admin' : '/success');
-        } catch (err) {
-            console.error("Ошибка входа:", err);
-            alert(err.response?.data?.message || 'Ошибка авторизации');
-        } finally {
-            setLoading(false);
-        }
-    };
+    const { form, setForm } =  useFormStore();
+    const [loading] = useState(false);
+    const { handleSubmitLogin } = useAxios();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm(prevForm => ({
-            ...prevForm,
-            [name]: value,
-        }));
+        setForm({[name]: value})
     };
 
     return (
-        <form className="form-login" onSubmit={handleSubmit}>
+        <form className="form-login" onSubmit={(e) => handleSubmitLogin(e, form)}>
             <article className="form-article">
                 <h2>{t("formTitle")}</h2>
-                <p>{t("fromUnderTitle")}</p>
+                <p>{t("formUnderTitle")}</p>
             </article>
             <div className="form-inside-container">
                 <section className="form-inside-container-left">
                     <h1>{t("login")}</h1>
-                    <input
-                        onChange={handleChange}
-                        value={form.email}
-                        type="text"
-                        name="email"
-                        placeholder={t("userMail")}
-                        required
-                        autoComplete="email"
-                    />
-                    <input
-                        onChange={handleChange}
-                        value={form.password}
-                        type="password"
-                        name="password"
-                        placeholder={t("userPasswordLogin")}
-                        required
-                        autoComplete="current-password"
-                    />
-                    <section className="flex flex-col gap-5 justify-center w-full">
-                        <button className="form-button" type="submit" disabled={loading}>
-                            {loading ? t("loading") : t("login")}
-                        </button>
-                        <button className="form-sign-up-button" type="button" onClick={() => navigate('/form/registration')}>
-                            {t("log_button")}
-                        </button>
-                    </section>
+                        <components.Input
+                          name="email"
+                          holder={t("userMail")}
+                          value={form.email}
+                          func={handleChange}
+                          autoCompelete="email"
+                        />
+                        <components.Input
+                          type="password"
+                          name="password"
+                          holder={t("userPasswordLogin")}
+                          value={form.password}
+                          func={handleChange}
+                          autoCompelete="current-password"
+                        />
+                        <section className="form-section-buttons">
+                            <components.Button className={"form-button"} type="submit" disabled={loading}>
+                                {loading ? t("loading") : t("login")}
+                            </components.Button>
+                            <components.Button className={"form-sign-up-button"} onClick={() => navigate("/form/registration")}>
+                                {t("log_button")}
+                            </components.Button>
+                        </section>
                 </section>
             </div>
         </form>

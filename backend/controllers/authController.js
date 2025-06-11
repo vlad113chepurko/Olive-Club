@@ -104,20 +104,20 @@ const verify = async (req, res) => {
         code = String(code);
 
         const user = await User.findOne({ email });
-        if (!user) return res.status(404).json({ message: 'Пользователь не найден' });
+        if (!user) return res.status(404).json({ message: 'User not found' });
 
         if (user.verificationCode !== code) {
-            return res.status(400).json({ message: 'Неверный код' });
+            return res.status(400).json({ message: 'Code do not correct' });
         }
 
         user.isVerified = true;
         user.verificationCode = undefined;
         await user.save();
 
-        res.status(200).json({ message: 'Email подтвержден' });
+        res.status(200).json({ message: 'Email verified' });
     } catch (error) {
-        console.error('Ошибка подтверждения:', error);
-        res.status(500).json({ message: 'Ошибка сервера' });
+        console.error('Error verified:', error);
+        res.status(500).json({ message: 'Server Error' });
     }
 }
 
@@ -129,7 +129,7 @@ const resendCode = async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(404).json({ message: 'Пользователь не найден' });
+            return res.status(404).json({ message: 'User not found' });
         }
 
         const newCode = crypto.randomInt(100000, 999999).toString();
@@ -139,11 +139,11 @@ const resendCode = async (req, res) => {
 
         await emailService(email, newCode);
 
-        res.status(200).json({ message: 'Код повторно отправлен на почту' });
+        res.status(200).json({ message: 'Code was resent' });
 
     } catch (error) {
-        console.error('Ошибка повторной отправки кода:', error);
-        res.status(500).json({ message: 'Ошибка сервера при повторной отправке' });
+        console.error('Error resending code:', error);
+        res.status(500).json({ message: 'Server error resending' });
     }
 }
 

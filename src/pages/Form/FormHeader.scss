@@ -5,7 +5,7 @@
   height: auto;
   background: none;
 
-  padding: 1rem;
+  padding: 0.5rem;
 
   z-index: 5001;
 
@@ -13,12 +13,29 @@
   flex-direction: row;
 }
 
+.form-header-logo {
+  width: 214px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
 @media (max-width: 1000px) {
   .form-header {
     gap: 1rem;
-    padding-top: 40px;
     width: 100%;
 
     margin-bottom: 30px;
+
+    padding: 40px 1rem 0 1rem;
   }
+
+  .form-header-logo {
+    width: 180px;
+    height: 33px;
+  }
+
 }

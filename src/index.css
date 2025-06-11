@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Manrope';
-  src: url('/fonts/Manrope.woff2') format('woff2');
+  src: url('/fonts/Manrope.ttf') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,13 +13,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
 
 html {
   font-family: 'Manrope', sans-serif;
