@@ -1,16 +1,16 @@
 const { User } = require("../schemes/UserSchema.js");
 
-const adminVerifiedUser = async (req, res) => {
+const adminGetUsers = async (req, res) => {
     try {
         const users = await User.find();
 
         res.status(200).json({
-            message: "Список юзеров с верефикацией",
+            message: "Список юзеров",
             users: users.map(user => ({
                 name: user.name,
+                lastName: user.lastName,
                 email: user.email,
                 phone: user.phone,
-                role: user.role || 'user',
             }))
         });
     } catch (err) {
@@ -43,6 +43,6 @@ const adminRemoveUser = async (req, res) => {
 };
 
 module.exports = {
-    adminVerifiedUser,
+    adminGetUsers,
     adminRemoveUser,
 }

@@ -8,7 +8,7 @@ import Success from "./Success/Success";
 
 
 import Admin from "./Admin/Admin.jsx";
-import AdminSurvey from "./Admin/pages/AdminSurvey";
+import AdminSurvey from "./Admin/components/AdminSurvey";
 
 
 const paths = {

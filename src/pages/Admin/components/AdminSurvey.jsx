@@ -1,5 +1,5 @@
-import "./_AdminSurvey.scss";
-import "../Admin.scss"
+
+import "../styles/_Admin.scss"
 import {useEffect, useState} from "react";
 import axios from "axios";
 

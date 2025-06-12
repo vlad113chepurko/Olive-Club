@@ -34,7 +34,7 @@ mongoose.connect(process.env.DB_CONNECTION)
         process.exit(1);
     });
 
-app.use('/api/Admin', adminRoutes);
+app.use('/api/admin', adminRoutes);
 app.use('/api', authRoutes);
 app.use('/api', answerRoutes);
 

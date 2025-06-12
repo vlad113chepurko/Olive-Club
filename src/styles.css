@@ -759,6 +759,92 @@
   border-radius: 50px;
 }
 
+.admin-input {
+  width: 200px;
+  height: 50px;
+  padding-left: 1rem;
+  border: 1px solid black;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Console", Monaco, "Andale Mono", monospace;
+  transition: width 2s ease-in-out;
+}
+.admin-input:focus {
+  width: 100%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.admin-panel {
+  width: 100%;
+  height: 100vh;
+  background-color: #eeeeee;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: "Manrope", sans-serif;
+  border: 1px solid black;
+}
+
+.table-header {
+  width: 100%;
+  height: 50px;
+  background-color: #c9c9c9;
+}
+.table-header tr {
+  width: 100%;
+}
+.table-header tr th {
+  border: 1px solid black;
+}
+
+.table-body {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: "Manrope", sans-serif;
+  border: 1px solid #ff0000;
+}
+.table-body tr {
+  width: 100%;
+}
+.table-body td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 0.5rem;
+}
+.table-body td:nth-child(1) {
+  background-color: #00c7ff;
+}
+
+.admin-header {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: #555555;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+button.secondary {
+  background-color: #f44336;
+  color: white;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button.secondary:hover {
+  background-color: #e53935;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
