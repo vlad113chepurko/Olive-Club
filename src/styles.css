@@ -1,31 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.home-wrapper {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .home {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  background-image: url("/assets/dark-bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  color: white;
-  z-index: 0;
-}
-
-.home:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.home > * {
-  position: relative;
-  z-index: 2;
+  overflow-x: hidden;
 }
 
 .blocks {
@@ -61,11 +51,13 @@
 }
 .blocks .block-1 .block-1__description {
   width: 60%;
-  height: 100px;
+  height: auto;
   position: relative;
   top: 20%;
+  border: 1px solid red;
   display: flex;
   justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
 }
 .blocks .block-1 .block-1__description p {
@@ -167,30 +159,26 @@
   }
 }
 .form-wrapper {
+  height: auto;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
-  height: 105vh;
-  width: 100%;
   margin: 0 auto;
 }
 
 .form-bg {
   background-image: url("/assets/dark-bg.webp");
-  filter: brightness(50%);
   background-size: cover;
-  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
   pointer-events: none;
-  overflow: hidden;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  inset: 0;
 }
 
 .form-section-buttons {
@@ -776,37 +764,38 @@
   border-radius: 50px;
 }
 
-@font-face {
-  font-family: "Manrope";
-  src: url("/fonts/Manrope.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
+body {
+  background-image: url("/assets/dark-bg.webp");
   font-family: "Manrope", "sans-serif";
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-input {
-  outline: none;
+input,
+textarea,
+select,
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
   border: none;
+  outline: none;
   background: none;
 }
 
-button {
-  outline: none;
-  border: none;
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

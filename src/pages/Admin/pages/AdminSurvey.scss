@@ -1,4 +1,4 @@
-@use "../../mixins/flex-mixin.scss";
+@use "../../../mixins/flex-mixin";
 
 .user-container {
   @include flex-mixin.flex-space-between;

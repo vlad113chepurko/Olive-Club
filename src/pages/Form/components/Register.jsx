@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import useAxios  from "../../../hooks/userAxios";
 
 import useFormStore from "../../../store/FormStore";
-import '../styles/_Form.scss';
 import components from "../../../components/index";
 
 export default function Register() {

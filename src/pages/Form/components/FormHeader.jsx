@@ -1,5 +1,5 @@
-import "../styles/FormHeader.scss";
-import "../../../components/Header/Header.scss";
+import "../styles/_FormHeader.scss";
+import "../../../components/Header/_Header.scss";
 import { useTranslation } from "react-i18next";
 import { useNavigate} from "react-router-dom";
 import {motion} from "motion/react";

@@ -1,33 +1,18 @@
-@use "../../../mixins/flex-mixin.scss";
+@use "../../../mixins/flex-mixin";
+@use "../../../mixins/_bg-image-settings";
+
+.home-wrapper {
+  height: 100dvh;
+  @include flex-mixin.flex-center;
+  flex-direction:  column;
+}
 
 .home {
   @include flex-mixin.flex-center;
   flex-direction: column;
 
-  height: 100vh;
+  height: 100%;
   width: 100%;
 
-  background-image: url("/assets/dark-bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-
-  color: white;
-
-  z-index: 0;
-}
-
-.home:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.home > * {
-  position: relative;
-  z-index: 2;
+  overflow-x: hidden;
 }

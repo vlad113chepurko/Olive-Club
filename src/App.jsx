@@ -1,12 +1,5 @@
-import Register from "./pages/Form/components/Register";
-import Login from "./pages/Form/components/Login";
-import Verify from "./pages/Form/components/Verify";
-import Home from "./pages/Home/Home.jsx";
-import Survey from "./pages/Survey/Survey.jsx";
-import Success from "./pages/Success/Success.jsx";
-import Form from "./pages/Form/Form.jsx";
+import paths from "./pages";
 import {Routes, Route, Navigate} from "react-router-dom";
-import paths from "./admin/index";
 import useUserStore from "./store/UserStore.jsx";
 
 function App() {
@@ -16,19 +9,20 @@ function App() {
   return (
         <div>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/success" element={user.email ? <Success /> : <Navigate to="/form/login" replace />} />
-                <Route path="/survey" element={user.email ? <Survey /> :  <Navigate to="/form/login" replace />} />
+                <Route path={"*"} element={<h1>404</h1>} />
+                <Route path="/" element={<paths.Home />} />
+                <Route path="/success" element={user.email ? <paths.Success /> : <Navigate to="/form/login" replace />} />
+                <Route path="/survey" element={user.email ? <paths.Survey /> :  <Navigate to="/form/login" replace />} />
                 <Route path="/admin" element={
                     user.role === 'admin' ? <paths.Admin /> : <Navigate to="/form/login" replace />
                 } />
                 <Route path="/adminSurvey" element={
                 user.role === 'admin' ? <paths.AdminSurvey /> : <Navigate to="/form/login" replace />
                 } />
-                <Route path="/form" element={<Form />}>
-                    <Route path="login" element={<Login />} />
-                    <Route path="registration" element={<Register />} />
-                    <Route path="verify" element={<Verify />} />
+                <Route path="/form" element={<paths.Form />}>
+                    <Route path="login" element={<paths.Login />} />
+                    <Route path="registration" element={<paths.Register />} />
+                    <Route path="verify" element={<paths.Verify />} />
                 </Route>
             </Routes>
         </div>
