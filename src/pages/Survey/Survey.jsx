@@ -1,4 +1,4 @@
-import "./Survey.scss";
+import "./styles/_Survey.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../store/UserStore.jsx";

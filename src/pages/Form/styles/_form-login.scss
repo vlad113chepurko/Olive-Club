@@ -1,0 +1,103 @@
+@use "../../../mixins/flex-mixin.scss";
+
+.form-container {
+  position: relative;
+  z-index: 1;
+  width: clamp(300px, 80vw, 1300px);
+  height: auto;
+
+  background-image: url("/assets/form-back.webp");
+  background-size: cover;
+
+  border-radius: 4px;
+
+  padding: 50px;
+
+  @include flex-mixin.flex-center;
+
+}
+
+.form-login {
+  width: 100%;
+  height: 800px;
+
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+  input {
+    width: 100%;
+    height: 25px;
+    padding: 1rem;
+
+    margin-bottom: 40px;
+
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.502);
+
+    background: none;
+
+    outline: none;
+
+    &:focus {
+      border-bottom: 1px solid white;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.form-article {
+  width: 50%;
+  height: auto;
+  padding-left: 1rem;
+  color: #F1F1E7;
+
+  position: relative;
+  top: -100px;
+
+  h2 {
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+}
+.form-inside-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.form-inside-container-left {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 50px 1.1rem 50px 1.1rem;
+
+  h1 {
+    margin-bottom: 70px;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #f1f1e7;
+  }
+}

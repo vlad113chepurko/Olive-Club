@@ -1,5 +1,5 @@
-import "./styles/FormHeader.scss";
-import "../../components//Header/Header.scss";
+import "../styles/FormHeader.scss";
+import "../../../components/Header/Header.scss";
 import { useTranslation } from "react-i18next";
 import { useNavigate} from "react-router-dom";
 import {motion} from "motion/react";
@@ -18,7 +18,7 @@ function FormHeader() {
     return (
         <div className="form-header">
             <div onClick={() => navigate('/')} className="header-logo">
-                <img className="form-header-logo" src='/logo-white.svg' alt="logo" width={214} height={40}/>
+                <img className="form-header-logo" src='/assets/logo-white.svg' alt="logo" width={214} height={40}/>
             </div>
             <div className="menu-wrapper">
                 <button onClick={() => setIsMenu(prev => !prev)} className="menu-toggle">{t("lng")}</button>

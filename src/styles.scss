@@ -1,0 +1,41 @@
+@use "./pages/Home/styles/Home";
+@use "./pages/Form/styles/Form";
+@use "./pages/Success/styles/Success";
+@use "./pages/Survey/styles/Survey";
+
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  font-family: "Manrope", "sans-serif";
+}
+
+input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import components from "../../components/index";
+import components from "../../../components/index";
 
 export default function Verify() {
     const { t } = useTranslation();

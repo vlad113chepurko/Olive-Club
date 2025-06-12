@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import useAxios  from "../../hooks/userAxios";
+import useAxios  from "../../../hooks/userAxios";
 
-import useFormStore from "../../store/FormStore";
-import './styles/Form.scss';
-import components from "../../components/index";
+import useFormStore from "../../../store/FormStore";
+import '../styles/_Form.scss';
+import components from "../../../components/index";
 
 export default function Register() {
     const { t } = useTranslation();

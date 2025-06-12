@@ -12,7 +12,7 @@ export default function Header() {
     const currentLocation = location.pathname;
     const [isMenu, setIsMenu] = useState(false);
 
-    const logo = currentLocation === '/' ? '/logo.svg' : '/logo-white.svg';
+    const logo = currentLocation === '/' ? '/assets/logo.svg' : '/assets/logo-white.svg';
 
     // Сделатть потом хук
     useEffect(() => {

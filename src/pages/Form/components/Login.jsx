@@ -1,14 +1,14 @@
-import "./styles/Form.scss";
+import "../styles/_Form.scss";
 
 // components & store
-import components from "../../components/index";
-import useFormStore from "../../store/FormStore";
+import components from "../../../components/index";
+import useFormStore from "../../../store/FormStore";
 
 // hooks
 import {useState} from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import useAxios from "../../hooks/userAxios";
+import useAxios from "../../../hooks/userAxios";
 
 export default function Login() {
     const { t } = useTranslation();

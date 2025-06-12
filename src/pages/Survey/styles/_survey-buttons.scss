@@ -1,0 +1,44 @@
+@use "../../../mixins/flex-mixin";
+
+.survey-config {
+  width: 100%;
+  height: auto;
+
+  @include flex-mixin.flex-center;
+  flex-direction: row;
+
+  gap: 3rem;
+}
+
+.next-end-button {
+  width: 150px;
+  height: 60px;
+  border-radius: 10px;
+  background-color:  #8B833E;
+  color: #f1f1e7;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow:  0 1px 3px rgba(0,0,0,0.25);
+
+
+  &:hover {
+    background-color: #746f38;
+    cursor: pointer;
+  }
+}
+
+.prev-skip-button {
+  background: none;
+  border:  none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #F1F1E7;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+}

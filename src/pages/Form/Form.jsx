@@ -1,5 +1,5 @@
-import FormHeader from './FormHeader.jsx';
-import "./FormHeader.scss";
+import FormHeader from './components/FormHeader';
+import "./styles/FormHeader.scss";
 import { Outlet } from "react-router-dom";
 
 

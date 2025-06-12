@@ -1,4 +1,4 @@
-import './Home.scss';
+import './styles/_Home.scss';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from "../../components/Header/Header.jsx";

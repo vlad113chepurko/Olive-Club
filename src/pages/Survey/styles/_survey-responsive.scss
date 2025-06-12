@@ -1,11 +1,4 @@
 @use "../../../mixins/flex-mixin";
-@use "./survey-buttons";
-@use "./survey_responsive";
-@use "./survey-header";
-@use "./survey-questiion-block";
-@use "./survey-radio";
-@use "./survey-wrapper";
-
 
 @media (max-width: 1200px) {
 

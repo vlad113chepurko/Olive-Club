@@ -1,0 +1,36 @@
+@use "../../../mixins/flex-mixin";
+@use "../../../mixins/background-mixin";
+
+.survey-wrapper {
+  @include flex-mixin.flex-center;
+  flex-direction:  column;
+
+  min-height: 100vh;
+  width: 100%;
+}
+
+.survey {
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+
+  @include flex-mixin.flex-center;
+  flex-direction: column;
+}
+
+.survey-bg {
+  @include background-mixin.background-img('/assets/success-bg.webp');
+}
+
+.survey-block {
+  width: 1300px;
+  height: auto;
+  padding-bottom: 1rem;
+
+  background: rgba(55, 53, 53, 0.6);
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 50px;
+}

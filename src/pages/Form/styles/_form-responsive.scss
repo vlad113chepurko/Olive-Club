@@ -1,0 +1,84 @@
+@use "../../../mixins/flex-mixin.scss";
+
+@media (max-width: 1000px) {
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    height: 100vh;
+
+    padding: 0 0.9rem 50px 0.9rem;
+  }
+
+  .form-login {
+    height: auto;
+  }
+
+  .form-bg {
+    background-image: url("/assets/form-back.svg");
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .form-container {
+    background: none;
+    width: 100%;
+    padding: 0;
+    height: auto;
+
+    @include flex-mixin.flex-center;
+    flex-direction: column;
+
+    margin-top: 0;
+  }
+
+  .form-article {
+    display: none;
+  }
+
+  .form-button {
+    font-size: 1rem;
+    font-weight: 400;
+
+  }
+
+  .form-inside-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+  }
+
+  .form-inside-container-left {
+    padding: 50px 6px 50px 6px;
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+  @media (max-width: 400px) {
+    .form-wrapper {
+      height: auto;
+    }
+
+    .form-login {
+      width: 100%;
+      font-size: 0.8rem;
+
+      backdrop-filter: blur(10px);
+
+      @include flex-mixin.flex-center;
+      flex-direction: column;
+
+      padding: 0;
+
+      input {
+        padding: 0.5rem;
+        height: auto;
+      }
+    }
+  }
