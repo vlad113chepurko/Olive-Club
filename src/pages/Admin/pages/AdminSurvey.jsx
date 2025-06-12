@@ -1,4 +1,4 @@
-import "./AdminSurvey.scss";
+import "./_AdminSurvey.scss";
 import "../Admin.scss"
 import {useEffect, useState} from "react";
 import axios from "axios";

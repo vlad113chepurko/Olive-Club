@@ -54,7 +54,6 @@
   height: auto;
   position: relative;
   top: 20%;
-  border: 1px solid red;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -198,15 +197,13 @@
   background-color: #3F4222;
   font-weight: 700;
   font-size: 1rem;
-  color: white;
   border-radius: 2px;
-  border: none;
+  color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .form-button:hover {
   background-color: #4f532c;
   color: white;
-  cursor: pointer;
 }
 
 .form-button:disabled {
@@ -222,13 +219,11 @@
   font-weight: 400;
   font-size: 1rem;
   color: white;
-  background: none;
-  border: none;
 }
+
 .form-sign-up-button:hover {
   text-decoration: underline;
   text-underline-offset: 0.5rem;
-  cursor: pointer;
 }
 
 .form-container {
@@ -789,6 +784,10 @@ button {
   border: none;
   outline: none;
   background: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 input[type=search]::-webkit-search-decoration,

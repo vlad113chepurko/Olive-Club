@@ -35,8 +35,6 @@
       position: relative;
       top: 20%;
 
-      border: 1px solid red;
-
       @include flex-mixin.flex-start-start;
       flex-direction: column;
 
