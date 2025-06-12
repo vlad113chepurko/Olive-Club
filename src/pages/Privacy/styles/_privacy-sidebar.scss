@@ -1,0 +1,42 @@
+@use "../../../mixins/flex-mixin";
+
+.privacy-side-bar {
+  position: fixed;
+  right: 2%;
+  top: 50%;
+
+  @include flex-mixin.flex-center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.bar-top,
+.bar-bottom {
+  @include flex-mixin.flex-center;
+  flex-direction: column;
+  height: auto;
+
+  img {
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.p-unhidden {
+ color: #F5E9DA;
+}
+
+.p-hidden {
+  color: #9F9674;
+}
+
+.p-hidden,
+.p-unhidden {
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.2px;
+}

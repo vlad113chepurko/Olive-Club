@@ -2,6 +2,7 @@ import paths from "./pages";
 import { Routes, Route, Navigate } from "react-router-dom";
 import useUserStore from "./store/UserStore.jsx";
 import { useEffect, useState } from "react";
+import Privacy from "./pages/Privacy/Privacy";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -49,6 +50,7 @@ function App() {
           <Route path="registration" element={<paths.Register />} />
           <Route path="verify" element={<paths.Verify />} />
         </Route>
+        <Route path="/privacy" element={<paths.Privacy />} />
       </Routes>
     </div>
   );

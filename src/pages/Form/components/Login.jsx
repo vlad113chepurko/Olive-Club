@@ -25,8 +25,7 @@ export default function Login() {
     return (
         <form className="form-login" onSubmit={(e) => handleSubmitLogin(e, form)}>
             <article className="form-article">
-                <h2>{t("formTitle")}</h2>
-                <p>{t("formUnderTitle")}</p>
+                <h2>{t("loginTitle")}</h2>
             </article>
             <div className="form-inside-container">
                 <section className="form-inside-container-left">

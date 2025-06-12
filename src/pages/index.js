@@ -5,6 +5,7 @@ import Login from "./Form/components/Login";
 import Verify from "./Form/components/Verify";
 import Survey from "./Survey/Survey";
 import Success from "./Success/Success";
+import Privacy from "./Privacy/Privacy";
 
 
 import Admin from "./Admin/Admin.jsx";
@@ -21,6 +22,7 @@ const paths = {
   Success,
   Admin,
   AdminSurvey,
+  Privacy,
 };
 
 export default paths;

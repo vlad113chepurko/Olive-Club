@@ -3,11 +3,10 @@
 
 .form-wrapper {
   height: auto;
+  width: 100%;
   padding: 1rem;
   @include flex-mixin.flex-center;
   flex-direction:  column;
-
-  margin: 0 auto;
 }
 
 .form-bg {
