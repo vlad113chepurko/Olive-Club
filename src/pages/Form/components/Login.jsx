@@ -7,14 +7,14 @@ import useFormStore from "../../../store/FormStore";
 import {useState} from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import useAxios from "../../../hooks/userAxios";
+import useAxios from "../../../hooks/useAxios";
 
 export default function Login() {
     const { t } = useTranslation();
 
     const navigate = useNavigate();
     const { form, setForm } =  useFormStore();
-    const [loading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const { handleSubmitLogin } = useAxios();
 
     const handleChange = (e) => {
@@ -23,7 +23,8 @@ export default function Login() {
     };
 
     return (
-        <form className="form-login" onSubmit={(e) => handleSubmitLogin(e, form)}>
+        <form className="form-login"
+              onSubmit={(e) => handleSubmitLogin(e, form, setLoading)}>
             <article className="form-article">
                 <h2>{t("loginTitle")}</h2>
             </article>

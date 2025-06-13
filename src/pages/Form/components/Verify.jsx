@@ -1,18 +1,36 @@
+import useSendTimer from "../../../hooks/useSendTimer";
+import useAxios from "../../../hooks/useAxios";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import components from "../../../components/index";
+
 
 export default function Verify() {
     const { t } = useTranslation();
     const [code, setCode] = useState('');
     const [email, setEmail] = useState('');
+    const [timer, setTimer] = useState(0);
     const navigate = useNavigate();
     const [resendDisabled, setResendDisabled] = useState(false);
 
-    const [timer, setTimer] = useState(0);
+    useEffect(() => {
+        if (!email) return;
+
+        axios.get("http://localhost:3000/api/getVerifyUser", {
+            params: { email }
+        })
+          .then(res => {
+              if (res.data.isVerified) {
+                  navigate("/form/login");
+              }
+          })
+          .catch(err => {
+              console.log("Ошибка проверки верификации:", err);
+          });
+    }, [email]);
 
     useEffect(() => {
         const savedEmail = localStorage.getItem('email');
@@ -20,59 +38,15 @@ export default function Verify() {
         localStorage.removeItem('email');
     }, []);
 
-    useEffect(() => {
-        let interval;
-        if (resendDisabled) {
-            setTimer(30);
-            interval = setInterval(() => {
-                setTimer((prev) => {
-                    if (prev <= 1) {
-                        clearInterval(interval);
-                        setResendDisabled(false);
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-        }
-
-        return () => clearInterval(interval);
-    }, [resendDisabled]);
-
-    const handleResendCode = async () => {
-
-        setResendDisabled(true);
-
-        try {
-            await axios.post('http://localhost:3000/api/resendCode', { email });
-            setResendMessage(t("verifyResendMessage"));
-        } catch (error) {
-            console.error('Ошибка отправки кода:', error);
-            setResendMessage(error.response?.data?.message || 'Ошибка при отправке кода');
-            setResendDisabled(false);
-        }
-    };
-
-    const handleVerify = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await axios.post('http://localhost:3000/api/form/verify', {
-                email,
-                code
-            });
-
-            setMessage(response.data.message);
-            navigate('/form/login')
-        } catch (error) {
-            console.error('Ошибка подтверждения:', error);
-            setMessage(error.response?.data?.message || 'Ошибка при подтверждении');
-            setResendDisabled(false);
-        }
-    };
+    useSendTimer(setTimer, resendDisabled, setResendDisabled);
+    const {
+        handleResendCode,
+        handleVerifyCode,
+    } = useAxios();
 
     return (
-        <form className="form-login"  onSubmit={handleVerify}>
+        <form className="form-login"
+              onSubmit={(e) => handleVerifyCode(e, email, code, setResendDisabled)}>
             <article className="form-article">
                 <h2>{t("formTitle")}</h2>
                 <p>{t("formUnderTitle")}</p>
@@ -99,7 +73,7 @@ export default function Verify() {
                     </section>
                     <section className="form-section-buttons">
                         <components.Button
-                          onClick={handleResendCode}
+                          onClick={() => handleResendCode(email, setResendDisabled)}
                           disabled={resendDisabled}
                           className={"form-button"}>{resendDisabled ? `${t("resendCode")} (${timer})` : t("resendCode")}</components.Button>
                         <components.Button

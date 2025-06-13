@@ -121,6 +121,23 @@ const verify = async (req, res) => {
     }
 }
 
+const getVerifyUser = async (req, res) => {
+    try {
+        const { email } = req.query;
+
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        return res.status(200).json({ isVerified: user.isVerified });
+    } catch (error) {
+        console.error('Error verified:', error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
 const resendCode = async (req, res) => {
     try {
         let { email } = req.body;
@@ -151,5 +168,6 @@ module.exports = {
     login,
     verify,
     resendCode,
-    register
+    register,
+    getVerifyUser,
 };
