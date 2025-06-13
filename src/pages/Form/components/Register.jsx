@@ -1,14 +1,17 @@
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
+import {useState} from "react";
 import useAxios  from "../../../hooks/userAxios";
 
 import useFormStore from "../../../store/FormStore";
 import components from "../../../components/index";
 
+
 export default function Register() {
     const { t } = useTranslation();
     const { handleSubmitRegistration } = useAxios();
     const { form, setForm } =  useFormStore();
+    const [isPrivacy, setIsPrivacy] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -17,7 +20,7 @@ export default function Register() {
     }
 
     return (
-        <form className="form-login"  onSubmit={(e) => handleSubmitRegistration(e, form)}>
+        <form className="form-login"  onSubmit={(e) => handleSubmitRegistration(e, form, isPrivacy)}>
             <article className="form-article">
                 <h2>{t("formTitle")}</h2>
                 <p>{t("formUnderTitle")}</p>
@@ -26,38 +29,38 @@ export default function Register() {
                 <section className="form-inside-container-left">
                     <h1>{t('registration')}</h1>
 
-                    <components.Input
-                      name="name"
-                      holder={t("userFirstName")}
-                      value={form.name} func={handleChange} complete="username" required />
+                    <section className="form-inputs-container">
+                        <components.Input
+                          className={"form-input"}
+                          name="name"
+                          holder={t("userFirstName")}
+                          value={form.name} func={handleChange} complete="username" required />
 
-                    <components.Input
-                      name="lastName"
-                      holder={t("userLastName")}
-                      value={form.lastName} func={handleChange} complete="family-name" required />
+                        <components.Input
+                          name="lastName"
+                          holder={t("userLastName")}
+                          value={form.lastName} func={handleChange} complete="family-name" required />
 
-                    <components.Input
-                      type="email"
-                      name="email"
-                      holder={t("userMail")}
-                      value={form.email} func={handleChange} complete="email" required />
+                        <components.Input
+                          type="email"
+                          name="email"
+                          holder={t("userMail")}
+                          value={form.email} func={handleChange} complete="email" required />
 
-                    <components.Input
-                      name="phone"
-                      holder={t("userPhone")}
-                      value={form.phone} func={handleChange} complete="tel" required />
+                        <components.PhoneNumberSelect form={form} handleChange={handleChange} />
 
-                    <components.Input
-                      type="password"
-                      name="password"
-                      holder={t("userPassword")}
-                      value={form.password} func={handleChange} complete="new-password" required />
+                        <components.Input
+                          type="password"
+                          name="password"
+                          holder={t("userPassword")}
+                          value={form.password} func={handleChange} complete="new-password" required />
 
-                    <components.Input
-                      type="password"
-                      name="repeatPassword"
-                      holder={t("userRepPassword")}
-                      value={form.repeatPassword} func={handleChange} complete="new-password" required />
+                        <components.Input
+                          type="password"
+                          name="repeatPassword"
+                          holder={t("userRepPassword")}
+                          value={form.repeatPassword} func={handleChange} complete="new-password" required />
+                    </section>
 
                     <section className="form-section-buttons">
                         <components.Button
@@ -69,6 +72,12 @@ export default function Register() {
                           onClick={()  => navigate("/form/login")}>
                             {t("userHasAnAccount")}
                         </components.Button>
+                        <section className="form-section-checkbox">
+                            <components.Checkbox
+                              onClick={() => setIsPrivacy(!isPrivacy)}
+                            />
+                            <Link to={"/privacy"}>Privacy Police</Link>
+                        </section>
                     </section>
                 </section>
             </div>

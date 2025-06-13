@@ -82,21 +82,23 @@ export default function Verify() {
             <div className="form-inside-container">
                 <section className="form-inside-container-left">
                     <h1>{t("verify")}</h1>
-                    <components.Input
-                    type={"email"}
-                    holder={t("userMail")}
-                    value={email}
-                    func={(e) => setEmail(e.target.value)}
-                    autoComplete={"email"}
-                    required
-                    />
-                    <components.Input
-                      holder={t("code")}
-                      value={code}
-                      func={(e) => setCode(e.target.value)}
-                      autoComplete={"email"}
-                      required
-                    />
+                    <section className="form-inputs-container">
+                        <components.Input
+                          type={"email"}
+                          holder={t("userMail")}
+                          value={email}
+                          func={(e) => setEmail(e.target.value)}
+                          autoComplete={"email"}
+                          required
+                        />
+                        <components.Input
+                          holder={t("code")}
+                          value={code}
+                          func={(e) => setCode(e.target.value)}
+                          autoComplete={"email"}
+                          required
+                        />
+                    </section>
                     <section className="form-section-buttons">
                         <components.Button
                           onClick={handleResendCode}

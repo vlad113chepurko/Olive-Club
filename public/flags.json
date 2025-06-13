@@ -1,0 +1,8 @@
+{
+  "flags": [
+    { "code": "ua", "name": "Ukraine", "flag": "🇺🇦", "prefix": "+380" },
+    { "code": "us", "name": "USA", "flag": "🇺🇸", "prefix": "+1" },
+    { "code": "de", "name": "Germany", "flag": "🇩🇪", "prefix": "+49" },
+    { "code": "pl", "name": "Poland", "flag": "🇵🇱", "prefix": "+48" }
+  ]
+}

@@ -30,6 +30,7 @@ export default function Login() {
             <div className="form-inside-container">
                 <section className="form-inside-container-left">
                     <h1>{t("login")}</h1>
+                    <section className="form-inputs-container">
                         <components.Input
                           name="email"
                           holder={t("userMail")}
@@ -37,6 +38,7 @@ export default function Login() {
                           func={handleChange}
                           autoCompelete="email"
                         />
+
                         <components.Input
                           type="password"
                           name="password"
@@ -45,6 +47,7 @@ export default function Login() {
                           func={handleChange}
                           autoCompelete="current-password"
                         />
+                    </section>
                         <section className="form-section-buttons">
                             <components.Button className={"form-button"} type="submit" disabled={loading}>
                                 {loading ? t("loading") : t("login")}
