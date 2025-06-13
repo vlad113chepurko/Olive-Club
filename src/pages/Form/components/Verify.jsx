@@ -9,8 +9,6 @@ export default function Verify() {
     const { t } = useTranslation();
     const [code, setCode] = useState('');
     const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [resendMessage, setResendMessage] = useState('');
     const navigate = useNavigate();
     const [resendDisabled, setResendDisabled] = useState(false);
 
@@ -108,8 +106,6 @@ export default function Verify() {
                           type={"submit"}
                           className={"form-button"}>{t("confirm")}</components.Button>
                     </section>
-                    {message && <p>{message}</p>}
-                    {resendMessage && <p>{resendMessage}</p>}
                 </section>
             </div>
         </form>
