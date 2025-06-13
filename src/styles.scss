@@ -24,8 +24,18 @@ body {
   @include bg-image-settings.bg-settings;
   background-attachment: fixed;
 
+  touch-action: none;
+  -webkit-overflow-scrolling: auto;
+
   background-color: #4f532c;
 }
+
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+
 
 
 // Turn off styles

@@ -9,8 +9,23 @@ function useAxios() {
   const navigate = useNavigate();
   const setUser = useUserStore((state) => state.setUser);
 
-  const handleSubmitRegistration = async (e, form, isPrivacy) => {
+  const handleSubmitRegistration = async (e, form, isPrivacy, selected) => {
     e.preventDefault();
+
+    const normalizePhone = (phone, prefix) => {
+      if (phone.startsWith(prefix)) return phone;
+      if (phone.startsWith('+')) return phone;
+      return `${prefix}${phone}`;
+    };
+
+    const fullPhone = normalizePhone(form.phone, selected.prefix);
+    console.log(fullPhone);
+
+    const formToSend = {
+      ...form,
+      phone: fullPhone,
+    };
+
     const errors = utils.validator(form);
 
     if (!isPrivacy) return alert("Подтверди политику!");
@@ -21,7 +36,7 @@ function useAxios() {
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/api/form/registration', form);
+      const res = await axios.post('http://localhost:3000/api/form/registration', formToSend);
       const userData = res.data.user;
 
       localStorage.setItem('email', form.email);

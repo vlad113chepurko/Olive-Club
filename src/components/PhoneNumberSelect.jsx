@@ -3,7 +3,6 @@ import useMatchPhone from "../hooks/useMatchPhone";
 import useCountries from "../store/CountriesStore";
 import components from "./index";
 import "../pages/Form/styles/_Form.scss";
-import { useEffect } from "react";
 
 
 
@@ -25,13 +24,8 @@ function PhoneNumberSelect({ form, setForm }) {
   const handleChangeCountry = (e) => {
     const selectedCountry = countries.find(c => c.code === e.target.value);
     setSelected(selectedCountry);
-    handleChange({
-      target: {
-        name: "phone",
-        value: selectedCountry.prefix
-      }
-    });
   };
+
 
   return (
     <div className="phone-number-select">
