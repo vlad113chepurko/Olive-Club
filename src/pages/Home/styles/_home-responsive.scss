@@ -20,12 +20,12 @@
       }
 
       .block-1__description {
+
         width: 100%;
 
         p {
-          font-size: clamp(0.8rem, 1vw, 1rem);
+          font-size: clamp(0.7rem, 1vw, 1rem);
           text-align: left;
-          width: 100%;
         }
 
         .block-1__text {
@@ -51,12 +51,6 @@
   .blocks {
     .block-1 {
       width: 100%;
-      .block-1__description {
-        p {
-          width: 100%;
-        }
-        width: 100%;
-      }
     }
 
     .block-2 {

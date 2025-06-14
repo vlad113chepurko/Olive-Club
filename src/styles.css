@@ -26,7 +26,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  font-family: "Manrope";
 }
 .blocks .block-1 {
   background: rgba(255, 255, 255, 0.4);
@@ -127,9 +126,8 @@
     width: 100%;
   }
   .blocks .block-1 .block-1__description p {
-    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 1vw, 1rem);
     text-align: left;
-    width: 100%;
   }
   .blocks .block-1 .block-1__description .block-1__text {
     width: 100%;
@@ -146,12 +144,6 @@
 }
 @media (max-width: 400px) {
   .blocks .block-1 {
-    width: 100%;
-  }
-  .blocks .block-1 .block-1__description {
-    width: 100%;
-  }
-  .blocks .block-1 .block-1__description p {
     width: 100%;
   }
   .blocks .block-2 .block-2__title {
@@ -936,7 +928,6 @@ body {
 
 html, body {
   height: 100%;
-  overscroll-behavior: none;
 }
 
 input,
