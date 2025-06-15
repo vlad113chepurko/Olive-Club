@@ -1,0 +1,29 @@
+@use "../../../mixins/flex-mixin";
+
+@media (max-width: 1024px) {
+  .privacy-container {
+    width: 100%;
+    height: auto;
+
+    border-radius: 20px;
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 1.1rem;
+    }
+  }
+
+  .privacy-side-bar {
+    display: none;
+  }
+
+  .list-container {
+    ul li {
+      font-size: 0.7rem;
+    }
+  }
+}

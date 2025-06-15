@@ -1,3 +1,5 @@
+@use "../../../mixins/flex-mixin";
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -37,9 +39,14 @@
     border: 1px solid black;
     text-align: center;
     padding: 0.5rem;
+    width: auto;
   }
 
   td:nth-child(1) {
     background-color: #00c7ff;
+  }
+
+  td:last-child {
+    width: 150px;
   }
 }

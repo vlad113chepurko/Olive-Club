@@ -1,0 +1,39 @@
+@use "../../../mixins/flex-mixin";
+
+.admin-download-btn {
+  width: auto;
+  height: 50px;
+
+  background-color: #0b7eb4;
+  padding: 1rem;
+
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+
+  @include flex-mixin.flex-center;
+
+  &:hover {
+    background-color: #075f89;
+  }
+}
+
+.admin-remove-btn {
+  width: auto;
+  height: 30px;
+
+  background-color: #ff0000;
+  padding: 1rem;
+
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+
+  @include flex-mixin.flex-center;
+
+  &:hover {
+    background-color: #c26666;
+  }
+}

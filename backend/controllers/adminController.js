@@ -1,4 +1,5 @@
 const { User } = require("../schemes/UserSchema.js");
+const PDFDocument = require("pdfkit");
 
 const adminGetUsers = async (req, res) => {
     try {
@@ -42,7 +43,33 @@ const adminRemoveUser = async (req, res) => {
     }
 };
 
+const adminDownload = async (req, res) => {
+    try {
+        const users = await User.find({}, 'name lastName email phone');
+        const doc = new PDFDocument();
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename=users.pdf');
+
+        doc.pipe(res);
+
+
+        doc.fontSize(13).text('List of users', { align: 'center' });
+        doc.moveDown();
+
+        users.forEach((user, i) => {
+            doc.fontSize(12).text(`${i + 1}. ${user.name} — ${user.lastName} — ${user.email} - ${user.phone}`);
+        });
+
+        console.debug("User data: ", users);
+        doc.end();
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Ошибка при генерации PDF' });
+    }
+}
+
 module.exports = {
     adminGetUsers,
     adminRemoveUser,
+    adminDownload,
 }

@@ -13,6 +13,9 @@ const useAdminUserDataStore = create((set) => ({
   })),
   setUserSearch: (newSearch) => set(() => ({
     userSearch: newSearch,
+  })),
+  removeUser: (email) => set((state) => ({
+    userData: state.userData.filter((user) => user.email !== email)
   }))
 }));
 
