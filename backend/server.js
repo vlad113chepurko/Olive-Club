@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
 
 dotenv.config();
 
@@ -15,17 +14,6 @@ const PORT = 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-(async () => {
-    try {
-        const hash = await bcrypt.hash('SW|hG#W)xo>A4SV}R', 10);
-        console.log(hash);
-    } catch (err) {
-        console.error('Hash error:', err);
-    }
-})();
-
-console.log("MONGO_URI из .env:", process.env.DB_CONNECTION);
 
 mongoose.connect(process.env.DB_CONNECTION)
     .then(() => console.log('MongoDB connected'))

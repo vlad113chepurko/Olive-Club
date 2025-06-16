@@ -144,7 +144,7 @@ function Privacy() {
           <section className="list-container">
             <ul>
               <p>Family Olive Club</p>
-              <p>Legal address: [address required]</p>
+              <p>Legal address: Tbilisi Vakhtang Bochorishvili St. 37b apart. 18</p>
               <p>Email: <a href={"#"}>info@familyoliveclub.com</a></p>
               <p>Website: <a href="https://www.familyoliveclub.com">https://www.familyoliveclub.com</a></p>
             </ul>

@@ -23,19 +23,18 @@
 
         width: 100%;
 
-        p {
-          font-size: clamp(0.7rem, 1vw, 1rem);
-          text-align: left;
+        .block_para {
+          font-size: clamp(0.7rem, 1vw, 0.7rem);
         }
 
         .block-1__text {
-          width: 100%;
+          width: auto;
           img {
             width: 15px;
             height: 15px;
           }
-          a {
-            font-size: 0.7rem;
+          .link {
+            font-size: 0.8rem;
             text-shadow: none;
             position: relative;
           }
