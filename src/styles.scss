@@ -29,7 +29,6 @@
   height: auto;
 }
 
-
 body {
   background-image: url("/assets/dark-bg.webp");
   font-family: "Manrope", "sans-serif";
@@ -37,8 +36,17 @@ body {
   background-attachment: fixed;
 
   background-color: #4f532c;
+
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
 
 html, body {
   overflow-x: hidden;
