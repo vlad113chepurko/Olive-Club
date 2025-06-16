@@ -18,7 +18,6 @@ export default function Verify() {
 
     useEffect(() => {
         if (!email) return;
-
         axios.get("http://localhost:3000/api/getVerifyUser", {
             params: { email }
         })

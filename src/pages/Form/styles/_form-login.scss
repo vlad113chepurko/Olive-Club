@@ -53,10 +53,8 @@
 .form-inside-container {
   width: 50%;
   height: 100%;
-  display: flex;
+  @include flex-mixin.flex-center;
   flex-direction: row;
-  align-items: center;
-
   background-color: rgba(0, 0, 0, 0.7);
 
 }
@@ -65,14 +63,15 @@
   width: 100%;
   height: auto;
   min-height: 100%;
-  display: flex;
+  @include flex-mixin.flex-start-start;
   flex-direction: column;
-  align-items: flex-start;
+
+
 
   padding: 50px 1.1rem 50px 1.1rem;
 
   h1 {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     font-weight: 800;
     font-size: 2rem;
     color: #f1f1e7;

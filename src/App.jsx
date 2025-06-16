@@ -1,15 +1,16 @@
 import paths from "./pages";
 import { Routes, Route, Navigate } from "react-router-dom";
 import useUserStore from "./store/UserStore.jsx";
-import useLoading from './hooks/useLoading';
+import useLoadingTimer from './hooks/useLoadingTimer';
 import useLoadingStore from './store/LoadingStore';
 
 function App() {
   const user = useUserStore(state => state.user);
-  const { loading, setLoading } = useLoadingStore();
-  useLoading( loading, setLoading );
+  const { loading, loadingTimer, setLoadingTimer } = useLoadingStore();
+  useLoadingTimer( loadingTimer, setLoadingTimer );
 
-  if (loading) {
+
+  if (loading || loadingTimer) {
     return (
       <div className="loader-wrapper">
         <div className="spinner"></div>

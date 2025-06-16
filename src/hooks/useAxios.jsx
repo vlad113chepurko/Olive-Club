@@ -2,15 +2,18 @@ import utils from "../utils/utils";
 import axios from "axios";
 import useUserStore from "../store/UserStore";
 import useFormStore from "../store/FormStore";
+import useLoadingStore from "../store/LoadingStore";
 import { useNavigate } from "react-router-dom";
 
 function useAxios() {
   const { removeValues } = useFormStore();
+  const { loading, setLoading } = useLoadingStore();
   const navigate = useNavigate();
   const setUser = useUserStore((state) => state.setUser);
 
   const handleSubmitRegistration = async (e, form, isPrivacy, selected) => {
     e.preventDefault();
+    setLoading(true);
 
     const normalizePhone = (phone, prefix) => {
       if (phone) {
@@ -57,6 +60,8 @@ function useAxios() {
       navigate('/form/verify');
     } catch (err) {
       alert(err.response?.data?.message || 'Ошибка регистрации');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -101,6 +106,7 @@ function useAxios() {
 
   const handleVerifyCode = async (e, email, code, setResendDisabled) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await axios.post('http://localhost:3000/api/form/verify', {
@@ -109,6 +115,7 @@ function useAxios() {
       });
 
       if (response.status === 200) {
+        setLoading(false);
         navigate('/form/login');
       } else {
         setResendDisabled(false);

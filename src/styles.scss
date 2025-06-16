@@ -63,6 +63,11 @@ button {
   font-size: 1rem;
 }
 
+select {
+  -webkit-appearance: listbox;
+  -moz-appearance: listbox;
+}
+
 button:hover {
   cursor: pointer;
 }
