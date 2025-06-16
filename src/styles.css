@@ -379,10 +379,11 @@
 @media (max-width: 1000px) {
   .form-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    overflow: hidden;
     height: auto;
-    padding: 0 0.9rem 50px 0.9rem;
+    padding: 0.9rem 30px 0.9rem 30px;
   }
   .form-login {
     height: auto;
@@ -955,6 +956,17 @@ button.secondary:hover {
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  width: 100%;
+  height: auto;
+}
+
 body {
   background-image: url("/assets/dark-bg.webp");
   font-family: "Manrope", "sans-serif";
@@ -962,12 +974,11 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  touch-action: none;
-  -webkit-overflow-scrolling: auto;
   background-color: #4f532c;
 }
 
 html, body {
+  overflow-x: hidden;
   height: 100%;
 }
 

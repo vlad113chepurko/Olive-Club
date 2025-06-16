@@ -3,13 +3,10 @@
 @media (max-width: 1000px) {
 
   .form-wrapper {
-    display: flex;
+    @include flex-mixin.flex-center;
     flex-direction: column;
-
-    overflow: hidden;
     height: auto;
-
-    padding: 0 0.9rem 50px 0.9rem;
+    padding: 0.9rem 30px 0.9rem 30px;
   }
 
   .form-login {

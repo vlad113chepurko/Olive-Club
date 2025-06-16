@@ -18,19 +18,30 @@
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  width: 100%;
+  height: auto;
+}
+
+
 body {
   background-image: url("/assets/dark-bg.webp");
   font-family: "Manrope", "sans-serif";
   @include bg-image-settings.bg-settings;
   background-attachment: fixed;
 
-  touch-action: none;
-  -webkit-overflow-scrolling: auto;
-
   background-color: #4f532c;
 }
 
+
 html, body {
+  overflow-x: hidden;
   height: 100%;
 }
 

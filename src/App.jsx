@@ -2,7 +2,6 @@ import paths from "./pages";
 import { Routes, Route, Navigate } from "react-router-dom";
 import useUserStore from "./store/UserStore.jsx";
 import { useEffect, useState } from "react";
-import Privacy from "./pages/Privacy/Privacy";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,7 +24,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="main-wrapper">
       <Routes>
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/" element={<paths.Home />} />
