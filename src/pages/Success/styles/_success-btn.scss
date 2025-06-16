@@ -1,0 +1,16 @@
+.success-btn {
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #8B833E;
+
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+  color: #F1F1E7;
+
+  font-weight: 500;
+
+  &:hover {
+    background-color: #4f532c;;
+    cursor: pointer;
+  }
+}

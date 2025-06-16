@@ -13,9 +13,13 @@ function useAxios() {
     e.preventDefault();
 
     const normalizePhone = (phone, prefix) => {
-      if (phone.startsWith(prefix)) return phone;
-      if (phone.startsWith('+')) return phone;
-      return `${prefix}${phone}`;
+      if (phone) {
+        if (phone.startsWith(prefix)) return phone;
+        if (phone.startsWith('+')) return phone;
+        return `${prefix}${phone}`;
+      } else {
+        console.error("Invalid phone number");
+      }
     };
 
     const fullPhone = normalizePhone(form.phone, selected.prefix);
@@ -28,7 +32,7 @@ function useAxios() {
 
     const errors = utils.validator(form);
 
-    if (!isPrivacy) return alert("Подтверди политику!");
+    if (!isPrivacy) return alert("Confirm the police!");
 
     if (Object.keys(errors).length > 0) {
       console.debug("Ошибки:", errors);

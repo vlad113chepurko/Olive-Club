@@ -9,6 +9,19 @@
   flex-direction: column;
 }
 
+.home-bg {
+  background-image: url("/assets/dark-bg.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+
 .home {
   display: flex;
   justify-content: center;
@@ -59,17 +72,18 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.blocks .block-1 .block-1__description p {
+.blocks .block-1 .block-1__description .block_para {
   font-weight: 300;
   font-size: 1.3rem;
   letter-spacing: 0.8px;
   margin-bottom: 72px;
 }
-.blocks .block-1 .block-1__description a {
+.blocks .block-1 .block-1__description .link {
   font-size: 1.2rem;
   text-decoration: underline;
   text-underline-offset: 7px;
   text-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+  margin-right: 1rem;
 }
 .blocks .block-1 .block-1__description a, .blocks .block-1 .block-1__description p {
   color: #F1F1E7;
@@ -79,10 +93,14 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  width: auto;
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 1rem;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
 }
-.blocks .block-1 .block-1__description .block-1__text a {
-  margin-right: 1rem;
+.blocks .block-1 .block-1__description .block-1__text:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .blocks .block-2 .block-2__title {
   color: white;
@@ -195,7 +213,7 @@
 }
 
 .form-section-buttons {
-  width: 280px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   gap: 1rem;
@@ -282,30 +300,31 @@
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  gap: 5rem;
 }
 .form-section-checkbox a {
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
 .form-section-checkbox input[type=checkbox] {
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: #3F4222;
+  background: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 1rem;
 }
 .form-section-checkbox input[type=checkbox]:checked::after {
   content: "✔";
-  font-size: 24px;
+  font-size: 1rem;
   color: white;
 }
 
@@ -439,6 +458,20 @@
     padding: 0.5rem;
   }
 }
+.success-btn {
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #8B833E;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+  color: #F1F1E7;
+  font-weight: 500;
+}
+.success-btn:hover {
+  background-color: #4f532c;
+  cursor: pointer;
+}
+
 .success-wrapper {
   display: flex;
   justify-content: center;
@@ -457,9 +490,10 @@
   height: 100%;
   background-image: url(/assets/success-bg.webp);
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
 }
 
 .success-logo {
@@ -470,7 +504,6 @@
 .success {
   width: 100%;
   height: 100dvh;
-  padding: 100px;
   background: rgba(55, 53, 53, 0.6);
   display: flex;
   justify-content: center;
@@ -498,21 +531,6 @@
   text-align: center;
 }
 
-.success-btn {
-  width: 250px;
-  height: 60px;
-  border-radius: 5px;
-  background-color: #8B833E;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-  color: #F1F1E7;
-  font-weight: 500;
-  font-size: 1.2rem;
-}
-.success-btn:hover {
-  background-color: #4f532c;
-  cursor: pointer;
-}
-
 @media screen and (max-width: 930px) {
   .success-wrapper {
     padding: 60px 9px 60px 9px;
@@ -529,45 +547,15 @@
     font-size: 1.1rem;
     width: 100%;
   }
-  .success-h1 {
-    color: #F1F1E7;
-    font-weight: 800;
-    font-size: 3rem;
-    margin-bottom: 1.2rem;
-    text-align: center;
-  }
 }
 @media screen and (max-width: 420px) {
   .success p {
     font-size: 0.8rem;
   }
   .success-h1 {
-    color: #F1F1E7;
-    font-weight: 800;
     font-size: 1rem;
-    margin-bottom: 1.2rem;
-    text-align: center;
   }
 }
-.success-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: 50px;
-  border-radius: 5px;
-  padding: 1rem;
-  background-color: #8B833E;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-  color: #F1F1E7;
-  font-weight: 500;
-  font-size: 1.2rem;
-}
-.success-btn:hover {
-  background-color: #4f532c;
-  cursor: pointer;
-}
-
 .survey-header {
   width: 100%;
   height: 40px;
@@ -808,9 +796,10 @@
   height: 100%;
   background-image: url(/assets/success-bg.webp);
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  z-index: 1;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
 }
 
 .survey-block {
@@ -841,7 +830,7 @@
 
 .admin-panel {
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-color: #eeeeee;
   padding: 1rem;
   border: 1px solid black;
@@ -968,17 +957,16 @@ button.secondary:hover {
 }
 
 body {
-  background-image: url("/assets/dark-bg.webp");
   font-family: "Manrope", "sans-serif";
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-color: #4f532c;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  backdrop-filter: blur(10px);
 }
 
 img {

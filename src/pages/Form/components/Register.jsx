@@ -84,9 +84,18 @@ export default function Register() {
               complete="new-password"
               required
             />
+
           </section>
 
           <section className="form-section-buttons">
+
+              <section className="form-section-checkbox">
+                <components.Checkbox
+                  onClick={() => setIsPrivacy(!isPrivacy)}
+                />
+                <Link to={"/privacy"}>Privacy Police</Link>
+              </section>
+
             <components.Button
               className={"form-button"}
               type="submit"
@@ -99,12 +108,6 @@ export default function Register() {
             >
               {t("userHasAnAccount")}
             </components.Button>
-            <section className="form-section-checkbox">
-              <components.Checkbox
-                onClick={() => setIsPrivacy(!isPrivacy)}
-              />
-              <Link to={"/privacy"}>Privacy Police</Link>
-            </section>
           </section>
         </section>
       </div>

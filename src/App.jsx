@@ -1,19 +1,13 @@
 import paths from "./pages";
 import { Routes, Route, Navigate } from "react-router-dom";
 import useUserStore from "./store/UserStore.jsx";
-import { useEffect, useState } from "react";
+import useLoading from './hooks/useLoading';
+import useLoadingStore from './store/LoadingStore';
 
 function App() {
-  const [loading, setLoading] = useState(true);
   const user = useUserStore(state => state.user);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { loading, setLoading } = useLoadingStore();
+  useLoading( loading, setLoading );
 
   if (loading) {
     return (

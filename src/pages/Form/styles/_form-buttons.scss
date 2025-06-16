@@ -1,7 +1,7 @@
 @use "../../../mixins/flex-mixin";
 
 .form-section-buttons {
-  width: 280px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   gap: 1rem;
@@ -102,31 +102,32 @@
   width: 100%;
   height: auto;
 
-  @include flex-mixin.flex-center;
+  @include flex-mixin.flex-start;
   flex-direction: row;
-  gap: 5rem;
 
   a {
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 0.5rem;
   }
 
   input[type="checkbox"] {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    background-color: #3F4222;
+    background: none;
     cursor: pointer;
-
     @include flex-mixin.flex-center;
+
+    margin-right: 1rem;
   }
 
 
   input[type="checkbox"]:checked::after {
     content: '✔';
-    font-size: 24px;
+    font-size: 1rem;
     color: white;
   }
 

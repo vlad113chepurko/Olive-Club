@@ -44,7 +44,6 @@ const register = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("Ошибка в /registration:", error);
         res.status(500).json({ message: 'Ошибка сервера при регистрации' });
     }
 }
@@ -92,7 +91,6 @@ const login = async (req, res) => {
         });
 
     } catch (error) {
-        console.error('Ошибка при входе:', error);
         res.status(500).json({ message: 'Внутренняя ошибка сервера' });
     }
 }
@@ -116,7 +114,6 @@ const verify = async (req, res) => {
 
         res.status(200).json({ message: 'Email verified' });
     } catch (error) {
-        console.error('Error verified:', error);
         res.status(500).json({ message: 'Server Error' });
     }
 }
@@ -133,7 +130,6 @@ const getVerifyUser = async (req, res) => {
 
         return res.status(200).json({ isVerified: user.isVerified });
     } catch (error) {
-        console.error('Error verified:', error);
         res.status(500).json({ message: 'Server Error' });
     }
 };
@@ -159,7 +155,6 @@ const resendCode = async (req, res) => {
         res.status(200).json({ message: 'Code was resent' });
 
     } catch (error) {
-        console.error('Error resending code:', error);
         res.status(500).json({ message: 'Server error resending' });
     }
 }

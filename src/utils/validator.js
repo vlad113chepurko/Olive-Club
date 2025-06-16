@@ -22,6 +22,5 @@ export default function validateRegistrationForm(form) {
     if (!form.phone || !phoneRegex.test(form.phone)) {
         errors.phone = "Please enter a valid phone number.";
     }
-
     return errors;
 }

@@ -19,14 +19,6 @@
       width: 100%;
     }
   }
-
-  .success-h1 {
-    color: #F1F1E7;
-    font-weight: 800;
-    font-size: 3rem;
-    margin-bottom: 1.2rem;
-    text-align: center;
-  }
 }
 
 @media screen and (max-width: 420px) {
@@ -35,31 +27,9 @@
       font-size: 0.8rem;
     }
   }
+
   .success-h1 {
-    color: #F1F1E7;
-    font-weight: 800;
     font-size: 1rem;
-    margin-bottom: 1.2rem;
-    text-align: center;
   }
-}
 
-  .success-btn {
-    @include flex-mixin.flex-center;
-    width: auto;
-    height: 50px;
-    border-radius: 5px;
-    padding: 1rem;
-    background-color: #8B833E;
-
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-    color: #F1F1E7;
-
-    font-weight: 500;
-    font-size: 1.2rem;
-
-    &:hover {
-      background-color: #4f532c;;
-      cursor: pointer;
-    }
 }

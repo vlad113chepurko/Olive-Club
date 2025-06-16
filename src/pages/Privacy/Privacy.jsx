@@ -1,14 +1,13 @@
+
 import "./styles/_Privacy.scss";
-import FormHeader from "../Form/components/FormHeader";
-import PrivacySidebar from "./components/PrivacySideBar";
 
 function Privacy() {
   return (
     <div className="privacy-wrapper">
-      <FormHeader />
-      <PrivacySidebar />
-      <h1 className="privacy-h1">PRIVACY POLICY</h1>
       <div className="privacy-container">
+        <article className={"privacy-h1-container"}>
+          <h1 className="privacy-h1">PRIVACY POLICY</h1>
+        </article>
         <article className="article-start">
           <h3>1. General Provisions</h3>
           <p>This Privacy Policy governs the collection, storage, and processing of users'
