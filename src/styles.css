@@ -934,6 +934,7 @@ button.secondary:hover {
 body {
   font-family: "Manrope", "sans-serif";
   background-color: #4f532c;
+  overscroll-behavior: contain;
 }
 
 img {
