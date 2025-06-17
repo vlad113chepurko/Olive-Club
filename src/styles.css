@@ -252,11 +252,12 @@
   font-weight: 400;
   font-size: 1rem;
   color: white;
-}
-
-.form-sign-up-button:hover {
   text-decoration: underline;
   text-underline-offset: 0.5rem;
+  transition: color 0.3s ease, color 0.3s ease;
+}
+.form-sign-up-button:hover {
+  color: #959b59;
 }
 
 .react-tel-input .special-label {

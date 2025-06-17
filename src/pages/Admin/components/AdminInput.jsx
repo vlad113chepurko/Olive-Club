@@ -9,7 +9,7 @@ function AdminInput () {
       type="search"
       value={userSearch}
       onChange={(e) => setUserSearch(e.target.value)}
-      placeholder="Search by e-mail..." />
+      placeholder="Search by e-mail, name, last name and phone number..." />
   )
 }
 

@@ -20,7 +20,12 @@ function AdminTables( { userData, userSearch } ) {
           </tr>
         </thead>
         {userData
-          .filter((user) => user.email.toLowerCase().includes(userSearch.toLowerCase()))
+          .filter((user) =>
+            user.email.toLowerCase().includes(userSearch.toLowerCase()) ||
+            user.phone.toLowerCase().includes(userSearch.toLowerCase()) ||
+            user.name.toLowerCase().includes(userSearch.toLowerCase()) ||
+            user.lastName.toLowerCase().includes(userSearch.toLowerCase())
+          )
           .map((user, index) => (
             <tbody className="table-body" key={index}>
               <tr>
