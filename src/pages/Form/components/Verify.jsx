@@ -17,19 +17,24 @@ export default function Verify() {
     const [resendDisabled, setResendDisabled] = useState(false);
 
     useEffect(() => {
-        if (!email) return;
-        axios.get("http://localhost:3000/api/getVerifyUser", {
-            params: { email }
-        })
-          .then(res => {
-              if (res.data.isVerified) {
-                  navigate("/form/login");
-              }
-          })
-          .catch(err => {
-              console.log("Ошибка проверки верификации:", err);
-          });
-    }, [email]);
+        const savedEmail = localStorage.getItem('email');
+        if (savedEmail) {
+            setEmail(savedEmail);
+
+            axios.get("http://localhost:3000/api/getVerifyUser", {
+                params: { email: savedEmail }
+            })
+              .then(res => {
+                  if (res.data.isVerified) {
+                      navigate("/form/login");
+                  }
+              })
+              .catch(err => {
+                  console.log("Ошибка проверки верификации:", err);
+              });
+        }
+    }, []);
+
 
     useEffect(() => {
         const savedEmail = localStorage.getItem('email');
@@ -66,7 +71,7 @@ export default function Verify() {
                           holder={t("code")}
                           value={code}
                           func={(e) => setCode(e.target.value)}
-                          autoComplete={"email"}
+                          autoComplete={"one-time-code"}
                           required
                         />
                     </section>

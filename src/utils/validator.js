@@ -7,11 +7,11 @@ export default function validateRegistrationForm(form) {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!form.email || !emailRegex.test(form.email)) {
-        errors.email = "Please enter a valid email.";
+        errors.email = "Please enter a valid email address.";
     }
 
     if (!form.password || form.password.length < 6) {
-        errors.password = "Password must be at least 6 characters.";
+        errors.password = "Password must be at least 6 characters long.";
     }
 
     if (form.password !== form.repeatPassword) {

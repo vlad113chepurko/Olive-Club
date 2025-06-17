@@ -14,7 +14,7 @@ export default function Login() {
 
     const navigate = useNavigate();
     const { form, setForm } =  useFormStore();
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     const { handleSubmitLogin } = useAxios();
 
     const handleChange = (e) => {
@@ -24,7 +24,7 @@ export default function Login() {
 
     return (
         <form className="form-login"
-              onSubmit={(e) => handleSubmitLogin(e, form, setLoading)}>
+              onSubmit={(e) => handleSubmitLogin(e, form)}>
             <article className="form-article">
                 <h2>{t("loginTitle")}</h2>
             </article>

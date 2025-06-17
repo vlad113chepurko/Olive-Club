@@ -11,7 +11,7 @@ const register = async (req, res) => {
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
-            return res.status(400).json({ message: 'Пользователь с таким email уже существует' });
+            return res.status(400).json({ message: 'User with this email already exists.' });
         }
 
         const verificationCode = crypto.randomInt(100000, 999999).toString();
@@ -44,7 +44,7 @@ const register = async (req, res) => {
         });
 
     } catch (error) {
-        res.status(500).json({ message: 'Ошибка сервера при регистрации' });
+        res.status(500).json({ message: 'Registration failed. Please try again.' });
     }
 }
 
@@ -58,7 +58,7 @@ const login = async (req, res) => {
 
         if (isAdminLogin && isAdminPasswordMatch) {
             return res.status(200).json({
-                message: 'Успешный вход (админ)',
+                message: 'Successful admin login.',
                 user: {
                     email: process.env.ADMIN_LOG,
                     name: 'Admin',
@@ -70,17 +70,27 @@ const login = async (req, res) => {
 
         const user = await User.findOne({ email });
 
+        if (!user.isVerified) {
+            return res.status(403).json({
+                message: 'User is not verified',
+                redirect: '/form/verify',
+                email: user.email,
+                isVerified: false
+            });
+        }
+
+
         if (!user) {
-            return res.status(400).json({ message: 'Пользователь не найден' });
+            return res.status(400).json({ message: 'User not found.' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Пароль некорректный' });
+            return res.status(400).json({ message: 'Incorrect password.' });
         }
 
         return res.status(200).json({
-            message: 'Успешный вход',
+            message: 'Successful login',
             user: {
                 email: user.email,
                 name: user.name,
@@ -91,7 +101,7 @@ const login = async (req, res) => {
         });
 
     } catch (error) {
-        res.status(500).json({ message: 'Внутренняя ошибка сервера' });
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 }
 
@@ -105,16 +115,16 @@ const verify = async (req, res) => {
         if (!user) return res.status(404).json({ message: 'User not found' });
 
         if (user.verificationCode !== code) {
-            return res.status(400).json({ message: 'Code do not correct' });
+            return res.status(400).json({ message: 'Verification code is incorrect.' });
         }
 
         user.isVerified = true;
         user.verificationCode = undefined;
         await user.save();
 
-        res.status(200).json({ message: 'Email verified' });
+        res.status(200).json({ message: 'Email verified successfully.' });
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        res.status(500).json({ message: 'Server error while resending code.' });
     }
 }
 
@@ -130,7 +140,7 @@ const getVerifyUser = async (req, res) => {
 
         return res.status(200).json({ isVerified: user.isVerified });
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 };
 
@@ -152,10 +162,10 @@ const resendCode = async (req, res) => {
 
         await emailService(email, newCode);
 
-        res.status(200).json({ message: 'Code was resent' });
+        res.status(200).json({ message: 'Verification code was resent.' });
 
     } catch (error) {
-        res.status(500).json({ message: 'Server error resending' });
+        res.status(500).json({ message: 'Server error while resending code.' });
     }
 }
 

@@ -13,37 +13,29 @@ function useAxios() {
 
   const handleSubmitRegistration = async (e, form, isPrivacy, selected) => {
     e.preventDefault();
+
     setLoading(true);
 
-    const normalizePhone = (phone, prefix) => {
-      if (phone) {
-        if (phone.startsWith(prefix)) return phone;
-        if (phone.startsWith('+')) return phone;
-        return `${prefix}${phone}`;
-      } else {
-        console.error("Invalid phone number");
-      }
-    };
-
-    const fullPhone = normalizePhone(form.phone, selected.prefix);
-    console.log(fullPhone);
-
-    const formToSend = {
+    const dataToSend = {
       ...form,
-      phone: fullPhone,
+      phone: '+' + form.phone,
     };
 
     const errors = utils.validator(form);
 
-    if (!isPrivacy) return alert("Confirm the police!");
+    if (!isPrivacy) {
+      setLoading(false);
+      return alert("Please confirm the privacy policy to proceed.")
+    }
 
     if (Object.keys(errors).length > 0) {
-      console.debug("Ошибки:", errors);
+      console.debug("Errors:", errors);
+      setLoading(false);
       return;
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/api/form/registration', formToSend);
+      const res = await axios.post('http://localhost:3000/api/form/registration', dataToSend);
       const userData = res.data.user;
 
       localStorage.setItem('email', form.email);
@@ -59,13 +51,13 @@ function useAxios() {
 
       navigate('/form/verify');
     } catch (err) {
-      alert(err.response?.data?.message || 'Ошибка регистрации');
+      alert(err.response?.data?.message || 'Registration error.');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSubmitLogin = async (e, form, setLoading) => {
+  const handleSubmitLogin = async (e, form) => {
     e.preventDefault();
     setLoading(true);
 
@@ -76,7 +68,14 @@ function useAxios() {
       });
 
       const userData = response.data.user;
-      if (!userData) throw new Error("Сервер вернул пустые данные");
+
+      if (!userData) throw new Error("The server returned empty data.");
+
+      if (response.status === 403 || userData.isVerified === false) {
+        localStorage.setItem('email', form.email.toLowerCase());
+        navigate("/form/verify");
+        return;
+      }
 
       setUser({
         name: userData.name,
@@ -85,11 +84,18 @@ function useAxios() {
       });
 
       removeValues();
-
       navigate(userData.isAdmin ? "/admin" : "/success");
     } catch (err) {
-      console.error("Ошибка входа:", err);
-      alert(err.response?.data?.message || 'Ошибка авторизации');
+      const res = err.response;
+
+      if (res?.status === 403 && res?.data?.redirect) {
+        localStorage.setItem('email', form.email.toLowerCase());
+        navigate(res.data.redirect);
+        return;
+      }
+
+      console.error("Login error:", err);
+      alert(res?.data?.message || 'Authorization error');
     } finally {
       setLoading(false);
     }
@@ -119,10 +125,13 @@ function useAxios() {
         navigate('/form/login');
       } else {
         setResendDisabled(false);
+        setLoading(false);
       }
     } catch (error) {
-      console.error('Ошибка подтверждения:', error?.response?.data || error.message);
+      console.error('Confirmation error:', error?.response?.data || error.message);
       setResendDisabled(false);
+    } finally {
+      setLoading(false);
     }
   };
 
