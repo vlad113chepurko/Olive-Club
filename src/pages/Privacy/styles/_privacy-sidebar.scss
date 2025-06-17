@@ -19,19 +19,22 @@
   img {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 
     &:hover {
       cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 0.2rem;
     }
   }
 }
 
 .p-unhidden {
- color: #F5E9DA;
+ color: #373535;
 }
 
 .p-hidden {
-  color: #9F9674;
+  color: #968F87;
 }
 
 .p-hidden,

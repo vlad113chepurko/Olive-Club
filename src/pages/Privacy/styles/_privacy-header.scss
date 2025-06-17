@@ -1,0 +1,62 @@
+@use "../../../mixins/flex-mixin";
+
+.header-privacy {
+  width: 100%;
+  height: auto;
+  background: none;
+
+  position: absolute;
+  top: 0;
+  padding: 80px 30px 0 80px;
+
+
+  z-index: 5001;
+
+  @include flex-mixin.flex-space-between;
+  flex-direction: row;
+}
+
+.privacy-logo {
+  width: 214px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.menu-toggle-privacy {
+  @include flex-mixin.flex-center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #373535;
+  background: transparent;
+  color: #373535;
+  cursor: pointer;
+
+  padding: 13px 9px 13px 9px;
+
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+
+  &:hover {
+    border: 2px solid #373535;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media (max-width: 1000px) {
+  .header-privacy {
+    gap: 1rem;
+    width: 100%;
+    height: clamp(40px, 8vh, 80px);
+  }
+
+  .form-header-logo {
+    width: 180px;
+    height: 33px;
+  }
+
+}

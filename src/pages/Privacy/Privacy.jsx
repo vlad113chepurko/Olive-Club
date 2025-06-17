@@ -1,9 +1,12 @@
-
+import PrivacySideBar from './components/PrivacySideBar';
+import PrivacyHeader from "./components/PrivacyHeader";
 import "./styles/_Privacy.scss";
 
 function Privacy() {
   return (
     <div className="privacy-wrapper">
+      <PrivacyHeader />
+      <PrivacySideBar />
       <div className="privacy-container">
         <article className={"privacy-h1-container"}>
           <h1 className="privacy-h1">PRIVACY POLICY</h1>

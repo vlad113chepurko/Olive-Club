@@ -16,14 +16,14 @@ function PrivacySideBar() {
         <p className="p-unhidden">1-6</p>
         <img
           onClick={() => handleScrollTop()}
-          src="/icons/arrow-top.svg"
+          src="/icons/arrow-top01.svg"
           alt="arrow-bottom"
         />
       </section>
       <section className="bar-bottom">
         <img
           onClick={() => handleScrollBottom()}
-          src="/icons/arrow-bottom.svg"
+          src="/icons/arrow-bottom01.svg"
           alt="arrow-bottom"
         />
         <p className="p-unhidden">7-12</p>
