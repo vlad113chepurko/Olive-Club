@@ -143,7 +143,6 @@ const getVerifyUser = async (req, res) => {
         res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 };
-
 const resendCode = async (req, res) => {
     try {
         let { email } = req.body;
@@ -168,11 +167,53 @@ const resendCode = async (req, res) => {
         res.status(500).json({ message: 'Server error while resending code.' });
     }
 }
+const confirmCode = async (req, res) => {
+    try {
+        let { email, code } = req.body;
 
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        if (user.verificationCode !== code) {
+            return res.status(400).json({ message: 'Verification code is incorrect.' });
+        }
+
+        return res.status(200).json({ message: 'Code is correct' });
+
+    } catch (err) {
+        console.error("Error in confirmCode:", err);
+        res.status(500).json({ message: 'Server error. Please try again later.' });
+    }
+};
+const setNewPassword = async (req, res) => {
+    try {
+        const { email, newPassword } = req.body;
+
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        const isSamePassword = await bcrypt.compare(newPassword, user.password);
+        if (isSamePassword) {
+            return res.status(400).json({ message: 'New password must be different from the old one.' });
+        }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        user.password = hashedPassword;
+        await user.save();
+
+        res.status(200).json({ message: "Password successfully updated!" });
+    } catch (err) {
+        console.error("setNewPassword error:", err);
+        res.status(500).json({ message: 'Server error. Please try again later.' });
+    }
+};
 module.exports = {
     login,
     verify,
     resendCode,
     register,
     getVerifyUser,
+    confirmCode,
+    setNewPassword,
 };

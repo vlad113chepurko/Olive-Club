@@ -3,6 +3,7 @@ import Form from "./Form/Form";
 import Register from "./Form/components/Register";
 import Login from "./Form/components/Login";
 import Verify from "./Form/components/Verify";
+import Recovery from "./Form/components/Recovery";
 import Survey from "./Survey/Survey";
 import Success from "./Success/Success";
 import Privacy from "./Privacy/Privacy";
@@ -18,6 +19,7 @@ const paths = {
   Login,
   Register,
   Verify,
+  Recovery,
   Survey,
   Success,
   Admin,

@@ -56,6 +56,9 @@ export default function Login() {
                             <components.Button className={"form-sign-up-button"} onClick={() => navigate("/form/registration")}>
                                 {t("log_button")}
                             </components.Button>
+                            <components.Button className={"form-sign-up-button"} onClick={() => navigate("/form/recovery")}>
+                                {t('rec_pass')}
+                            </components.Button>
                         </section>
                 </section>
             </div>

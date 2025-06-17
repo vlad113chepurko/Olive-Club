@@ -1,7 +1,7 @@
 import "./styles/_Form.scss";
 import "./styles/_FormHeader.scss";
 import FormHeader from './components/FormHeader';
-import { Outlet } from "react-router-dom";;
+import { Outlet } from "react-router-dom";
 
 
 export default function Form() {

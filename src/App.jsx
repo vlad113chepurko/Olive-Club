@@ -43,6 +43,7 @@ function App() {
           <Route path="login" element={<paths.Login />} />
           <Route path="registration" element={<paths.Register />} />
           <Route path="verify" element={<paths.Verify />} />
+          <Route path="recovery" element={<paths.Recovery />} />
         </Route>
         <Route path="/privacy" element={<paths.Privacy />} />
       </Routes>

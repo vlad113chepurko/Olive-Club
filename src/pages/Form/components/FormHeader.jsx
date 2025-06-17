@@ -36,6 +36,6 @@ function FormHeader() {
             </div>
         </div>
     );
-};
+}
 
 export default FormHeader;

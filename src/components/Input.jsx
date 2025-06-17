@@ -1,4 +1,4 @@
-function Input({type, name, holder, value, complete, func}) {
+function Input({type, name, holder, value, complete, func, minLength, maxLength}) {
  return (
    <input
      type={type ?  type : 'text'}

@@ -17,29 +17,28 @@ export default function Verify() {
     const [resendDisabled, setResendDisabled] = useState(false);
 
     useEffect(() => {
-        const savedEmail = localStorage.getItem('email');
+        const savedEmail = localStorage.getItem("email");
+
         if (savedEmail) {
             setEmail(savedEmail);
 
-            axios.get("http://localhost:3000/api/getVerifyUser", {
-                params: { email: savedEmail }
-            })
+            axios
+              .get("http://localhost:3000/api/getVerifyUser", {
+                  params: { email: savedEmail }
+              })
               .then(res => {
-                  if (res.data.isVerified) {
+                  const isVerified = res.data?.isVerified;
+
+                  if(isVerified) {
                       navigate("/form/login");
                   }
+
+                  localStorage.removeItem("email");
               })
               .catch(err => {
-                  console.log("Ошибка проверки верификации:", err);
+                  console.error("Ошибка проверки верификации:", err);
               });
         }
-    }, []);
-
-
-    useEffect(() => {
-        const savedEmail = localStorage.getItem('email');
-        if(savedEmail) setEmail(savedEmail);
-        localStorage.removeItem('email');
     }, []);
 
     useSendTimer(setTimer, resendDisabled, setResendDisabled);
