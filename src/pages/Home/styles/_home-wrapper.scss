@@ -2,6 +2,7 @@
 @use "../../../mixins/bg-image-settings";
 
 .home-wrapper {
+  width: 100%;
   height: 100dvh;
   @include flex-mixin.flex-center;
   flex-direction:  column;

@@ -83,7 +83,7 @@ function Survey() {
 
         try {
             const res = await axios.post(
-                "http://localhost:3000/api/answers",
+                "https://www.familyoliveclub.com/api/answers",
                 logs,
                 {
                     headers: { "Content-Type": "application/json" }

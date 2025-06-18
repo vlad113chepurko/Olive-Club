@@ -23,7 +23,7 @@ const useRecovery = () => {
         return;
       }
 
-      await axios.post("http://localhost:3000/api/setNewPassword", { email, newPassword });
+      await axios.post("https://www.familyoliveclub.com/api/setNewPassword", { email, newPassword });
       alert("Password was successfully changed!");
       navigate("/form/login");
     } catch (err) {

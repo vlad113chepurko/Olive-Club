@@ -6,7 +6,7 @@
   .form-wrapper {
     @include flex-mixin.flex-center;
     height: auto;
-    padding: 0.9rem 30px 0.9rem 30px;
+      padding: 0.9rem 30px 0.9rem 30px;
   }
 
   .form-login {

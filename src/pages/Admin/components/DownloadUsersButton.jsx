@@ -3,7 +3,7 @@ import axios from "axios";
 export default function DownloadUsersButton() {
   const handleDownload = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/admin/export-users", {
+      const res = await axios.get("https://www.familyoliveclub.com/api/admin/export-users", {
         responseType: 'blob',
       })
       const url = window.URL.createObjectURL(res.data);

@@ -1,8 +1,9 @@
 @use "../../../mixins/flex-mixin";
 
 .form-header {
-  width: 70%;
-  height: clamp(40px, 100vw, 80px);
+  width: clamp(300px, 80vw, 1300px);
+  height: clamp(60px, 1vw, 60px);
+
   background: none;
 
   position: relative;

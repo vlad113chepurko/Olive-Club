@@ -8,7 +8,7 @@ function AdminSurvey() {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/admin/getUsers')
+    axios.get('https://www.familyoliveclub.com/api/admin/getUsers')
       .then(res => {
         setUserData(res.data.users);
       })

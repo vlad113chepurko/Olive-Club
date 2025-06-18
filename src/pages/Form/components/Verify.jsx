@@ -23,7 +23,7 @@ export default function Verify() {
             setEmail(savedEmail);
 
             axios
-              .get("http://localhost:3000/api/getVerifyUser", {
+              .get("https://www.familyoliveclub.com/api/getVerifyUser", {
                   params: { email: savedEmail }
               })
               .then(res => {

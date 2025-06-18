@@ -6,7 +6,7 @@ const useGetUsers = () => {
 
   function getUsers() {
     axios
-      .get("http://localhost:3000/api/admin/getUsers")
+      .get("https://www.familyoliveclub.com/api/admin/getUsers")
       .then((res) => {
         console.log("Res data: ", res.data.users);
         setUserData(res.data.users);

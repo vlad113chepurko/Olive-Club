@@ -41,7 +41,7 @@
         font-weight: 300;
         font-size: 1.3rem;
         letter-spacing: 0.8px;
-        margin-bottom: 72px;
+        margin-bottom: 1rem;
       }
 
       .link {
@@ -57,18 +57,20 @@
       }
 
       .block-1__text {
-        @include flex-mixin.flex-start;
+        @include flex-mixin.flex-center;
         flex-direction: row;
         width: auto;
+        height: auto;
         border-radius: 10px;
         padding: 1rem 1rem 1rem 0;
 
-        transition: background-color 0.3s ease-in-out;
+        transition: background-color 1s ease-in-out, padding 0.3s ease-in-out;
+
 
         &:hover {
           background-color: rgba(255, 255, 255, 0.1);
+          padding: 1rem 1rem 1rem 1rem;
         }
-
         cursor: pointer;
       }
     }

@@ -24,7 +24,7 @@ function Recovery() {
   const handleSendCode = (e) => {
     e.preventDefault();
     try {
-      const res = axios.post("http://localhost:3000/api/resendCode", { email });
+      const res = axios.post("https://www.familyoliveclub.com/api/resendCode", { email });
       setCodeRes(res.data)
       setIsSent(true);
     } catch (err) {
@@ -36,7 +36,7 @@ function Recovery() {
   const handleConfirmCode = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/confirmCode", { email, code });
+      await axios.post("https://www.familyoliveclub.com/api/confirmCode", { email, code });
       setIsNewPas(true);
     } catch (err) {
       alert("Code is not correct!");

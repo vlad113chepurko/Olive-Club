@@ -4,7 +4,7 @@
 .form-wrapper {
   height: auto;
   width: 100%;
-  padding: 1rem 0 2rem 0;
+  padding: 0 0 2rem 0;
   @include flex-mixin.flex-center;
   flex-direction: column;
 }
@@ -17,7 +17,7 @@
     min-height: 50px;
     padding: 1rem;
 
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
 
     -webkit-text-fill-color: #ffffff80 !important;
     transition: background-color 5000s ease-in-out 0s !important;

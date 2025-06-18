@@ -35,7 +35,7 @@ function useAxios() {
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/api/form/registration', dataToSend);
+      const res = await axios.post('https://www.familyoliveclub.com/api/form/registration', dataToSend);
       const userData = res.data.user;
 
       localStorage.setItem('email', form.email);
@@ -62,7 +62,7 @@ function useAxios() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/form/login', {
+      const response = await axios.post('https://www.familyoliveclub.com/api/form/login', {
         ...form,
         email: form.email.toLowerCase(),
       });
@@ -115,7 +115,7 @@ function useAxios() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/form/verify', {
+      const response = await axios.post('https://www.familyoliveclub.com/api/form/verify', {
         email,
         code,
       });
