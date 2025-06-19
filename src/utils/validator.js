@@ -5,6 +5,10 @@ export default function validateRegistrationForm(form) {
         errors.name = "The name must contain at least 2 characters.";
     }
 
+    if (!form.lastName || form.lastName.trim().length < 2) {
+        errors.lastName = "Last name must contain at least 2 characters.";
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!form.email || !emailRegex.test(form.email)) {
         errors.email = "Please enter a valid email address.";

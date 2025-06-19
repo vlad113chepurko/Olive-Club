@@ -66,14 +66,14 @@ export default function Verify() {
                           holder={t("userMail")}
                           value={email}
                           func={(e) => setEmail(e.target.value)}
-                          autoComplete={"email"}
+                          complete={"email"}
                           required
                         />
                         <components.Input
                           holder={t("code")}
                           value={code}
                           func={(e) => setCode(e.target.value)}
-                          autoComplete={"one-time-code"}
+                          complete={"one-time-code"}
                           required
                         />
                     </section>

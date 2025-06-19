@@ -10,7 +10,7 @@ import components from "../../../components/index";
 export default function Register() {
   const {t} = useTranslation();
   const { selected } = useCountries();
-  const {handleSubmitRegistration} = useRegistration();
+  const handleSubmitRegistration = useRegistration();
   const {form, setForm} = useFormStore();
   const [isPrivacy, setIsPrivacy] = useState(false);
   const navigate = useNavigate();
@@ -93,7 +93,7 @@ export default function Register() {
                 <components.Checkbox
                   onClick={() => setIsPrivacy(!isPrivacy)}
                 />
-                <Link to={"/privacy"}>Privacy Police</Link>
+                <Link to={"/privacy"}>Privacy Policy</Link>
               </section>
 
             <components.Button

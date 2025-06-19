@@ -28,7 +28,7 @@ function useRegistration() {
 
     if (!isPrivacy) {
       setLoading(false);
-      return alert("Please confirm the privacy policy to proceed.")
+      setError(true, "Please confirm the privacy policy to proceed.\"")
     }
 
     if (Object.keys(errors).length > 0) {

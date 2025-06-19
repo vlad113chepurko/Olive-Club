@@ -64,7 +64,7 @@ function Recovery() {
                   value={newPassword}
                   func={(e) => setNewPassword(e.target.value)}
                   holder={t("userNewPassword")}
-                  autoComplete="new-password"
+                  complete="new-password"
                 />
                 <components.Input
                   type="password"
@@ -72,7 +72,7 @@ function Recovery() {
                   value={repeatPassword}
                   func={(e) => setRepeatPassword(e.target.value)}
                   holder={t("userRepPassword")}
-                  autoComplete="new-password"
+                  complete="new-password"
                   minLength={6}
                   maxLength={20}
                 />
@@ -99,7 +99,7 @@ function Recovery() {
                   value={code}
                   func={(e) => setCode(e.target.value)}
                   holder={t("code")}
-                  autoComplete="one-time-code"
+                  complete="one-time-code"
                 />
                </div>
               <div className="form-section-buttons">
@@ -127,7 +127,7 @@ function Recovery() {
                   value={email}
                   func={(e) => setEmail(e.target.value)}
                   holder={t("userMail")}
-                  autoComplete="email"
+                  complete="email"
                 />
               </div>
               <div className="form-section-buttons">

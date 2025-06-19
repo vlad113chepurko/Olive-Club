@@ -3,17 +3,17 @@ import components from "../../../components/index";
 import useFormStore from "../../../store/FormStore";
 
 // hooks
-import {useState} from "react";
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
 import useLogin from "../../../hooks/useLogin";
+import useLoadingStore from "../../../store/LoadingStore";
 
 export default function Login() {
   const {t} = useTranslation();
   const navigate = useNavigate();
   const {form, setForm} = useFormStore();
-  const [loading] = useState(false);
-  const {handleSubmitLogin} = useLogin();
+  const { loading } = useLoadingStore();
+  const handleSubmitLogin = useLogin();
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -37,7 +37,7 @@ export default function Login() {
               holder={t("userMail")}
               value={form.email}
               func={handleChange}
-              autoCompelete="email"
+              complete="email"
             />
 
             <components.Input
@@ -46,7 +46,7 @@ export default function Login() {
               holder={t("userPasswordLogin")}
               value={form.password}
               func={handleChange}
-              autoCompelete="current-password"
+              complete="current-password"
             />
           </section>
           <section className="form-section-buttons">
