@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useRecovery from "../../../hooks/useRecovery";
 import components from "../../../components";
+import useErrorState from "../../../store/ErrorStore";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
@@ -11,6 +12,7 @@ function Recovery() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [codeRes, setCodeRes] = useState("");
+  const { setError } = useErrorState();
   const [newPassword, setNewPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const { t } = useTranslation();
@@ -21,15 +23,16 @@ function Recovery() {
 
 
 
-  const handleSendCode = (e) => {
+  const handleSendCode = async (e) => {
     e.preventDefault();
     try {
-      const res = axios.post("https://www.familyoliveclub.com/api/resendCode", { email });
+      const res = await axios.post("https://www.familyoliveclub.com/api/resendCode", { email });
       setCodeRes(res.data)
       setIsSent(true);
     } catch (err) {
       console.error("Ошибка отправки кода:", err);
-      alert("Error with code");
+      const message = err?.response?.data?.message || "Something went wrong.";
+      setError(true, message)
     }
   };
 
@@ -39,13 +42,10 @@ function Recovery() {
       await axios.post("https://www.familyoliveclub.com/api/confirmCode", { email, code });
       setIsNewPas(true);
     } catch (err) {
-      alert("Code is not correct!");
+      const message = err?.response?.data?.message || "Something went wrong.";
+      setError(true, message)
     }
   };
-
-  useEffect(() => {
-    console.log("isSent тепер:", isSent);
-  }, [isSent]);
 
   return (
     <form className={"form-login"}>
