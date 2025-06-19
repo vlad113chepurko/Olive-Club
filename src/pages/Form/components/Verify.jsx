@@ -1,11 +1,14 @@
-import useSendTimer from "../../../hooks/useSendTimer";
-import useAxios from "../../../hooks/useAxios";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
 import components from "../../../components/index";
+
+
+// Hooks
+import { useState, useEffect } from "react";
+import useSendTimer from "../../../hooks/useSendTimer";
+import useVerifyCode from "../../../hooks/useVerifyCode";
+
 
 
 export default function Verify() {
@@ -45,7 +48,7 @@ export default function Verify() {
     const {
         handleResendCode,
         handleVerifyCode,
-    } = useAxios();
+    } = useVerifyCode();
 
     return (
         <form className="form-login"

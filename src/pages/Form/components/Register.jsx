@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import {useNavigate, Link} from "react-router-dom";
 import {useState} from "react";
-import useAxios from "../../../hooks/useAxios";
+import useRegistration from "../../../hooks/useRegister";
 import useCountries from "../../../store/CountriesStore";
 import useFormStore from "../../../store/FormStore";
 import components from "../../../components/index";
@@ -10,7 +10,7 @@ import components from "../../../components/index";
 export default function Register() {
   const {t} = useTranslation();
   const { selected } = useCountries();
-  const {handleSubmitRegistration} = useAxios();
+  const {handleSubmitRegistration} = useRegistration();
   const {form, setForm} = useFormStore();
   const [isPrivacy, setIsPrivacy] = useState(false);
   const navigate = useNavigate();

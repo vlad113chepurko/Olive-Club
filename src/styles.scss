@@ -4,6 +4,7 @@
 @use "./pages/Success/styles/Success";
 @use "./pages/Survey/styles/Survey";
 @use "./pages/Admin/styles/Admin";
+@use "./components/Error/Error";
 
 // Mixins import
 @use "./mixins/bg-image-settings";

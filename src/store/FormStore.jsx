@@ -5,7 +5,7 @@ const useFormStore = create((set => ({
     name: '',
     lastName: '',
     email: '',
-    phone: '246',
+    phone: '44',
     password: '',
     repeatPassword: ''
   },
