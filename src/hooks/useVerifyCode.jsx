@@ -7,7 +7,7 @@ function useVerify() {
 
   const { loading, setLoading } = useLoadingStore();
   const navigate = useNavigate();
-  const { setError } = useErrorStore();
+  const { setError, clearError } = useErrorStore();
 
   const handleVerifyCode = async (e, email, code, setResendDisabled) => {
     e.preventDefault();
@@ -21,6 +21,7 @@ function useVerify() {
 
       if (response.status === 200) {
         setLoading(false);
+        clearError();
         navigate('/form/login');
       } else {
         setResendDisabled(false);

@@ -12,7 +12,7 @@ function useRegistration() {
   const { removeValues } = useFormStore();
   const setUser = useUserStore((state) => state.setUser);
   const { loading, setLoading } = useLoadingStore();
-  const { setError } = useErrorStore();
+  const { setError, clearError } = useErrorStore();
 
   const handleSubmitRegistration = async (e, form, isPrivacy) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ function useRegistration() {
 
     if (!isPrivacy) {
       setLoading(false);
-      setError(true, "Please confirm the privacy policy to proceed.\"")
+      setError(true, "Please confirm the privacy policy to proceed.")
     }
 
     if (Object.keys(errors).length > 0) {
@@ -43,6 +43,7 @@ function useRegistration() {
 
       localStorage.setItem('email', form.email);
       removeValues();
+      clearError();
 
       setUser({
         name: userData.name,

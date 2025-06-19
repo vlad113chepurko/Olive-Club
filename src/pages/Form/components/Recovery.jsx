@@ -12,7 +12,7 @@ function Recovery() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [codeRes, setCodeRes] = useState("");
-  const { setError } = useErrorState();
+  const { setError, clearError } = useErrorState();
   const [newPassword, setNewPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const { t } = useTranslation();

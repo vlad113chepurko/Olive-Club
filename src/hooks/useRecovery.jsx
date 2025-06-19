@@ -5,7 +5,7 @@ import useLoadingStore from "../store/LoadingStore";
 const useRecovery = () => {
 
   const { loading, setLoading } = useLoadingStore()
-  const { setError } = useErrorState()
+  const { setError, clearError } = useErrorState()
   const navigate = useNavigate();
 
   const handleSetNewPassword = async (e, newPassword, repeatPassword, email) => {
@@ -27,6 +27,7 @@ const useRecovery = () => {
 
       await axios.post("https://www.familyoliveclub.com/api/setNewPassword", { email, newPassword });
       alert("Password was successfully changed!");
+      clearError();
       navigate("/form/login");
     } catch (err) {
       console.error("Ошибка установки пароля:", err);

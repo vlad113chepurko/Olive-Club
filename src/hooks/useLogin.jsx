@@ -10,7 +10,7 @@ function useLogin() {
   const { removeValues } = useFormStore();
   const setUser = useUserStore((state) => state.setUser);
   const { setLoading } = useLoadingStore();
-  const { setError } = useErrorStore();
+  const { setError, clearError } = useErrorStore();
 
   const handleSubmitLogin = async (e, form) => {
     e.preventDefault();
@@ -41,6 +41,7 @@ function useLogin() {
       });
 
       removeValues();
+      clearError();
       navigate(userData.isAdmin ? "/admin" : "/success");
     } catch (err) {
       const res = err.response;
