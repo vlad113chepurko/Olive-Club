@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Подтверждение кода — Family Olive Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      background-color: #ece9e1;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #808080;
+    }
+
+    .email-wrapper {
+      max-width: 600px;
+      margin: 40px auto;
+      background: linear-gradient(to bottom right, #faf9f6, #ffffff);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 60px rgba(0,0,0,0.07);
+      border: 1px solid #dad5c4;
+    }
+
+    .header {
+      background-image: url("https://www.familyoliveclub.com/assets/dark-bg.webp"); 
+       background-size: cover;
+        background-position: center;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .header img {
+      position: relative;
+    
+      max-width: 180px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 12px 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      z-index: 1;
+    }
+
+    .content {
+      padding: 40px 30px 30px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .content h1 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      color: #2e2e2e;
+    }
+
+    .content p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      color: #444444;
+    }
+
+    .code-box {
+      display: inline-block;
+      background: #ffffff;
+      border: 2px solid #708238;
+      border-radius: 12px;
+      padding: 16px 24px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #708238;
+      letter-spacing: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .code-icon {
+      width: 36px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background-color: #d3cbb8;
+      margin: 40px auto 30px;
+      border-radius: 2px;
+    }
+
+    .footer {
+      font-size: 14px;
+      text-align: center;
+      color: #888888;
+      padding: 0 30px 40px;
+    }
+
+    .footer a {
+      color: #888888;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        padding: 30px 20px;
+      }
+
+      .code-box {
+        font-size: 20px;
+        letter-spacing: 6px;
+        padding: 14px 18px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="header">
+      
+      <img src="https://www.familyoliveclub.com/assets/logo.svg" alt="Family Olive Club">
+    </div>
+
+    <div class="content">
+      <img class="code-icon" src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Lock Icon">
+
+      <h1>
+        注册确认</h1>
+      <p>
+        访问 <strong>Family Olive Club</strong> 
+        
+只有在确认您的电子邮件地址后才可以。<br>
+        
+您的验证码：</p>
+
+      <div class="code-box">{{code}}</div>
+
+      <div class="divider"></div>
+      <p>那些展望未来几十年的人总会认出彼此。
+        
+您向那些选择传统的人迈出了一步。</p><br>
+      <p>
+        
+如果您没有请求确认，请忽略此电子邮件。</p>
+    </div>
+
+    <div class="footer">
+      © 2025 Family Olive Club · <a href="https://www.familyoliveclub.com">familyoliveclub.com</a><br>
+      Email: <a href="mailto:info@familyoliveclub.com">info@familyoliveclub.com</a>
+    </div>
+  </div>
+</body>
+</html>

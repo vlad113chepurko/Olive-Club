@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import useLoadingStore from "../store/LoadingStore";
 import useUserStore from "../store/UserStore";
 import useFormStore from "../store/FormStore";
 import useErrorStore from "../store/ErrorStore";
 import utils from "../utils/utils";
+
+import { useNavigate } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function useRegistration() {
 
@@ -13,6 +15,9 @@ function useRegistration() {
   const setUser = useUserStore((state) => state.setUser);
   const { loading, setLoading } = useLoadingStore();
   const { setError, clearError } = useErrorStore();
+
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
 
   const handleSubmitRegistration = async (e, form, isPrivacy) => {
     e.preventDefault();
@@ -50,6 +55,7 @@ function useRegistration() {
         lastName: userData.lastName,
         email: userData.email,
         phone: userData.phone,
+        language: currentLang,
         role: userData.isAdmin ? "admin" : "user",
       });
 
