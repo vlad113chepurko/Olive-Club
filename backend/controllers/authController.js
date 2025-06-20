@@ -1,7 +1,12 @@
 const bcrypt = require('bcrypt');
 const { User } = require("../schemes/UserSchema.js");
 const crypto = require("crypto");
+const fs = require('fs');
+const path = require('path');
 const emailService  = require("../emailService.js");
+
+const templatePath = path.join(__dirname, '..', 'templates', 'confirm_code.html');
+let html = fs.readFileSync(templatePath, 'utf8');
 
 const register = async (req, res) => {
     try {
@@ -15,6 +20,7 @@ const register = async (req, res) => {
         }
 
         const verificationCode = crypto.randomInt(100000, 999999).toString();
+        const htmlWithCode = html.replace('{{code}}', verificationCode);
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -30,7 +36,7 @@ const register = async (req, res) => {
         });
 
         await newUser.save();
-        await emailService(email, verificationCode);
+        await emailService(email, htmlWithCode);
 
         res.status(201).json({
             message: 'User created successfully',
@@ -154,7 +160,8 @@ const resendCode = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        const newCode = crypto.randomInt(100000, 999999).toString();
+        const verificationCode = crypto.randomInt(100000, 999999).toString();
+        const newCode = html.replace('{{code}}', verificationCode);
 
         user.verificationCode = newCode;
         await user.save();
