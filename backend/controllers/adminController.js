@@ -12,6 +12,7 @@ const adminGetUsers = async (req, res) => {
                 lastName: user.lastName,
                 email: user.email,
                 phone: user.phone,
+                regDate: user.regDate,
             }))
         });
     } catch (err) {

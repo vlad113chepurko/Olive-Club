@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         default: 'user'
     },
     verificationCode: String,
-    regData: { type: Date, default: Date.now },
+    regDate: { type: Date, default: Date.now },
 });
 
 const User = mongoose.model('User', userSchema);

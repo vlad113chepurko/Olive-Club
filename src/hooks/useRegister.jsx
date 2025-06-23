@@ -59,7 +59,7 @@ function useRegistration() {
         lastName: userData.lastName,
         email: userData.email,
         phone: userData.phone,
-        regData: userData.regData,
+        regDate: userData.regDate,
         language: currentLang,
         role: userData.isAdmin ? "admin" : "user",
       });

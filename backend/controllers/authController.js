@@ -17,7 +17,7 @@
 
     const register = async (req, res) => {
         try {
-            let { name, lastName, email, phone, password, language = 'en', regData } = req.body;
+            let { name, lastName, email, phone, password, language = 'en', regDate } = req.body;
 
             if (!email || !password || !name || !lastName || !phone) {
                 return res.status(400).json({ message: 'Missing required fields' });
@@ -41,7 +41,7 @@
                 lastName,
                 email,
                 phone,
-                regData: new Date(),
+                regDate: new Date(),
                 password: hashedPassword,
                 isVerified: false,
                 verificationCode,
@@ -58,7 +58,7 @@
                     lastName: newUser.lastName,
                     email: newUser.email,
                     phone: newUser.phone,
-                    regData: newUser.regData,
+                    regDate: newUser.regDate,
                     isAdmin: newUser.role === 'admin',
                 }
             });

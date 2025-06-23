@@ -16,6 +16,7 @@ function AdminTables( { userData, userSearch } ) {
             <th>Фамилия</th>
             <th>Почта</th>
             <th>Номер телефона</th>
+            <th>Дата регистрации</th>
             <th>Удалить юзера</th>
           </tr>
         </thead>
@@ -24,7 +25,8 @@ function AdminTables( { userData, userSearch } ) {
             user.email.toLowerCase().includes(userSearch.toLowerCase()) ||
             user.phone.toLowerCase().includes(userSearch.toLowerCase()) ||
             user.name.toLowerCase().includes(userSearch.toLowerCase()) ||
-            user.lastName.toLowerCase().includes(userSearch.toLowerCase())
+            user.lastName.toLowerCase().includes(userSearch.toLowerCase()) ||
+            user.regDate.toLowerCase().includes(userSearch.toLowerCase())
           )
           .map((user, index) => (
             <tbody className="table-body" key={index}>
@@ -34,6 +36,7 @@ function AdminTables( { userData, userSearch } ) {
                 <td>{user.lastName}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
+                <td>{user.regDate}</td>
                 <td>
                   <components.Button
                     className="admin-remove-btn"

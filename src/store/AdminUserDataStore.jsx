@@ -7,6 +7,7 @@ const useAdminUserDataStore = create((set) => ({
     lastName: "",
     email: "",
     phone: "",
+    regDate: "",
   }],
   setUserData: (newData) => set(() => ({
     userData: newData,
