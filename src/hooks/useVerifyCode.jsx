@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 function useVerify() {
 
   const { i18n } = useTranslation();
-  const { loading, setLoading } = useLoadingStore();
+  const { setLoading } = useLoadingStore();
   const navigate = useNavigate();
   const { setError, clearError } = useErrorStore();
 
@@ -17,20 +17,17 @@ function useVerify() {
     e.preventDefault();
     setLoading(true);
 
+    // 'https://www.familyoliveclub.com/api/form/verify',
+    // 'http://localhost:3000/api/form/verify',
+
     try {
-      const response = await axios.post('https://www.familyoliveclub.com/api/form/verify', {
+      await axios.post('http://localhost:3000/api/form/verify', {
         email,
         code,
       });
 
-      if (response.status === 200) {
-        setLoading(false);
-        clearError();
-        navigate('/form/login');
-      } else {
-        setResendDisabled(false);
-        setLoading(false);
-      }
+      clearError();
+      navigate('/form/login');
     } catch (error) {
       const message = error?.response?.data?.message || "Error with verification code.";
       setError(true, message);

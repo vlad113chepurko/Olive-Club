@@ -1,0 +1,6 @@
+@mixin grid-columns-center($rep, $unit) {
+  display: grid;
+  grid-template-columns: repeat($rep, $unit);
+  align-items: center;
+  justify-items: center;
+}

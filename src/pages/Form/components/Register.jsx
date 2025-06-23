@@ -2,14 +2,12 @@ import {useTranslation} from "react-i18next";
 import {useNavigate, Link} from "react-router-dom";
 import {useState} from "react";
 import useRegistration from "../../../hooks/useRegister";
-import useCountries from "../../../store/CountriesStore";
 import useFormStore from "../../../store/FormStore";
 import components from "../../../components/index";
 
 
 export default function Register() {
   const {t} = useTranslation();
-  const { selected } = useCountries();
   const handleSubmitRegistration = useRegistration();
   const {form, setForm} = useFormStore();
   const [isPrivacy, setIsPrivacy] = useState(false);
@@ -23,7 +21,7 @@ export default function Register() {
   return (
     <form
       className="form-login"
-      onSubmit={(e) => handleSubmitRegistration(e, form, isPrivacy, selected)}
+      onSubmit={(e) => handleSubmitRegistration(e, form, isPrivacy)}
     >
       <article className="form-article">
         <h2>{t("formTitle")}</h2>

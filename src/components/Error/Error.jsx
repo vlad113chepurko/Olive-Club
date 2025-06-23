@@ -18,7 +18,7 @@ function Error() {
                 <button
                   className="error-button "
                   onClick={clearError}>
-                    Close error message
+                    Close
                 </button>
             </section>
         </div>

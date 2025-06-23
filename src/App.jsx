@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import useUserStore from "./store/UserStore.jsx";
 import useLoadingTimer from './hooks/useLoadingTimer';
 import useLoadingStore from './store/LoadingStore';
+import Survey from "./pages/Survey/Survey";
 
 function App() {
   const user = useUserStore(state => state.user);
@@ -23,14 +24,13 @@ function App() {
       <Routes>
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/" element={<paths.Home />} />
-        <Route
-          path="/success"
-          element={user.email ? <paths.Success /> : <Navigate to="/form/login" replace />}
-        />
-        <Route
-          path="/survey"
-          element={user.email ? <paths.Survey /> : <Navigate to="/form/login" replace />}
-        />
+        <Route path="/success" element={<paths.Success />}/>
+        //
+        {/*<Route*/}
+        {/*  path="/survey"*/}
+        {/*  element={user.email ? <paths.Survey /> : <Navigate to="/form/login" replace />}*/}
+        {/*/>*/}
+        <Route path="/survey" element={<paths.Survey />} />
         <Route
           path="/admin"
           element={user.role === 'admin' ? <paths.Admin /> : <Navigate to="/form/login" replace />}

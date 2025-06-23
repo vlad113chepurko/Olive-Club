@@ -17,7 +17,7 @@
 
     const register = async (req, res) => {
         try {
-            let { name, lastName, email, phone, password, language = 'en', regDate } = req.body;
+            let { name, lastName, email, phone, password, language = 'en' } = req.body;
 
             if (!email || !password || !name || !lastName || !phone) {
                 return res.status(400).json({ message: 'Missing required fields' });
@@ -36,6 +36,7 @@
 
             const hashedPassword = await bcrypt.hash(password, 10);
 
+
             const newUser = new User({
                 name,
                 lastName,
@@ -48,8 +49,8 @@
                 role: 'user',
             });
 
-            await emailService(email, htmlWithCode);
             await newUser.save();
+            await emailService(email, htmlWithCode);
 
             res.status(201).json({
                 message: 'User created successfully',
@@ -64,6 +65,7 @@
             });
 
         } catch (error) {
+            console.error("Registration error:", error);
             res.status(500).json({ message: 'Registration failed. Please try again.' });
         }
     }

@@ -22,26 +22,29 @@ export default function Verify() {
     useEffect(() => {
         const savedEmail = localStorage.getItem("email");
 
-        if (savedEmail) {
-            setEmail(savedEmail);
-
-            axios
-              .get("https://www.familyoliveclub.com/api/getVerifyUser", {
-                  params: { email: savedEmail }
-              })
-              .then(res => {
-                  const isVerified = res.data?.isVerified;
-
-                  if(isVerified) {
-                      navigate("/form/login");
-                  }
-
-                  localStorage.removeItem("email");
-              })
-              .catch(err => {
-                  console.error("Ошибка проверки верификации:", err);
-              });
+        if (!savedEmail) {
+            navigate("/form/registration");
+            return;
         }
+
+        setEmail(savedEmail);
+
+        axios
+          .get("https://www.familyoliveclub.com/api/getVerifyUser", {
+              params: { email: savedEmail }
+          })
+          .then(res => {
+              const isVerified = res.data?.isVerified;
+
+              if (isVerified) {
+                  localStorage.removeItem("email");
+                  navigate("/form/login");
+              }
+          })
+          .catch(err => {
+              console.error("Ошибка проверки верификации:", err);
+          });
+
     }, []);
 
     useSendTimer(setTimer, resendDisabled, setResendDisabled);

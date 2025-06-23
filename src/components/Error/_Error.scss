@@ -1,41 +1,24 @@
 @use "../../mixins/flex-mixin";
-
-.error-container {
-  width: 100%;
-  height: 70px;
-  @include flex-mixin.flex-space-between;
-  flex-direction: row;
-  position: fixed;
-  top: 0;
-  background-color: #eb6060;
-  color: white;
-  font-weight: 700;
-
-  margin-bottom: 1rem;
-
-  padding: 1rem;
-
-  img {
-    margin-right: 1rem;
-  }
-}
+@use "./error-wrapper";
+@use "./error-responsive";
 
 .error-block {
   @include flex-mixin.flex-center;
   flex-direction: row;
   width: auto;
   height: auto;
+}
 
-  .error-button {
-    height: 40px;
-    background-color: #959b59;
-    border: none;
-    padding: 0.5rem;
-    color: white;
-    border-radius: 0.2rem;
-    transition: background-color 0.3s ease-in-out;
-    &:hover {
-      background-color: #959b59;
-    }
+.error-button {
+  width: auto;
+  height: 40px;
+  background-color: #959b59;
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 0.2rem;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: #c8d553;
   }
 }

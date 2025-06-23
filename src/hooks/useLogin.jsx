@@ -18,9 +18,12 @@ function useLogin() {
 
     const email = form.email.toLowerCase();
 
+    // 'https://www.familyoliveclub.com/api/form/login',
+    // 'http://localhost:3000/api/form/login',
+
     try {
       const response = await axios.post(
-        'https://www.familyoliveclub.com/api/form/login',
+        'http://localhost:3000/api/form/login',
         { ...form, email }
       );
 
@@ -42,7 +45,7 @@ function useLogin() {
 
       removeValues();
       clearError();
-      navigate(userData.isAdmin ? "/admin" : "/success");
+      navigate(userData.isAdmin ? "/admin" : "/survey");
     } catch (err) {
       const res = err.response;
 

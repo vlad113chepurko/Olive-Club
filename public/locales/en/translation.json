@@ -29,5 +29,33 @@
   "userHasAnAccount": "I have an account",
   "successTitle": "Thank you for registering",
   "successUnderTitle": "Access will be granted after confirmation of the application.",
-  "successCloseButton": "Complete"
+  "successCloseButton": "Complete",
+  "surveyPrev": "Previous",
+  "surveyNext": "Next",
+  "surveyEnd": "End",
+  "surveySkip": "Skip",
+  "surveySend": "Sending...",
+  "surveyQuestions": [
+    {
+      "question": "What is closer to you?",
+      "options": ["Instagram", "Friends", "Books", "Music"]
+    },
+    {
+      "question": "Choose the area that interests you the most",
+      "options": ["Real estate", "Agriculture", "Investments", "Tourism"]
+    },
+    {
+      "question": "What is your preferred communication method?",
+      "options": ["Email", "Phone call", "Messenger", "Video call"]
+    },
+    {
+      "question": "What is your investment budget?",
+      "options": ["Under $10k", "$10k–$50k", "$50k–$200k", "$200k+"]
+    },
+    {
+      "question": "Would you like to receive individual consultation?",
+      "options": ["Yes", "No", "Maybe later"]
+    }
+  ],
+  "surveyParticipationHint": "Choose the appropriate format of participation"
 }

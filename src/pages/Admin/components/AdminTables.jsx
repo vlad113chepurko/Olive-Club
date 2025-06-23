@@ -1,13 +1,13 @@
 import components from "../../../components/index";
 import useRemoveUser from "../../../hooks/useRemoveUser";
-import DownoloadUsersButton from "./DownloadUsersButton";
+import DownloadUsersButton from "./DownloadUsersButton";
+import dayjs from "dayjs";
 function AdminTables( { userData, userSearch } ) {
 
   const { handleRemoveUser } = useRemoveUser();
-
   return (
     <div>
-      <DownoloadUsersButton />
+      <DownloadUsersButton />
       <table className="table">
         <thead className="table-header">
           <tr>
@@ -36,7 +36,7 @@ function AdminTables( { userData, userSearch } ) {
                 <td>{user.lastName}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
-                <td>{user.regDate}</td>
+                <td>{dayjs(user.regDate).format("DD.MM.YY HH:mm:ss")}</td>
                 <td>
                   <components.Button
                     className="admin-remove-btn"

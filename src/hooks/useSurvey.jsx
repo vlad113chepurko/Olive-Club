@@ -1,0 +1,41 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import useUserStore from "../store/UserStore";
+import useLoadingStore from "../store/LoadingStore";
+
+const useSurvey = () => {
+
+  const navigate = useNavigate();
+  const {  setLoading } = useLoadingStore()
+  const { user }  = useUserStore();
+
+  const handleSubmitSurvey = async (answers) => {
+    setLoading(true);
+
+    try {
+      const formattedAnswers = Object.entries(answers).map(([questionIndex, answer]) => ({
+        user: user.email,
+        questionIndex: Number(questionIndex),
+        answer,
+        createdAt: new Date()
+      }));
+
+      const res = await axios.post("http://localhost:3000/api/answers", formattedAnswers);
+
+      console.log(res.data.message);
+      if (res.status === 200) {
+        console.log("✅ Отправлено!");
+        navigate("/success");
+      }
+    } catch (err) {
+      console.error("Ошибка при отправке:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+  return { handleSubmitSurvey }
+}
+
+export default useSurvey;

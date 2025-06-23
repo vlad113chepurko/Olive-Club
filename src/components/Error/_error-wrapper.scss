@@ -1,0 +1,22 @@
+@use "../../mixins/flex-mixin";
+
+.error-container {
+  z-index: 50000;
+  width: 100%;
+  height: 70px;
+  @include flex-mixin.flex-space-between;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  background-color: #eb6060;
+  color: white;
+  font-weight: 700;
+
+  margin-bottom: 1rem;
+
+  padding: 1rem;
+
+  img {
+    margin-right: 1rem;
+  }
+}

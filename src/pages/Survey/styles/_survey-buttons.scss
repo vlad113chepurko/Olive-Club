@@ -2,7 +2,7 @@
 
 .survey-config {
   width: 100%;
-  height: auto;
+  height: 200px;
 
   @include flex-mixin.flex-center;
   flex-direction: row;
@@ -25,6 +25,13 @@
     background-color: #746f38;
     cursor: pointer;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    background-color:  #8B833E;
+  }
+
 }
 
 .prev-skip-button {
@@ -40,5 +47,11 @@
   &:hover {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    text-decoration: none;
   }
 }
