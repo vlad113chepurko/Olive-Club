@@ -49,7 +49,7 @@ function useRegistration() {
     // http://localhost:3000/api/form/registration
 
     try {
-      const res = await axios.post('http://localhost:3000/api/form/registration', dataToSend);
+      const res = await axios.post('https://www.familyoliveclub.com/api/form/registration', dataToSend);
       const userData = res.data.user;
 
       localStorage.setItem('email', form.email);

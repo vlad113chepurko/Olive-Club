@@ -21,7 +21,7 @@ function useVerify() {
     // 'http://localhost:3000/api/form/verify',
 
     try {
-      await axios.post('http://localhost:3000/api/form/verify', {
+      await axios.post('https://www.familyoliveclub.com/api/form/verify', {
         email,
         code,
       });

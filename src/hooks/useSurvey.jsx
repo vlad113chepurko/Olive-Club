@@ -20,7 +20,7 @@ const useSurvey = () => {
         createdAt: new Date()
       }));
 
-      const res = await axios.post("http://localhost:3000/api/answers", formattedAnswers);
+      const res = await axios.post("https://www.familyoliveclub.com/api/answers", formattedAnswers);
 
       console.log(res.data.message);
       if (res.status === 200) {

@@ -25,12 +25,9 @@ function App() {
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/" element={<paths.Home />} />
         <Route path="/success" element={<paths.Success />}/>
-        //
-        {/*<Route*/}
-        {/*  path="/survey"*/}
-        {/*  element={user.email ? <paths.Survey /> : <Navigate to="/form/login" replace />}*/}
-        {/*/>*/}
-        <Route path="/survey" element={<paths.Survey />} />
+        <Route
+        path="/survey"
+        element={user.email ? <paths.Survey /> : <Navigate to="/form/login" replace />} />
         <Route
           path="/admin"
           element={user.role === 'admin' ? <paths.Admin /> : <Navigate to="/form/login" replace />}
