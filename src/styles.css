@@ -929,7 +929,7 @@ button.secondary:hover {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  position: relative;
+  position: fixed;
   top: 0;
   background-color: #eb6060;
   color: white;

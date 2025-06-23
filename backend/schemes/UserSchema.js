@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-    userId: String,
     name: String,
     lastName: String,
     email: { type: String, unique: true },
@@ -14,6 +13,7 @@ const userSchema = new mongoose.Schema({
         default: 'user'
     },
     verificationCode: String,
+    regData: { type: Date, default: Date.now },
 });
 
 const User = mongoose.model('User', userSchema);

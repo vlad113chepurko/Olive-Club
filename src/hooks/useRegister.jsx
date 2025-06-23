@@ -34,13 +34,17 @@ function useRegistration() {
     if (!isPrivacy) {
       setLoading(false);
       setError(true, "Please confirm the privacy policy to proceed.")
+      return;
     }
 
     if (Object.keys(errors).length > 0) {
-      console.debug("Errors:", errors);
+      setError(true, "Fill in the required fields");
       setLoading(false);
       return;
     }
+
+    // https://www.familyoliveclub.com/api/form/registration
+    // http://localhost:3000/api/form/registration
 
     try {
       const res = await axios.post('https://www.familyoliveclub.com/api/form/registration', dataToSend);
@@ -55,6 +59,7 @@ function useRegistration() {
         lastName: userData.lastName,
         email: userData.email,
         phone: userData.phone,
+        regData: userData.regData,
         language: currentLang,
         role: userData.isAdmin ? "admin" : "user",
       });

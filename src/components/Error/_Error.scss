@@ -5,7 +5,7 @@
   height: 70px;
   @include flex-mixin.flex-space-between;
   flex-direction: row;
-  position: relative;
+  position: fixed;
   top: 0;
   background-color: #eb6060;
   color: white;

@@ -17,6 +17,7 @@ import { create } from 'zustand';
                 lastName: "",
                 email: "",
                 role: "",
+                regData: "",
             },
         }),
 }));

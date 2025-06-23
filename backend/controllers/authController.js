@@ -17,7 +17,12 @@
 
     const register = async (req, res) => {
         try {
-            let { name, lastName, email, phone, password, language = 'en' } = req.body;
+            let { name, lastName, email, phone, password, language = 'en', regData } = req.body;
+
+            if (!email || !password || !name || !lastName || !phone) {
+                return res.status(400).json({ message: 'Missing required fields' });
+            }
+
             email = String(email).toLowerCase();
 
             const existingUser = await User.findOne({ email });
@@ -36,14 +41,15 @@
                 lastName,
                 email,
                 phone,
+                regData: new Date(),
                 password: hashedPassword,
                 isVerified: false,
                 verificationCode,
-                role: 'user'
+                role: 'user',
             });
 
-            await newUser.save();
             await emailService(email, htmlWithCode);
+            await newUser.save();
 
             res.status(201).json({
                 message: 'User created successfully',
@@ -52,6 +58,7 @@
                     lastName: newUser.lastName,
                     email: newUser.email,
                     phone: newUser.phone,
+                    regData: newUser.regData,
                     isAdmin: newUser.role === 'admin',
                 }
             });
