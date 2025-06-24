@@ -27,7 +27,7 @@
     border-radius: 50%;
     border: 2px solid white;
     background: transparent;
-    color: white;
+    color: #F1F1E7;
     cursor: pointer;
 
     padding: 13px 9px 13px 9px;
@@ -43,25 +43,30 @@
     left: -120px  ;
     transform: translateY(-50%);
     min-width: 150px;
-    background: white;
-    color: black;
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.25);
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     z-index: 10;
+
+    backdrop-filter: blur(15px);
+
+    color: #F1F1E7;
   }
 
   .submenu div {
     cursor: pointer;
     padding: 0.5rem;
-    border-radius: 6px;
     transition: background 0.2s;
+
+    border-bottom: 0.5px solid #FFFFFF80;
 
     &:hover {
       background: #eee;
+      color: #000000;
     }
   }
 }

@@ -17,6 +17,8 @@ function Survey() {
 
   useEffect(() => {
     resetCount();
+    console.log("count", count);
+    console.log("questions", questions);
   }, []);
 
   const isFinished = count >= questions.length;

@@ -27,7 +27,8 @@ function useVerify() {
       });
 
       clearError();
-      navigate('/form/login');
+      // navigate('/form/login');
+      navigate('/survey');
     } catch (error) {
       const message = error?.response?.data?.message || "Error with verification code.";
       setError(true, message);
