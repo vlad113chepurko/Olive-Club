@@ -38,11 +38,11 @@ export default function Verify() {
 
               if (isVerified) {
                   localStorage.removeItem("email");
-                  navigate("/form/login");
+                  navigate("/survey");
               }
           })
           .catch(err => {
-              console.error("Ошибка проверки верификации:", err);
+              console.error("Error with verify:", err);
           });
 
     }, []);
