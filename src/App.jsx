@@ -27,7 +27,7 @@ function App() {
         <Route path="/success" element={<paths.Success />}/>
         <Route
         path="/survey"
-        element={user.email ? <paths.Survey /> : <Navigate to="/form/login" replace />} />
+        element={<paths.Survey />} />
         <Route
           path="/admin"
           element={user.role === 'admin' ? <paths.Admin /> : <Navigate to="/form/login" replace />}
