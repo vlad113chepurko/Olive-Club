@@ -117,7 +117,8 @@
                     name: user.name,
                     phone: user.phone,
                     role: user.role,
-                    isAdmin: user.role === 'admin'
+                    isAdmin: user.role === 'admin',
+                    hasPassedTest: user.hasPassedTest,
                 }
             });
 

@@ -45,7 +45,15 @@ function useLogin() {
 
       removeValues();
       clearError();
-      navigate(userData.isAdmin ? "/admin" : "/survey");
+
+      if (userData.isAdmin) {
+        navigate("/admin");
+      } else if (userData.hasPassedTest) {
+        navigate("/success");
+      } else {
+        navigate("/survey");
+      }
+
     } catch (err) {
       const res = err.response;
 

@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     },
     verificationCode: String,
     regDate: { type: Date, default: Date.now },
+    hasPassedTest: { type: Boolean, default: false },
 });
 
 const User = mongoose.model('User', userSchema);
