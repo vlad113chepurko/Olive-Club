@@ -33,7 +33,7 @@ export default function SurveyHeader({ isFinished, count, questions }) {
 
       <div className="header-item header-right">
         <div className="menu-wrapper">
-          <button onClick={() => setIsMenu(prev => !prev)} className="menu-toggle">{t("lng")}</button>
+          <button type="button" onClick={() => setIsMenu(prev => !prev)} className="menu-toggle">{t("lng")}</button>
           { isMenu && (
             <motion.div
               initial={{ scale: 0.5 }}

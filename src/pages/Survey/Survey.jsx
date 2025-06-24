@@ -14,14 +14,12 @@ function Survey() {
   const navigate = useNavigate();
 
   const questions = t("surveyQuestions", { returnObjects: true });
+  const isFinished = count >= questions.length;
+
 
   useEffect(() => {
     resetCount();
-    console.log("count", count);
-    console.log("questions", questions);
   }, []);
-
-  const isFinished = count >= questions.length;
 
   return (
     <div className="survey-wrapper">
@@ -38,7 +36,6 @@ function Survey() {
               count={count}
               questions={questions}
             />
-
           ) : (
             navigate("/success")
           )}

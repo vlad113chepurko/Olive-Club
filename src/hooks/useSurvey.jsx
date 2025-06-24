@@ -24,11 +24,10 @@ const useSurvey = () => {
 
       console.log(res.data.message);
       if (res.status === 200) {
-        console.log("✅ Отправлено!");
         navigate("/success");
       }
     } catch (err) {
-      console.error("Ошибка при отправке:", err);
+      console.error("Error with sending:", err);
     } finally {
       setLoading(false);
     }

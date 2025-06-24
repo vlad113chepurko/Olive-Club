@@ -27,7 +27,7 @@ const answers = async (req, res) => {
 
         await AnswerLog.insertMany(logs);
 
-        res.status(200).json({ message: "Your answers have been saved." });
+        res.status(200).json({ message: `Your answers have been saved for ${email}` });
     } catch (err) {
         res.status(500).json({ message: 'Server error. Please try again later.' });
     }
