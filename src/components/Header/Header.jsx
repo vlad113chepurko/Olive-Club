@@ -36,8 +36,8 @@ export default function Header() {
                     animate={{scale: 1}}
                     className="submenu">
                     <div onClick={() => changeLanguage('en')}>English</div>
-                    <div onClick={() => changeLanguage('cn')}>CN</div>
-                    <div onClick={() => changeLanguage('sa')}>SA</div>
+                    <div onClick={() => changeLanguage('cn')}>中国人</div>
+                    <div onClick={() => changeLanguage('sa')}>عربي</div>
                     <div onClick={() => changeLanguage('ru')}>Русский</div>
                 </motion.div>
             )}
