@@ -20,26 +20,25 @@
 
   gap: 1rem;
 
-  padding: 1rem;
+  padding: 0.5rem;
 
   @include flex-mixin.flex-center;
   flex-direction: column;
 
+  color: #F1F1E7;
+
   h1 {
     font-weight: 800;
     font-size: 1.8rem;
-    color: #F1F1E7;
 
     text-align: center;
   }
 
   p {
-    color: #F1F1E7;
     font-size: 1rem;
     font-weight: 200;
     margin-bottom: 1.1rem;
   }
-
 }
 
 .question-block {

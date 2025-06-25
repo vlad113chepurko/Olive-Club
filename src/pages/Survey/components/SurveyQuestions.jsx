@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function SurveyQuestions({ answers, setAnswers, questions, count }) {
+export default function SurveyQuestions({ isFinished, answers, setAnswers, questions, count }) {
 
   const { t } = useTranslation();
 
@@ -16,6 +16,9 @@ export default function SurveyQuestions({ answers, setAnswers, questions, count 
   return (
     <div>
       <article className="survey-article">
+          <p>
+            {!isFinished ? count + 1 : questions.length} / {questions.length}
+          </p>
         <h1>{currentQuestion.question}</h1>
         <p>{t("surveyParticipationHint")}</p>
       </article>

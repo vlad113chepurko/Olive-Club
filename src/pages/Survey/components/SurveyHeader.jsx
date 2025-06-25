@@ -25,12 +25,6 @@ export default function SurveyHeader({ isFinished, count, questions }) {
         />
       </div>
 
-      <div className="header-item header-center">
-        <p className="survey-header-counter">
-          {!isFinished ? count + 1 : questions.length} / {questions.length}
-        </p>
-      </div>
-
       <div className="header-item header-right">
         <div className="menu-wrapper">
           <button type="button" onClick={() => setIsMenu(prev => !prev)} className="menu-toggle">{t("lng")}</button>

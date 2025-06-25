@@ -27,10 +27,15 @@ function Survey() {
       <div className="survey">
         <form className="survey-block">
 
-          <SurveyHeader isFinished={isFinished} count={count} questions={questions} />
+          <SurveyHeader
+            isFinished={isFinished}
+            count={count}
+            questions={questions}
+          />
 
           { !isFinished ? (
             <SurveyQuestion
+              isFinished={isFinished}
               answers={answers}
               setAnswers={setAnswers}
               count={count}
@@ -40,7 +45,10 @@ function Survey() {
             navigate("/success")
           )}
 
-          <SurveyConfig answers={answers} setAnswers={setAnswers} questions={questions}  />
+          <SurveyConfig
+            answers={answers}
+            setAnswers={setAnswers}
+            questions={questions}  />
         </form>
       </div>
     </div>
