@@ -1,10 +1,8 @@
-import AdminHeader from "./AdminHeader";
-import AdminSurvey from "./AdminSurvey";
+import AdminSurvey from "./SurveyView";
 import AdminTables from "./AdminTables";
 import AdminInput from "./AdminInput"
 
 const components = {
-  AdminHeader,
   AdminSurvey,
   AdminTables,
   AdminInput,

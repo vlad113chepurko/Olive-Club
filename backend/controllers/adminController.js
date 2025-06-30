@@ -1,5 +1,6 @@
 const { User } = require("../schemes/UserSchema.js");
 const PDFDocument = require("pdfkit");
+const {AnswerLog} = require("../schemes/AnswerSchema");
 
 const adminGetUsers = async (req, res) => {
     try {
@@ -69,8 +70,39 @@ const adminDownload = async (req, res) => {
     }
 }
 
+const adminCheckSurvey = async (req, res) => {
+    try {
+        const { decodedEmail } = req.body;
+
+        if (!decodedEmail) {
+            return res.status(400).json({ message: "Email is required" });
+        }
+
+        const user = await User.findOne({ email: decodedEmail });
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        const answers = await AnswerLog.find({ email: decodedEmail });
+
+        const fullSurvey = answers.map(ans => ({
+            id: ans._id,
+            answer: ans.answer,
+        }));
+
+        res.status(200).json({
+            userName: `${user.name} ${user.lastName}`,
+            questions: fullSurvey,
+        });
+    } catch (err) {
+        console.error("Ошибка в adminCheckSurvey:", err);
+        res.status(500).json({ message: "Ошибка сервера" });
+    }
+};
 module.exports = {
     adminGetUsers,
     adminRemoveUser,
     adminDownload,
+    adminCheckSurvey,
 }

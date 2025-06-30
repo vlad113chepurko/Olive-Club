@@ -1,7 +1,7 @@
 import './styles/_Home.scss';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Header from "../../components/Header/Header.jsx";
+import Header from "../../layouts/Header/Header.jsx";
 
 function Home() {
     const { t } = useTranslation();

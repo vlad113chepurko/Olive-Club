@@ -9,8 +9,8 @@ import Success from "./Success/Success";
 import Privacy from "./Privacy/Privacy";
 
 
-import Admin from "./Admin/Admin.jsx";
-import AdminSurvey from "./Admin/components/AdminSurvey";
+import Admin from "./Admin/Admin";
+import SurveyView from "./Admin/components/SurveyView";
 
 
 const paths = {
@@ -23,7 +23,7 @@ const paths = {
   Survey,
   Success,
   Admin,
-  AdminSurvey,
+  SurveyView,
   Privacy,
 };
 

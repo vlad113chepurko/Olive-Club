@@ -20,6 +20,9 @@ const useSurvey = () => {
         createdAt: new Date()
       }));
 
+      // "https://www.familyoliveclub.com/api/answers"
+      // `http://localhost:3000/api/answers`
+
       const res = await axios.post("https://www.familyoliveclub.com/api/answers", formattedAnswers);
 
       console.log(res.data.message);

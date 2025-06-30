@@ -20,8 +20,8 @@
 }
 
 .admin-remove-btn {
-  width: auto;
-  height: 30px;
+  width: 100%;
+  height: auto;
 
   background-color: #ff0000;
   padding: 1rem;
@@ -29,11 +29,20 @@
   color: #fff;
   text-align: center;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.8rem;
 
   @include flex-mixin.flex-center;
 
   &:hover {
     background-color: #c26666;
+  }
+}
+
+.admin-check-btn {
+  @extend .admin-remove-btn;
+  background-color: #075f89;
+
+  &:hover {
+    background-color: #0f8ecc;
   }
 }

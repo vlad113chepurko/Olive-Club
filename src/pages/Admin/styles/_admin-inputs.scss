@@ -3,13 +3,14 @@
   height: 50px;
   padding-left: 1rem;
   border: 1px solid black;
+  border-radius: 5px;
   font-size: 1rem;
   font-weight: 500;
   font-family: 'Console', Monaco, 'Andale Mono', monospace;
 
   margin-bottom: 1rem;
 
-  transition: width 2s ease-in-out;
+  transition: width 1s ease-in-out;
 
   &:focus {
     width: 100%;

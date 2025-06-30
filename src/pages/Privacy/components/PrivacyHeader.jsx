@@ -1,5 +1,5 @@
 import "../../Form/styles/_FormHeader.scss";
-import "../../../components/Header/_Header.scss";
+import "../../../layouts/Header/_Header.scss";
 import "../styles/_Privacy.scss";
 import { useTranslation } from "react-i18next";
 import { useNavigate} from "react-router-dom";

@@ -31,8 +31,8 @@ function App() {
           element={user.role === 'admin' ? <paths.Admin /> : <Navigate to="/form/login" replace />}
         />
         <Route
-          path="/adminSurvey"
-          element={user.role === 'admin' ? <paths.AdminSurvey /> : <Navigate to="/form/login" replace />}
+          path="/adminSurvey/:userEmail"
+          element={user.role === 'admin' ? <paths.SurveyView /> : <Navigate to="/form/login" replace />}
         />
         <Route path="/form" element={<paths.Form />}>
           <Route path="login" element={<paths.Login />} />
