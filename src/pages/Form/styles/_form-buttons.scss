@@ -1,13 +1,22 @@
 @use "../../../mixins/flex-mixin";
 
-.form-section-buttons {
+.form-buttons-wrapper {
+  @include flex-mixin.flex-space-between;
+  flex-direction: column;
+  gap: 10rem;
   width: 100%;
+  height: auto;
+}
+
+.form-section-buttons {
+  width: 50%;
   height: auto;
   margin: 0 auto;
   gap: 1rem;
   @include flex-mixin.flex-center;
   flex-direction: column;
 }
+
 
 .form-button {
   width: 100%;
@@ -44,10 +53,20 @@
 
   text-decoration: underline;
   text-underline-offset: 0.5rem;
-  transition: color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
 
   &:hover {
     color: #959b59;
+  }
+}
+
+.form-forgot-password-button {
+  @extend .form-sign-up-button;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration:  underline;
   }
 }
 
@@ -73,6 +92,8 @@
 .form-section-checkbox {
   width: 100%;
   height: auto;
+
+  margin-bottom: 2rem;
 
   @include flex-mixin.flex-start;
   flex-direction: row;

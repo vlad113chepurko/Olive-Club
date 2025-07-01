@@ -6,7 +6,7 @@
   "registration_button": "Sign up",
   "log_button": "I don't have an account",
   "login": "Log in",
-  "rec_pass": "Password recovery",
+  "rec_pass": "Forgot your password?",
   "verify": "Confirm your email",
   "verifyResendMessage": "Code resent",
   "verifyResendMessageError": "Error sending code",

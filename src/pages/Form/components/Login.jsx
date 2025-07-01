@@ -12,7 +12,7 @@ export default function Login() {
   const {t} = useTranslation();
   const navigate = useNavigate();
   const {form, setForm} = useFormStore();
-  const { loading } = useLoadingStore();
+  const {loading} = useLoadingStore();
   const handleSubmitLogin = useLogin();
 
   const handleChange = (e) => {
@@ -49,27 +49,31 @@ export default function Login() {
               complete="current-password"
             />
           </section>
-          <section className="form-section-buttons">
-            <components.Button
-              className={"form-button"}
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? t("loading") : t("login")}
-            </components.Button>
-            <components.Button
-              className={"form-sign-up-button"}
-              onClick={() => navigate("/form/registration")}
-            >
-              {t("log_button")}
-            </components.Button>
-            <components.Button
-              className={"form-sign-up-button"}
-              onClick={() => navigate("/form/recovery")}
-            >
-              {t('rec_pass')}
-            </components.Button>
-          </section>
+          <div className="form-buttons-wrapper">
+            <section className="form-recovery-container">
+              <components.Button
+                className={"form-forgot-password-button"}
+                onClick={() => navigate("/form/recovery")}
+              >
+                {t('rec_pass')}
+              </components.Button>
+            </section>
+            <section className="form-section-buttons">
+              <components.Button
+                className={"form-button"}
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? t("loading") : t("login")}
+              </components.Button>
+              <components.Button
+                className={"form-sign-up-button"}
+                onClick={() => navigate("/form/registration")}
+              >
+                {t("log_button")}
+              </components.Button>
+            </section>
+          </div>
         </section>
       </div>
     </form>

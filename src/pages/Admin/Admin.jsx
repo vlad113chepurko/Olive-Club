@@ -14,7 +14,6 @@ export default function Admin() {
 
   return (
     <div className="admin-wrapper">
-      <div className="admin-bg"></div>
       <div className="admin-panel">
         <h1>Admin Panel</h1>
         <components.AdminInput/>

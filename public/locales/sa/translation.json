@@ -6,7 +6,7 @@
   "registration_button": "سجّل الآن",
   "log_button": "ليس لدي حساب",
   "login": "تسجيل الدخول",
-  "rec_pass": "استعادة كلمة المرور",
+  "rec_pass": "نسيت كلمة السر؟",
   "verify": "أكد بريدك الإلكتروني",
   "verifyResendMessage": "تمت إعادة الرمز",
   "verifyResendMessageError": "حدث خطأ أثناء إرسال الرمز",

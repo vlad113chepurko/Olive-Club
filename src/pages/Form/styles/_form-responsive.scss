@@ -1,12 +1,6 @@
 @use "../../../mixins/flex-mixin";
 @use "../../../mixins/background-mixin";
 
-@media (max-width: 1600px) {
-  .form-wrapper {
-    height: auto;
-  }
-}
-
 @media (max-width: 1000px) {
 
   .form-wrapper {
@@ -71,5 +65,9 @@
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
+  }
+
+  .form-section-buttons {
+    width: 100%;
   }
 }

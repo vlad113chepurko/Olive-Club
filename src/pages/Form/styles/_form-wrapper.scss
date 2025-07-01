@@ -2,7 +2,7 @@
 @use "../../../mixins/background-mixin";
 
 .form-wrapper {
-  height: 100dvh;
+  height: auto;
   width: 100%;
   padding: 0 0 2rem 0;
   @include flex-mixin.flex-center;

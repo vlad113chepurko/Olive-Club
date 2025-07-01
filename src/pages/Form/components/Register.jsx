@@ -85,14 +85,14 @@ export default function Register() {
 
           </section>
 
-          <section className="form-section-buttons">
+          <section className="form-section-checkbox">
+            <components.Checkbox
+              onClick={() => setIsPrivacy(!isPrivacy)}
+            />
+            <Link to={"/privacy"}>Privacy Policy</Link>
+          </section>
 
-              <section className="form-section-checkbox">
-                <components.Checkbox
-                  onClick={() => setIsPrivacy(!isPrivacy)}
-                />
-                <Link to={"/privacy"}>Privacy Policy</Link>
-              </section>
+          <section className="form-section-buttons">
 
             <components.Button
               className={"form-button"}
