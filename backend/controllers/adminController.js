@@ -4,7 +4,8 @@ const {AnswerLog} = require("../schemes/AnswerSchema");
 
 const adminGetUsers = async (req, res) => {
     try {
-        const users = await User.find();
+        const sortOrder = req.query.sort === 'new' ? -1 : 1;
+        const users = await User.find().sort({ regDate: sortOrder });
 
         res.status(200).json({
             message: "Список юзеров",

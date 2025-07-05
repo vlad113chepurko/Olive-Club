@@ -1028,6 +1028,20 @@
   background-color: #12243b;
 }
 
+.sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: #1d3557;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
 .error-container {
   z-index: 50000;
   width: 100%;

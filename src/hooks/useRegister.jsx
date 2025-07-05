@@ -49,21 +49,19 @@ function useRegistration() {
     // http://localhost:3000/api/form/registration
 
     try {
-      const res = await axios.post('https://www.familyoliveclub.com/api/form/registration', dataToSend);
+      const res = await axios.post('http://localhost:3000/api/form/registration', dataToSend);
       const userData = res.data.user;
 
       localStorage.setItem('email', form.email);
       removeValues();
       clearError();
 
-      const formatted = dayjs(userData.regDate).format('YYYY-MM-DD HH:mm:ss');
-
       setUser({
         name: userData.name,
         lastName: userData.lastName,
         email: userData.email,
         phone: userData.phone,
-        regDate: formatted,
+        regDate: userData.regDate,
         language: currentLang,
         role: userData.isAdmin ? "admin" : "user",
       });

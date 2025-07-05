@@ -1,0 +1,13 @@
+@use '../../../mixins/flex-mixin';
+
+.sort {
+  @include flex-mixin.flex-center;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: #1d3557;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
